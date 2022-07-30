@@ -1,7 +1,7 @@
 # FlappyBird-NDS-remake
 
 
-A Nintendo DS remake of Flappy Bird
+An in progress Nintendo DS remake of Flappy Bird
 
 Run flappy.nds in an emulator or on a DS
 
