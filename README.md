@@ -11,7 +11,7 @@ or build it by running the "make" command in this directory
 
 ![flappy ds](https://github.com/rakib-shahid/FlappyBird-NDS-remake/blob/main/pics/flappy%20bird%20ds.png)
 
-##To-Do
+## To-Do
 
 -Sounds are working except hitting ground
 
