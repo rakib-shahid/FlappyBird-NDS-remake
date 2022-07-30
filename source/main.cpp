@@ -35,7 +35,10 @@ int main()
     mmLoadEffect(SFX_DING);
     mmLoadEffect(SFX_FLAP);
     mmLoadEffect(SFX_SMACK);
+    mmLoadEffect(SFX_SMACKWHOOSHQUICK);
+    mmLoadEffect(SFX_SMACKWHOOSHSLOW);
     mmLoadEffect(SFX_WHOOSH);
+
 
     videoSetMode(MODE_5_3D);
     glScreen2D();
@@ -52,7 +55,10 @@ int main()
 
     bool over = false;
     bool collided = false;
+    //smackSound and floorSound booleans prevents death sound from infinitely playing
     bool smackSound = false;
+    bool floorSound = true;
+    //bool deathHigh = false;
     while (1)
     {
 
@@ -114,17 +120,45 @@ int main()
 
         )
         {
+            /*
+            if      (((bird.xPos + 10 >= pipe1.pipeX) && (bird.xPos <= pipe1.pipeX + 20)) && (bird.yPos <= pipe1.pipeY - 25)){
+                deathHigh = true;
+            }
+            else if (((bird.xPos + 10 >= pipe3.pipeX) && (bird.xPos <= pipe3.pipeX + 20)) && (bird.yPos <= pipe2.pipeY - 25)){
+                deathHigh = true;
+            }
+            else if (((bird.xPos + 10 >= pipe3.pipeX) && (bird.xPos <= pipe3.pipeX + 20)) && (bird.yPos <= pipe3.pipeY - 25)){
+                deathHigh = true;
+            }
+            else if (((bird.xPos + 10 >= pipe4.pipeX) && (bird.xPos <= pipe4.pipeX + 20)) && (bird.yPos <= pipe4.pipeY - 25)){
+                deathHigh = true;
+            }
+            else {
+                deathHigh = false;
+            }*/
             collided = true;
             over = true;
-            //smackSound boolean prevents death sound from infinitely playing
             smackSound = true;
         }
 
+        /*
+        if (smackSound && deathHigh)
+        {
+            mmEffect(SFX_SMACKWHOOSHSLOW);
+            smackSound = false;
+        }
+        else if (smackSound && !deathHigh)
+        {
+            mmEffect(SFX_SMACKWHOOSHQUICK);
+            smackSound = false;
+        }*/
         if (smackSound)
         {
             mmEffect(SFX_SMACK);
             smackSound = false;
         }
+
+        
 
         // SCORE
         if (
@@ -182,7 +216,9 @@ int main()
             }
         }
 
-        bird.yPos += yVel;
+        if (bird.yPos < 182){
+            bird.yPos += yVel;
+        }
         yVel += .125;
 
 
@@ -193,8 +229,12 @@ int main()
             bird.yPos = -10;
         }
         // prevents from leaving bottom
-        if (bird.yPos > 182)
+        if (bird.yPos >= 182)
         {
+            if (floorSound && !collided){
+                mmEffect(SFX_SMACK);
+                floorSound = false;
+            }
             bird.yPos = 182;
             over = true;
         }
@@ -203,17 +243,18 @@ int main()
 
         // printing and testing
         clrscr();
-        /*
-        iprintf("yPos=%d\n", bird.yPos);
+        
+        iprintf("yPos=%d\n", bird.yPos);/*
         iprintf("pipe1X=%d\n", pipe1.pipeX);
         iprintf("pipe1Y=%d\n", pipe1.pipeY);
         iprintf("collided?=%s\n", collided ? "true" : "false");
         */
         iprintf("\n\n\n\n\n\t\tScore=%d\n", score);
 
-        if (bird.yPos >= 182 || collided)
+        if (over)
         {
             clrscr();
+            iprintf("\n\nyPos=%d\n", bird.yPos);
             iprintf("\n\n\n\n\n\n\n\n\n\t\t\t\tGame Over!\n");
             iprintf("  Press START button to restart");
             over = true;
@@ -236,6 +277,7 @@ int main()
             score = 0;
             over = false;
             collided = false;
+            floorSound = true;
         }
 
         glFlush(0);
