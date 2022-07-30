@@ -35,7 +35,7 @@ NITRO    :=
 # These set the information text in the nds file
 GAME_TITLE     := flappybird ds
 GAME_SUBTITLE1 := Rakib Shahid
-GAME_SUBTITLE2 := 
+GAME_SUBTITLE2 := https://github.com/rakib-shahid
 
 #---------------------------------------------------------------------------------
 # options for code generation
