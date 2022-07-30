@@ -14,5 +14,7 @@ or build it by running the "make" command in this directory
 ##To-Do
 
 -Sounds are working except hitting ground
+
 -SPRITES! 
+
 -bottom screen
