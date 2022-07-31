@@ -50,7 +50,7 @@ int main()
     
     //int x = bgInit(2, BgType_Bmp16, BgSize_B16_256x256, 0,0);
     //decompress(bgBitmap, BG_GFX,  LZ77Vram);
-    videoBgDisable(x);
+    //videoBgDisable(x);
     //videoSetMode(MODE_5_3D);
 
     glScreen2D();
