@@ -4,9 +4,11 @@
 #include <cstdlib>
 #include <ctime>
 #include <maxmod9.h>
+#include <nf_lib.h>
 
 #include "soundbank.h"
 #include "soundbank_bin.h"
+#include "bg.h"
 
 // classes to keep track of variables
 class Pipe
@@ -40,7 +42,15 @@ int main()
     mmLoadEffect(SFX_WHOOSH);
 
 
-    videoSetMode(MODE_5_3D);
+    videoSetMode(MODE_5_2D);
+
+    //background
+    /*
+    bgInit(3, BgType_Bmp16, BgSize_B16_256x256, 0,0);
+    decompress(bgBitmap, BG_GFX,  LZ77Vram);*/
+    NF_LoadSpriteGfx("bg.png",VRAM_A_MAIN_BG,256,192);
+    NF_CreateSprite(0,0,0,0,0,0);
+
     glScreen2D();
     float yVel = 0;
     int score = 0;
@@ -83,6 +93,7 @@ int main()
 
         // draw bird
         glBoxFilled(bird.xPos, bird.yPos, bird.xPos + 10, bird.yPos + 10, RGB15(102, 255, 255));
+        
 
         // COLLISIONS
 

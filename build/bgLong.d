@@ -1,0 +1,1 @@
+bgLong.o: bgLong.s

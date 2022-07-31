@@ -1,0 +1,19 @@
+{
+    "configurations": [
+        {
+            "name": "Win32",
+            "includePath": [
+                "${default}",
+                "C:\\devkitPro\\libnds\\flappy\\gfx",
+                "C:\\devkitPro\\nflib\\nflib\\**"
+            ],
+            "windowsSdkVersion": "10.0.19041.0",
+            "cStandard": "c17",
+            "cppStandard": "c++17",
+            "forcedInclude": [
+                "C:\\devkitPro\\nflib\\nflib\\include\\nf_lib.h"
+            ]
+        }
+    ],
+    "version": 4
+}
