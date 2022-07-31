@@ -5,7 +5,8 @@
             "includePath": [
                 "${default}",
                 "C:\\devkitPro\\libnds\\flappy\\gfx",
-                "C:\\devkitPro\\nflib\\nflib\\**"
+                "C:\\devkitPro\\libnds\\nflib\\include",
+                "C:\\devkitPro\\libnds\\chapter0\\include"
             ],
             "windowsSdkVersion": "10.0.19041.0",
             "cStandard": "c17",
