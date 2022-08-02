@@ -17,7 +17,7 @@ or build it by running the "make" command in this directory (devkitPro needed)
 
 -SPRITES!
 
--Background **and pipes** sprites now drawn,
+-Background **and pipe** sprites now drawn,
 
 ~~Bird sprite is bugged! :(~~
 
