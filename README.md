@@ -19,10 +19,10 @@ or build it by running the "make" command in this directory (devkitPro needed)
 
 -Background **and pipe** sprites now drawn,
 
-** ~~Bird sprite is bugged! :(~~
+* ~~Bird sprite is bugged! :(~~
 
-*** ~~Physics break if bird is drawn, likely vram or idk~~
+  * ~~Physics break if bird is drawn, likely vram or idk~~
 
-*** Bird sprite fixed
+  * Bird sprite fixed
 
 -bottom screen
