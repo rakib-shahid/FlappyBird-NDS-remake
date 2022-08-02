@@ -143,6 +143,7 @@ int main()
 
     float yVel = 0;
     int score = 0;
+    int highScore = 0;
     int floorXPos = 0;
     int floor2XPos = 252;
     int overCounter = 0;
@@ -299,6 +300,9 @@ int main()
             collided = true;
             over = true;
             smackSound = true;
+            if (score > highScore){
+                highScore = score;
+            }
         }
 
         /*
@@ -418,7 +422,17 @@ int main()
             //iprintf("\n\nyPos=%d\n", bird.yPos);
             iprintf("\n\n\n\n\n\n\n\n\n\t\t\t\tGame Over!\n");
             iprintf("  Press START button to restart");
-            iprintf("\n\n\n\n\n\t\t  Final Score=%d\n", score);
+            iprintf("\n\n\n\t\t    Final Score=%d\n", score);
+            if (score >= 30){
+                iprintf("\t\t\tGold medal!\n");
+            }
+            else if (score >= 20) {
+                iprintf("\t\t\tSilver medal!\n");
+            }
+            else if (score >= 10){
+                iprintf("\t\t\tBronze medal!\n");
+            }
+            iprintf("\n\n\n\t\t    Best Score=%d\n", highScore);
             over = true;
         }
 
