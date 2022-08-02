@@ -1,51 +1,43 @@
 make.exe --dry-run --always-make --keep-going --print-directory
-make: Entering directory '/opt/devkitpro/libnds/flappy'
+make: Entering directory '/opt/devkitpro/libnds/FlappyBird-NDS-remake'
  
 mkdir -p build
-make --no-print-directory -C build -f /opt/devkitpro/libnds/flappy/Makefile
+make --no-print-directory -C build -f /opt/devkitpro/libnds/FlappyBird-NDS-remake/Makefile
  
-mmutil /opt/devkitpro/libnds/flappy/sounds/ding.wav /opt/devkitpro/libnds/flappy/sounds/flap.wav /opt/devkitpro/libnds/flappy/sounds/smack.wav /opt/devkitpro/libnds/flappy/sounds/smackWhooshQuick.wav /opt/devkitpro/libnds/flappy/sounds/smackWhooshSlow.wav /opt/devkitpro/libnds/flappy/sounds/whoosh.wav -d -osoundbank.bin -hsoundbank.h
+mmutil /opt/devkitpro/libnds/FlappyBird-NDS-remake/sounds/ding.wav /opt/devkitpro/libnds/FlappyBird-NDS-remake/sounds/flap.wav /opt/devkitpro/libnds/FlappyBird-NDS-remake/sounds/smack.wav /opt/devkitpro/libnds/FlappyBird-NDS-remake/sounds/smackWhooshQuick.wav /opt/devkitpro/libnds/FlappyBird-NDS-remake/sounds/smackWhooshSlow.wav /opt/devkitpro/libnds/FlappyBird-NDS-remake/sounds/whoosh.wav -d -osoundbank.bin -hsoundbank.h
 echo soundbank.bin
+ 
 bin2s -a 4 -H `(echo soundbank.bin | tr . _)`.h soundbank.bin | arm-none-eabi-as -o soundbank.bin.o
  
-grit /opt/devkitpro/libnds/flappy/gfx/bgLong.png -fts -obgLong
+grit /opt/devkitpro/libnds/FlappyBird-NDS-remake/gfx/bgLong.png -fts -obgLong
  
 echo bgLong.s
-arm-none-eabi-gcc -MMD -MP -MF /opt/devkitpro/libnds/flappy/build/bgLong.d -x assembler-with-cpp -g -marm -mthumb-interwork -march=armv5te -mtune=arm946e-s -c bgLong.s -o bgLong.o 
+arm-none-eabi-gcc -MMD -MP -MF /opt/devkitpro/libnds/FlappyBird-NDS-remake/build/bgLong.d -x assembler-with-cpp -g -marm -mthumb-interwork -march=armv5te -mtune=arm946e-s -c bgLong.s -o bgLong.o 
  
-grit /opt/devkitpro/libnds/flappy/gfx/bird.png -fts -obird
+grit /opt/devkitpro/libnds/FlappyBird-NDS-remake/gfx/bird.png -fts -obird
+ 
 echo bird.s
-arm-none-eabi-gcc -MMD -MP -MF /opt/devkitpro/libnds/flappy/build/bird.d -x assembler-with-cpp -g -marm -mthumb-interwork -march=armv5te -mtune=arm946e-s -c bird.s -o bird.o 
+arm-none-eabi-gcc -MMD -MP -MF /opt/devkitpro/libnds/FlappyBird-NDS-remake/build/bird.d -x assembler-with-cpp -g -marm -mthumb-interwork -march=armv5te -mtune=arm946e-s -c bird.s -o bird.o 
  
-grit /opt/devkitpro/libnds/flappy/gfx/floor.png -fts -ofloor
+grit /opt/devkitpro/libnds/FlappyBird-NDS-remake/gfx/floor.png -fts -ofloor
  
 echo floor.s
-arm-none-eabi-gcc -MMD -MP -MF /opt/devkitpro/libnds/flappy/build/floor.d -x assembler-with-cpp -g -marm -mthumb-interwork -march=armv5te -mtune=arm946e-s -c floor.s -o floor.o 
+arm-none-eabi-gcc -MMD -MP -MF /opt/devkitpro/libnds/FlappyBird-NDS-remake/build/floor.d -x assembler-with-cpp -g -marm -mthumb-interwork -march=armv5te -mtune=arm946e-s -c floor.s -o floor.o 
  
-grit /opt/devkitpro/libnds/flappy/gfx/pipeTop.png -fts -opipeTop
+grit /opt/devkitpro/libnds/FlappyBird-NDS-remake/gfx/pipeTop.png -fts -opipeTop
+ 
 echo pipeTop.s
-arm-none-eabi-gcc -MMD -MP -MF /opt/devkitpro/libnds/flappy/build/pipeTop.d -x assembler-with-cpp -g -marm -mthumb-interwork -march=armv5te -mtune=arm946e-s -c pipeTop.s -o pipeTop.o 
- 
-grit /opt/devkitpro/libnds/flappy/gfx/sky1.png -fts -osky1
- 
-echo sky1.s
-arm-none-eabi-gcc -MMD -MP -MF /opt/devkitpro/libnds/flappy/build/sky1.d -x assembler-with-cpp -g -marm -mthumb-interwork -march=armv5te -mtune=arm946e-s -c sky1.s -o sky1.o 
- 
-grit /opt/devkitpro/libnds/flappy/gfx/sky2.png -fts -osky2
- 
-echo sky2.s
-arm-none-eabi-gcc -MMD -MP -MF /opt/devkitpro/libnds/flappy/build/sky2.d -x assembler-with-cpp -g -marm -mthumb-interwork -march=armv5te -mtune=arm946e-s -c sky2.s -o sky2.o 
+arm-none-eabi-gcc -MMD -MP -MF /opt/devkitpro/libnds/FlappyBird-NDS-remake/build/pipeTop.d -x assembler-with-cpp -g -marm -mthumb-interwork -march=armv5te -mtune=arm946e-s -c pipeTop.s -o pipeTop.o 
  
 echo main.cpp
-arm-none-eabi-g++ -MMD -MP -MF /opt/devkitpro/libnds/flappy/build/main.d -g -Wall -O3 -marm -mthumb-interwork -march=armv5te -mtune=arm946e-s -iquote /opt/devkitpro/libnds/flappy/include -I/opt/devkitpro/libnds/include -I/opt/devkitpro/portlibs/nds/include -I/opt/devkitpro/portlibs/armv5te/include -I/opt/devkitpro/libnds/flappy/build -DARM9 -fno-rtti -fno-exceptions -c /opt/devkitpro/libnds/flappy/source/main.cpp -o main.o 
-echo linking flappy.elf
-arm-none-eabi-g++  -specs=ds_arm9.specs -g -marm -mthumb-interwork -march=armv5te -mtune=arm946e-s -Wl,-Map,flappy.map soundbank.bin.o bgLong.o bird.o floor.o pipeTop.o sky1.o sky2.o main.o   -L/opt/devkitpro/libnds/lib -L/opt/devkitpro/portlibs/nds/lib -L/opt/devkitpro/portlibs/armv5te/lib -lmm9 -lmm9 -lnds9 -o /opt/devkitpro/libnds/flappy/flappy.elf
+arm-none-eabi-g++ -MMD -MP -MF /opt/devkitpro/libnds/FlappyBird-NDS-remake/build/main.d -g -Wall -O3 -marm -mthumb-interwork -march=armv5te -mtune=arm946e-s -iquote /opt/devkitpro/libnds/FlappyBird-NDS-remake/include -I/opt/devkitpro/libnds/include -I/opt/devkitpro/portlibs/nds/include -I/opt/devkitpro/portlibs/armv5te/include -I/opt/devkitpro/libnds/FlappyBird-NDS-remake/build -DARM9 -fno-rtti -fno-exceptions -c /opt/devkitpro/libnds/FlappyBird-NDS-remake/source/main.cpp -o main.o 
  
+echo linking FlappyBird-NDS-remake.elf
+arm-none-eabi-g++  -specs=ds_arm9.specs -g -marm -mthumb-interwork -march=armv5te -mtune=arm946e-s -Wl,-Map,FlappyBird-NDS-remake.map soundbank.bin.o bgLong.o bird.o floor.o pipeTop.o main.o   -L/opt/devkitpro/libnds/lib -L/opt/devkitpro/portlibs/nds/lib -L/opt/devkitpro/portlibs/armv5te/lib -lmm9 -lmm9 -lnds9 -o /opt/devkitpro/libnds/FlappyBird-NDS-remake/FlappyBird-NDS-remake.elf
 echo convert 
 grit  -g -gt -gB4 -gT FF00FF -m! -p -pe 16 -fh! -ftr
+ndstool -c /opt/devkitpro/libnds/FlappyBird-NDS-remake/FlappyBird-NDS-remake.nds -9 /opt/devkitpro/libnds/FlappyBird-NDS-remake/FlappyBird-NDS-remake.elf -b /opt/devkitpro/libnds/icon.bmp "flappybird ds;Rakib Shahid;https://github.com/rakib-shahid" 
+echo built ... FlappyBird-NDS-remake.nds
  
-ndstool -c /opt/devkitpro/libnds/flappy/flappy.nds -9 /opt/devkitpro/libnds/flappy/flappy.elf -b /opt/devkitpro/libnds/icon.bmp "flappybird ds;Rakib Shahid;https://github.com/rakib-shahid" 
-echo built ... flappy.nds
- 
-make: Leaving directory '/opt/devkitpro/libnds/flappy'
+make: Leaving directory '/opt/devkitpro/libnds/FlappyBird-NDS-remake'
  
