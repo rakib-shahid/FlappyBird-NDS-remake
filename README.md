@@ -15,6 +15,10 @@ or build it by running the "make" command in this directory (devkitPro needed)
 
 -Sounds are working ~~except hitting ground~~ (Add whoosh sound after smack)
 
--SPRITES! 
+-SPRITES!
+
+    -Background sprite now drawn,
+
+    Bird sprite is bugged! :(
 
 -bottom screen
