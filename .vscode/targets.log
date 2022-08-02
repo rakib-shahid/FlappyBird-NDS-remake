@@ -9,7 +9,7 @@ make: *** No rule to make target 'all'.  Stop.
 # There is NO WARRANTY, to the extent permitted by law.
  
 
-# Make data base, printed on Mon Aug  1 19:24:28 2022
+# Make data base, printed on Mon Aug  1 23:11:19 2022
 
 # Variables
 
@@ -34,7 +34,7 @@ GAME_SUBTITLE1 := Rakib Shahid
 # environment
 USERPROFILE = C:\Users\rakib
 # makefile (from 'Makefile', line 131)
-OFILES := soundbank.bin.o bg.o bgLong.o main.o  
+OFILES := soundbank.bin.o bgLong.o bird.o floor.o pipeTop.o sky1.o sky2.o main.o  
 # environment
 LOCALAPPDATA = C:\Users\rakib\AppData\Local
 # makefile (from 'Makefile', line 87)
@@ -55,7 +55,6 @@ SILENTMSG := @echo
 AUDIOFILES := /opt/devkitpro/libnds/flappy/sounds/ding.wav /opt/devkitpro/libnds/flappy/sounds/flap.wav /opt/devkitpro/libnds/flappy/sounds/smack.wav /opt/devkitpro/libnds/flappy/sounds/smackWhooshQuick.wav /opt/devkitpro/libnds/flappy/sounds/smackWhooshSlow.wav /opt/devkitpro/libnds/flappy/sounds/whoosh.wav
 # environment
 PROCESSOR_LEVEL = 23
- 
 # environment
 PSMODULEPATH = C:\Program Files\WindowsPowerShell\Modules;C:\WINDOWS\system32\WindowsPowerShell\v1.0\Modules
 # default
@@ -63,7 +62,7 @@ MAKE_COMMAND := make
 # automatic
 @D = $(patsubst %/,%,$(dir $@))
 # environment
-CHROME_CRASHPAD_PIPE_NAME = \\.\pipe\crashpad_25036_VLRWKIQRQNNTWCXV
+CHROME_CRASHPAD_PIPE_NAME = \\.\pipe\crashpad_6988_HHAWZHJHQXHZNOBY
 # makefile (from 'Makefile', line 88)
 CPPFILES := main.cpp
 # environment
@@ -98,6 +97,7 @@ MAKEFLAGS = pqrR
 SFILES := 
 # environment
 INTEL_DEV_REDIST = C:\Program Files (x86)\Common Files\Intel\Shared Libraries\
+ 
 # makefile (from 'Makefile', line 29)
 ICON := 
 # environment
@@ -131,7 +131,7 @@ ASFLAGS := -g -marm -mthumb-interwork -march=armv5te -mtune=arm946e-s
 # automatic
 @F = $(notdir $@)
 # environment
-VSCODE_PID = 25036
+VSCODE_PID = 6988
 # automatic
 ?D = $(patsubst %/,%,$(dir $?))
 # makefile (from '/opt/devkitpro/devkitARM/base_tools', line 28)
@@ -182,7 +182,6 @@ MAKELEVEL := 0
 LIBPATHS := -L/opt/devkitpro/libnds/lib -L/opt/devkitpro/portlibs/nds/lib -L/opt/devkitpro/portlibs/armv5te/lib
 # default
 MAKE = $(MAKE_COMMAND)
- 
 # makefile (from '/opt/devkitpro/devkitARM/base_tools', line 14)
 PATH := /opt/devkitpro/tools/bin:/opt/devkitpro/devkitARM/bin:/opt/devkitpro/msys2/usr/bin:/c/Program Files/Common Files/Oracle/Java/javapath:/home/rakib/AppData/Local/Programs/Python/Python310/Scripts:/home/rakib/AppData/Local/Programs/Python/Python310:/c/Program Files/apache-maven-3.8.6/bin:/d/Program Files (x86)/VMware/VMware Workstation/bin:/c/Program Files (x86)/Common Files/Intel/Shared Libraries/redist/intel64/compiler:/c/Windows/system32:/c/Windows:/c/Windows/System32/Wbem:/c/Windows/System32/WindowsPowerShell/v1.0:/c/Windows/System32/OpenSSH:/c/Program Files/NVIDIA Corporation/NVIDIA NvDLISR:/c/Program Files (x86)/NVIDIA Corporation/PhysX/Common:/c/Program Files/dotnet:/c/WINDOWS/system32:/c/WINDOWS:/c/WINDOWS/System32/Wbem:/c/WINDOWS/System32/WindowsPowerShell/v1.0:/c/WINDOWS/System32/OpenSSH:/e/Program Files/Git/cmd:/h/Downloads/hitomi_downloader_GUI/hitomi_downloaded_avgle/combining:/e/Users/rakib/Downloads/ngrok-v3-stable-windows-amd64:/c/Program Files (x86)/dotnet:/c/Program Files/nodejs:/c/ProgramData/chocolatey/bin:/c/Program Files/Mullvad VPN/resources:/home/rakib/AppData/Local/Microsoft/WindowsApps:/home/rakib/spicetify-cli:/home/rakib/AppData/Local/Microsoft/WindowsApps:/home/rakib/AppData/Local/Programs/Microsoft VS Code/bin:/c/msys64/mingw64/bin:/home/rakib/AppData/Roaming/npm
 # environment
@@ -235,6 +234,7 @@ GNUMAKEFLAGS :=
 OS = Windows_NT
 # makefile (from 'Makefile', line 38)
 GAME_SUBTITLE2 := https://github.com/rakib-shahid
+ 
 # makefile (from 'Makefile', line 36)
 GAME_TITLE := flappybird ds
 # makefile
@@ -242,7 +242,7 @@ GAME_TITLE := flappybird ds
 # makefile (from 'Makefile', line 43)
 ARCH := -marm -mthumb-interwork -march=armv5te -mtune=arm946e-s
 # makefile (from 'Makefile', line 90)
-PNGFILES := bg.png bgLong.png
+PNGFILES := bgLong.png bird.png floor.png pipeTop.png sky1.png sky2.png
 # default
 MAKE_VERSION := 4.3
 # 'override' directive
@@ -304,7 +304,6 @@ ALLUSERSPROFILE = C:\ProgramData
 # makefile (from 'Makefile', line 22)
 TARGET := flappy
 # makefile (from 'Makefile', line 126)
- 
 LD := arm-none-eabi-g++
 # environment
 SESSIONNAME = Console
@@ -337,23 +336,25 @@ SOUNDBANK := soundbank.bin
 # environment
 PROCESSOR_IDENTIFIER = AMD64 Family 23 Model 113 Stepping 0, AuthenticAMD
 # variable set hash-table stats:
+ 
 # Load=160/1024=16%, Rehash=0, Collisions=31/331=9%
 
 # Pattern-specific Variable Values
 
 # No pattern-specific variable values.
 
+ 
 # Directories
 
-# /opt/devkitpro/libnds/flappy/gfx (device 717601697, inode 21673573206840812): 6 files, no impossibilities.
+# /opt/devkitpro/libnds/flappy/gfx (device 717601697, inode 21673573206840812): 14 files, no impossibilities.
 # sounds (device 717601697, inode 48413695994234186): 8 files, no impossibilities.
 # . (device 717601697, inode 27584547717672967): 16 files, no impossibilities.
 # /opt/devkitpro/libnds/flappy (device 717601697, inode 27584547717672967): 16 files, no impossibilities.
 # source (device 717601697, inode 25051272927348187): 3 files, no impossibilities.
-# gfx (device 717601697, inode 21673573206840812): 6 files, no impossibilities.
+# gfx (device 717601697, inode 21673573206840812): 14 files, no impossibilities.
 # /opt/devkitpro/libnds/flappy/source (device 717601697, inode 25051272927348187): 3 files, no impossibilities.
 
-# 58 files, no impossibilities in 7 directories.
+# 74 files, no impossibilities in 7 directories.
 
 # Implicit Rules
 
@@ -417,7 +418,6 @@ PROCESSOR_IDENTIFIER = AMD64 Family 23 Model 113 Stepping 0, AuthenticAMD
 #  recipe to execute (from '/opt/devkitpro/devkitARM/base_rules', line 68):
 	$(SILENTMSG) $(notdir $<)
 	$(SILENTCMD)$(CC) -MMD -MP -MF $(DEPSDIR)/$*.itcm.d $(CFLAGS) -marm -mlong-calls -c $< -o $@ $(ERROR_FILTER)
- 
 
 %.itcm.o: %.itcm.m
 #  recipe to execute (from '/opt/devkitpro/devkitARM/base_rules', line 73):
@@ -516,6 +516,7 @@ clean:
 # Not a target:
 /opt/devkitpro/devkitARM/ds_rules:
 #  Implicit rule search has been done.
+ 
 #  Last modified 2020-07-27 22:27:14
 #  File has been updated.
 #  Successfully updated.
@@ -537,7 +538,6 @@ build:
 	@$(MAKE) --no-print-directory -C $(BUILD) -f $(CURDIR)/Makefile
 
 .SUFFIXES:
- 
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
@@ -556,12 +556,12 @@ build:
 # General ('VPATH' variable) search path:
 # /opt/devkitpro/libnds/flappy:/opt/devkitpro/libnds/flappy/source:/opt/devkitpro/libnds/flappy/gfx
 
-# strcache buffers: 1 (0) / strings = 67 / storage = 709 B / avg = 10 B
-# current buf: size = 8162 B / used = 709 B / count = 67 / avg = 10 B
+# strcache buffers: 1 (0) / strings = 75 / storage = 797 B / avg = 10 B
+# current buf: size = 8162 B / used = 797 B / count = 75 / avg = 10 B
 
-# strcache performance: lookups = 111 / hit rate = 39%
+# strcache performance: lookups = 119 / hit rate = 36%
 # hash-table stats:
-# Load=67/8192=1%, Rehash=0, Collisions=3/111=3%
-# Finished Make data base on Mon Aug  1 19:24:28 2022
+# Load=75/8192=1%, Rehash=0, Collisions=3/119=3%
+# Finished Make data base on Mon Aug  1 23:11:19 2022
 
  
