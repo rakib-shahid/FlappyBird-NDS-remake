@@ -239,7 +239,7 @@ int main()
         {
             glSpriteRotate(bird.xPos, bird.yPos, yVel * 1000, GL_FLIP_NONE, birdUp_images);
         }
-        if ((collided || over) && overCounter < 5){
+        if ((collided || over) && overCounter < 6){
             glBoxFilled(0, 0, 256, 192, RGB15(255, 255, 255));
             overCounter++;
         }
@@ -428,7 +428,6 @@ int main()
         {
             bird.yPos = 96;
             yVel = 0;
-            srand(time(0));
             pipe1.pipeX = 276;
             pipe1.pipeY = 50 + (rand() % (143 - 49));
             pipe2.pipeX = 276 + 69 + 5;
