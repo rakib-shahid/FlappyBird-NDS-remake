@@ -9,7 +9,7 @@ make: *** No rule to make target 'all'.  Stop.
 # There is NO WARRANTY, to the extent permitted by law.
  
 
-# Make data base, printed on Tue Aug  2 00:13:40 2022
+# Make data base, printed on Tue Aug  2 15:42:19 2022
 
 # Variables
 
@@ -62,7 +62,7 @@ MAKE_COMMAND := make
 # automatic
 @D = $(patsubst %/,%,$(dir $@))
 # environment
-CHROME_CRASHPAD_PIPE_NAME = \\.\pipe\crashpad_19852_AOMBFXSRBSGYUOGA
+CHROME_CRASHPAD_PIPE_NAME = \\.\pipe\crashpad_10556_IXVUNZZLCGMQRADR
 # makefile (from 'Makefile', line 88)
 CPPFILES := main.cpp
 # environment
@@ -94,6 +94,7 @@ TMP = /home/rakib/AppData/Local/Temp
 # makefile
 MAKEFLAGS = pqrR
 # makefile (from 'Makefile', line 89)
+ 
 SFILES := 
 # environment
 INTEL_DEV_REDIST = C:\Program Files (x86)\Common Files\Intel\Shared Libraries\
@@ -130,7 +131,7 @@ ASFLAGS := -g -marm -mthumb-interwork -march=armv5te -mtune=arm946e-s
 # automatic
 @F = $(notdir $@)
 # environment
-VSCODE_PID = 19852
+VSCODE_PID = 10556
 # automatic
 ?D = $(patsubst %/,%,$(dir $?))
 # makefile (from '/opt/devkitpro/devkitARM/base_tools', line 28)
@@ -150,7 +151,6 @@ GAME_ICON := /opt/devkitpro/libnds/icon.bmp
 # environment
 VSCODE_NLS_CONFIG = {"locale":"en-us","availableLanguages":{},"_languagePackSupport":true}
 # makefile (from 'Makefile', line 134)
- 
 INCLUDE := -iquote /opt/devkitpro/libnds/FlappyBird-NDS-remake/include -I/opt/devkitpro/libnds/include -I/opt/devkitpro/portlibs/nds/include -I/opt/devkitpro/portlibs/armv5te/include -I/opt/devkitpro/libnds/FlappyBird-NDS-remake/build
 # environment
 JD2_HOME = C:\Users\rakib\AppData\Local\JDownloader 2.0
@@ -192,6 +192,7 @@ MAKEFILES :=
 ^F = $(notdir $^)
 # makefile (from '/opt/devkitpro/devkitARM/base_tools', line 5)
 UNAME_R := 3.3.5-341.x86_64
+ 
 # environment
 PROMPT = $P$G
 # environment
@@ -252,7 +253,6 @@ SILENTCMD := @
 PROGRAMFILES(X86) = C:\Program Files (x86)
 # makefile (from 'Makefile', line 23)
 BUILD := build
- 
 # makefile (from 'Makefile', line 49)
 LDFLAGS = -specs=ds_arm9.specs -g $(ARCH) -Wl,-Map,$(notdir $*.map)
 # environment
@@ -313,6 +313,7 @@ CXXFLAGS := -g -Wall -O3 -marm -mthumb-interwork -march=armv5te -mtune=arm946e-s
 STRIP := arm-none-eabi-strip
 # default
 .FEATURES := target-specific order-only second-expansion else-if shortest-stem undefine oneshell nocomment grouped-target extra-prereqs archives jobserver output-sync check-symlink load
+ 
 # environment
 MIC_LD_LIBRARY_PATH = C:\Program Files (x86)\Common Files\Intel\Shared Libraries\compiler\lib\mic
 # environment
@@ -359,7 +360,6 @@ PROCESSOR_IDENTIFIER = AMD64 Family 23 Model 113 Stepping 0, AuthenticAMD
 %.a:
 #  recipe to execute (from '/opt/devkitpro/devkitARM/base_rules', line 12):
 	$(SILENTMSG) $(notdir $@)
- 
 	@rm -f $@
 	$(SILENTCMD)$(AR) -rc $@ $^
 
@@ -422,6 +422,7 @@ PROCESSOR_IDENTIFIER = AMD64 Family 23 Model 113 Stepping 0, AuthenticAMD
 #  recipe to execute (from '/opt/devkitpro/devkitARM/base_rules', line 73):
 	$(SILENTMSG) $(notdir $<)
 	$(SILENTCMD)$(CC) -MMD -MP -MF $(DEPSDIR)/$*.itcm.d $(OBJCFLAGS) -marm -mlong-calls -c $< -o $@ $(ERROR_FILTER)
+ 
 
 %.o: %.cpp
 #  recipe to execute (from '/opt/devkitpro/devkitARM/base_rules', line 79):
@@ -504,6 +505,7 @@ clean:
 #  Implicit rule search has been done.
 #  Last modified 2020-07-27 22:27:14
 #  File has been updated.
+ 
 #  Successfully updated.
 
 # Not a target:
@@ -511,7 +513,6 @@ clean:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
- 
 
 # Not a target:
 /opt/devkitpro/devkitARM/ds_rules:
@@ -561,6 +562,6 @@ build:
 # strcache performance: lookups = 114 / hit rate = 38%
 # hash-table stats:
 # Load=70/8192=1%, Rehash=0, Collisions=3/114=3%
-# Finished Make data base on Tue Aug  2 00:13:40 2022
+# Finished Make data base on Tue Aug  2 15:42:19 2022
 
  

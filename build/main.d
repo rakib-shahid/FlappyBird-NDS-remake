@@ -1,4 +1,4 @@
-main.o: C:/devkitPro/libnds/flappy/source/main.cpp \
+main.o: C:/devkitPro/libnds/FlappyBird-NDS-remake/source/main.cpp \
  C:/devkitPro/libnds/include/nds.h \
  C:/devkitPro/libnds/include/nds/libversion.h \
  C:/devkitPro/libnds/include/nds/ndstypes.h \
@@ -61,12 +61,14 @@ main.o: C:/devkitPro/libnds/flappy/source/main.cpp \
  C:/devkitPro/libnds/include/nds/arm9/nand.h \
  C:/devkitPro/libnds/include/gl2d.h C:/devkitPro/libnds/include/maxmod9.h \
  C:/devkitPro/libnds/include/mm_types.h \
- C:/devkitPro/libnds/flappy/build/soundbank.h \
- C:/devkitPro/libnds/flappy/build/soundbank_bin.h \
- C:/devkitPro/libnds/flappy/build/pipeTop.h \
- C:/devkitPro/libnds/flappy/build/bird.h \
- C:/devkitPro/libnds/flappy/build/bgLong.h \
- C:/devkitPro/libnds/flappy/build/floor.h
+ C:/devkitPro/libnds/FlappyBird-NDS-remake/build/soundbank.h \
+ C:/devkitPro/libnds/FlappyBird-NDS-remake/build/soundbank_bin.h \
+ C:/devkitPro/libnds/FlappyBird-NDS-remake/build/pipeTop.h \
+ C:/devkitPro/libnds/FlappyBird-NDS-remake/build/bird.h \
+ C:/devkitPro/libnds/FlappyBird-NDS-remake/build/birdUp.h \
+ C:/devkitPro/libnds/FlappyBird-NDS-remake/build/birdDown.h \
+ C:/devkitPro/libnds/FlappyBird-NDS-remake/build/bgLong.h \
+ C:/devkitPro/libnds/FlappyBird-NDS-remake/build/floor.h
 C:/devkitPro/libnds/include/nds.h:
 C:/devkitPro/libnds/include/nds/libversion.h:
 C:/devkitPro/libnds/include/nds/ndstypes.h:
@@ -130,9 +132,11 @@ C:/devkitPro/libnds/include/nds/arm9/nand.h:
 C:/devkitPro/libnds/include/gl2d.h:
 C:/devkitPro/libnds/include/maxmod9.h:
 C:/devkitPro/libnds/include/mm_types.h:
-C:/devkitPro/libnds/flappy/build/soundbank.h:
-C:/devkitPro/libnds/flappy/build/soundbank_bin.h:
-C:/devkitPro/libnds/flappy/build/pipeTop.h:
-C:/devkitPro/libnds/flappy/build/bird.h:
-C:/devkitPro/libnds/flappy/build/bgLong.h:
-C:/devkitPro/libnds/flappy/build/floor.h:
+C:/devkitPro/libnds/FlappyBird-NDS-remake/build/soundbank.h:
+C:/devkitPro/libnds/FlappyBird-NDS-remake/build/soundbank_bin.h:
+C:/devkitPro/libnds/FlappyBird-NDS-remake/build/pipeTop.h:
+C:/devkitPro/libnds/FlappyBird-NDS-remake/build/bird.h:
+C:/devkitPro/libnds/FlappyBird-NDS-remake/build/birdUp.h:
+C:/devkitPro/libnds/FlappyBird-NDS-remake/build/birdDown.h:
+C:/devkitPro/libnds/FlappyBird-NDS-remake/build/bgLong.h:
+C:/devkitPro/libnds/FlappyBird-NDS-remake/build/floor.h:
