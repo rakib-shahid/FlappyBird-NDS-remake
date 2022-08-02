@@ -415,7 +415,7 @@ int main()
         if (over && bird.yPos == 170)
         {
             clrscr();
-            iprintf("\n\nyPos=%d\n", bird.yPos);
+            //iprintf("\n\nyPos=%d\n", bird.yPos);
             iprintf("\n\n\n\n\n\n\n\n\n\t\t\t\tGame Over!\n");
             iprintf("  Press START button to restart");
             iprintf("\n\n\n\n\n\t\t  Final Score=%d\n", score);
