@@ -13,16 +13,16 @@ or build it by running the "make" command in this directory (devkitPro needed)
 
 ## To-Do
 
--Sounds are working ~~except hitting ground~~ (Add whoosh sound after smack)
+- Sounds are working ~~except hitting ground~~ (Add whoosh sound after smack)
 
--SPRITES!
+- SPRITES!
 
--Background **and pipe** sprites now drawn,
+* Background **and pipe** sprites now drawn,
 
-* ~~Bird sprite is bugged! :(~~
+  * ~~Bird sprite is bugged! :(~~
 
-  * ~~Physics break if bird is drawn, likely vram or idk~~
+    * ~~Physics break if bird is drawn, likely vram or idk~~
 
-  * Bird sprite fixed
+      * Bird sprite fixed
 
--bottom screen
+- bottom screen
