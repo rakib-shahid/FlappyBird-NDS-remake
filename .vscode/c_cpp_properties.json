@@ -5,15 +5,17 @@
             "includePath": [
                 "${default}",
                 "C:\\devkitPro\\libnds\\flappy\\gfx",
-                "C:\\devkitPro\\libnds\\nflib\\include",
-                "C:\\devkitPro\\libnds\\chapter0\\include"
+                "C:\\devkitPro\\libnds\\nflib\\include"
             ],
             "windowsSdkVersion": "10.0.19041.0",
             "cStandard": "c17",
             "cppStandard": "c++17",
             "forcedInclude": [
                 "C:\\devkitPro\\nflib\\nflib\\include\\nf_lib.h"
-            ]
+            ],
+            "configurationProvider": "ms-vscode.makefile-tools",
+            "intelliSenseMode": "windows-gcc-x64",
+            "compilerPath": "C:/msys64/mingw64/bin/cpp.exe"
         }
     ],
     "version": 4

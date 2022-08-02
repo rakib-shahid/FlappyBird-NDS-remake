@@ -1,0 +1,32 @@
+make.exe --dry-run --always-make --keep-going --print-directory
+make: Entering directory '/opt/devkitpro/libnds/flappy'
+ 
+mkdir -p build
+make --no-print-directory -C build -f /opt/devkitpro/libnds/flappy/Makefile
+ 
+mmutil /opt/devkitpro/libnds/flappy/sounds/ding.wav /opt/devkitpro/libnds/flappy/sounds/flap.wav /opt/devkitpro/libnds/flappy/sounds/smack.wav /opt/devkitpro/libnds/flappy/sounds/smackWhooshQuick.wav /opt/devkitpro/libnds/flappy/sounds/smackWhooshSlow.wav /opt/devkitpro/libnds/flappy/sounds/whoosh.wav -d -osoundbank.bin -hsoundbank.h
+echo soundbank.bin
+bin2s -a 4 -H `(echo soundbank.bin | tr . _)`.h soundbank.bin | arm-none-eabi-as -o soundbank.bin.o
+ 
+grit /opt/devkitpro/libnds/flappy/gfx/bg.png -fts -obg
+ 
+echo bg.s
+arm-none-eabi-gcc -MMD -MP -MF /opt/devkitpro/libnds/flappy/build/bg.d -x assembler-with-cpp -g -marm -mthumb-interwork -march=armv5te -mtune=arm946e-s -c bg.s -o bg.o 
+ 
+grit /opt/devkitpro/libnds/flappy/gfx/bgLong.png -fts -obgLong
+ 
+echo bgLong.s
+arm-none-eabi-gcc -MMD -MP -MF /opt/devkitpro/libnds/flappy/build/bgLong.d -x assembler-with-cpp -g -marm -mthumb-interwork -march=armv5te -mtune=arm946e-s -c bgLong.s -o bgLong.o 
+ 
+echo main.cpp
+arm-none-eabi-g++ -MMD -MP -MF /opt/devkitpro/libnds/flappy/build/main.d -g -Wall -O3 -marm -mthumb-interwork -march=armv5te -mtune=arm946e-s -iquote /opt/devkitpro/libnds/flappy/include -I/opt/devkitpro/libnds/include -I/opt/devkitpro/portlibs/nds/include -I/opt/devkitpro/portlibs/armv5te/include -I/opt/devkitpro/libnds/flappy/build -DARM9 -fno-rtti -fno-exceptions -c /opt/devkitpro/libnds/flappy/source/main.cpp -o main.o 
+echo linking flappy.elf
+arm-none-eabi-g++  -specs=ds_arm9.specs -g -marm -mthumb-interwork -march=armv5te -mtune=arm946e-s -Wl,-Map,flappy.map soundbank.bin.o bg.o bgLong.o main.o   -L/opt/devkitpro/libnds/lib -L/opt/devkitpro/portlibs/nds/lib -L/opt/devkitpro/portlibs/armv5te/lib -lmm9 -lmm9 -lnds9 -o /opt/devkitpro/libnds/flappy/flappy.elf
+ 
+echo convert 
+grit  -g -gt -gB4 -gT FF00FF -m! -p -pe 16 -fh! -ftr
+ndstool -c /opt/devkitpro/libnds/flappy/flappy.nds -9 /opt/devkitpro/libnds/flappy/flappy.elf -b /opt/devkitpro/libnds/icon.bmp "flappybird ds;Rakib Shahid;https://github.com/rakib-shahid" 
+echo built ... flappy.nds
+ 
+make: Leaving directory '/opt/devkitpro/libnds/flappy'
+ 

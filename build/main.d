@@ -63,7 +63,8 @@ main.o: C:/devkitPro/libnds/flappy/source/main.cpp \
  C:/devkitPro/libnds/include/mm_types.h \
  C:/devkitPro/libnds/flappy/build/soundbank.h \
  C:/devkitPro/libnds/flappy/build/soundbank_bin.h \
- C:/devkitPro/libnds/flappy/build/bg.h
+ C:/devkitPro/libnds/flappy/build/bgLong.h \
+ C:/devkitPro/libnds/flappy/build/bird.h
 C:/devkitPro/libnds/include/nds.h:
 C:/devkitPro/libnds/include/nds/libversion.h:
 C:/devkitPro/libnds/include/nds/ndstypes.h:
@@ -129,4 +130,5 @@ C:/devkitPro/libnds/include/maxmod9.h:
 C:/devkitPro/libnds/include/mm_types.h:
 C:/devkitPro/libnds/flappy/build/soundbank.h:
 C:/devkitPro/libnds/flappy/build/soundbank_bin.h:
-C:/devkitPro/libnds/flappy/build/bg.h:
+C:/devkitPro/libnds/flappy/build/bgLong.h:
+C:/devkitPro/libnds/flappy/build/bird.h:

@@ -1,0 +1,567 @@
+make.exe all --print-data-base --no-builtin-variables --no-builtin-rules --question
+make: *** No rule to make target 'all'.  Stop.
+
+# GNU Make 4.3
+# Built for x86_64-pc-msys
+# Copyright (C) 1988-2020 Free Software Foundation, Inc.
+# License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+# This is free software: you are free to change and redistribute it.
+# There is NO WARRANTY, to the extent permitted by law.
+ 
+
+# Make data base, printed on Mon Aug  1 19:24:28 2022
+
+# Variables
+
+# environment
+FPS_BROWSER_APP_PROFILE_STRING = Internet Explorer
+# environment
+SYSTEMDRIVE = C:
+# makefile (from '/opt/devkitpro/devkitARM/base_rules', line 6)
+PORTLIBS_PATH := /opt/devkitpro/portlibs
+# makefile (from '/opt/devkitpro/devkitARM/base_tools', line 23)
+AS := arm-none-eabi-as
+# makefile (from 'Makefile', line 78)
+OUTPUT := /opt/devkitpro/libnds/flappy/flappy
+# environment
+LC_ALL = C
+# environment
+VBOX_HWVIRTEX_IGNORE_SVM_IN_USE = 1
+# makefile (from '/opt/devkitpro/devkitARM/base_tools', line 24)
+AR := arm-none-eabi-gcc-ar
+# makefile (from 'Makefile', line 37)
+GAME_SUBTITLE1 := Rakib Shahid
+# environment
+USERPROFILE = C:\Users\rakib
+# makefile (from 'Makefile', line 131)
+OFILES := soundbank.bin.o bg.o bgLong.o main.o  
+# environment
+LOCALAPPDATA = C:\Users\rakib\AppData\Local
+# makefile (from 'Makefile', line 87)
+CFILES := 
+# makefile (from 'Makefile', line 80)
+VPATH := /opt/devkitpro/libnds/flappy/ /opt/devkitpro/libnds/flappy/source  /opt/devkitpro/libnds/flappy/gfx
+# environment
+VSCODE_CWD = C:\Users\rakib\AppData\Local\Programs\Microsoft VS Code
+# environment
+CHOCOLATEYINSTALL = C:\ProgramData\chocolatey
+# environment
+SYSTEMROOT = C:\WINDOWS
+# makefile (from 'Makefile', line 62)
+LIBS := -lmm9 -lmm9 -lnds9
+# makefile (from '/opt/devkitpro/devkitARM/base_tools', line 43)
+SILENTMSG := @echo
+# makefile (from 'Makefile', line 95)
+AUDIOFILES := /opt/devkitpro/libnds/flappy/sounds/ding.wav /opt/devkitpro/libnds/flappy/sounds/flap.wav /opt/devkitpro/libnds/flappy/sounds/smack.wav /opt/devkitpro/libnds/flappy/sounds/smackWhooshQuick.wav /opt/devkitpro/libnds/flappy/sounds/smackWhooshSlow.wav /opt/devkitpro/libnds/flappy/sounds/whoosh.wav
+# environment
+PROCESSOR_LEVEL = 23
+ 
+# environment
+PSMODULEPATH = C:\Program Files\WindowsPowerShell\Modules;C:\WINDOWS\system32\WindowsPowerShell\v1.0\Modules
+# default
+MAKE_COMMAND := make
+# automatic
+@D = $(patsubst %/,%,$(dir $@))
+# environment
+CHROME_CRASHPAD_PIPE_NAME = \\.\pipe\crashpad_25036_VLRWKIQRQNNTWCXV
+# makefile (from 'Makefile', line 88)
+CPPFILES := main.cpp
+# environment
+VBOXMANAGE = E:\Program Files\Oracle\VirtualBox
+# environment
+FPS_BROWSER_USER_PROFILE_STRING = Default
+# environment
+VSCODE_HANDLES_UNCAUGHT_ERRORS = true
+# default
+.VARIABLES := 
+# automatic
+%D = $(patsubst %/,%,$(dir $%))
+# automatic
+^D = $(patsubst %/,%,$(dir $^))
+# automatic
+%F = $(notdir $%)
+# environment
+VSCODE_CODE_CACHE_PATH = C:\Users\rakib\AppData\Roaming\Code\CachedData\3b889b090b5ad5793f524b5d1d39fda662b96a2a
+# makefile (from '/opt/devkitpro/devkitARM/ds_rules', line 9)
+LIBNDS := /opt/devkitpro/libnds
+# environment
+LANG = C
+# default
+.LOADED := 
+# environment
+TMP = /home/rakib/AppData/Local/Temp
+# default
+.INCLUDE_DIRS = /usr/include /usr/include
+# makefile
+MAKEFLAGS = pqrR
+# makefile (from 'Makefile', line 89)
+SFILES := 
+# environment
+INTEL_DEV_REDIST = C:\Program Files (x86)\Common Files\Intel\Shared Libraries\
+# makefile (from 'Makefile', line 29)
+ICON := 
+# environment
+ONEDRIVE = C:\Users\rakib\OneDrive
+# environment
+DEVKITARM = /opt/devkitpro/devkitARM
+# makefile
+CURDIR := /opt/devkitpro/libnds/flappy
+# environment
+APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = true
+# automatic
+*D = $(patsubst %/,%,$(dir $*))
+# makefile (from 'Makefile', line 85)
+DEPSDIR := /opt/devkitpro/libnds/flappy/build
+# environment
+PROGRAMFILES = C:\Program Files
+# environment
+MFLAGS = -pqrR
+# default
+.SHELLFLAGS := -c
+# environment
+!C: = c:\devkitPro\libnds\flappy
+# environment
+COMMONPROGRAMW6432 = C:\Program Files\Common Files
+# automatic
++D = $(patsubst %/,%,$(dir $+))
+# makefile (from '/opt/devkitpro/devkitARM/base_tools', line 1)
+MAKEFILE_LIST := Makefile /opt/devkitpro/devkitARM/ds_rules /opt/devkitpro/devkitARM/base_rules /opt/devkitpro/devkitARM/base_tools
+# makefile (from 'Makefile', line 48)
+ASFLAGS := -g -marm -mthumb-interwork -march=armv5te -mtune=arm946e-s
+# automatic
+@F = $(notdir $@)
+# environment
+VSCODE_PID = 25036
+# automatic
+?D = $(patsubst %/,%,$(dir $?))
+# makefile (from '/opt/devkitpro/devkitARM/base_tools', line 28)
+RANLIB := arm-none-eabi-gcc-ranlib
+# environment
+DEVKITPPC = /opt/devkitpro/devkitPPC
+# makefile (from 'Makefile', line 25)
+INCLUDES := include
+# makefile (from 'Makefile', line 140)
+icons := 
+# automatic
+*F = $(notdir $*)
+# automatic
+<D = $(patsubst %/,%,$(dir $<))
+# makefile (from '/opt/devkitpro/devkitARM/ds_rules', line 24)
+GAME_ICON := /opt/devkitpro/libnds/icon.bmp
+# environment
+VSCODE_NLS_CONFIG = {"locale":"en-us","availableLanguages":{},"_languagePackSupport":true}
+# makefile (from 'Makefile', line 134)
+INCLUDE := -iquote /opt/devkitpro/libnds/flappy/include -I/opt/devkitpro/libnds/include -I/opt/devkitpro/portlibs/nds/include -I/opt/devkitpro/portlibs/armv5te/include -I/opt/devkitpro/libnds/flappy/build
+# environment
+JD2_HOME = C:\Users\rakib\AppData\Local\JDownloader 2.0
+# environment
+AMDRMPATH = C:\Program Files\AMD\RyzenMaster\
+# environment
+ONEDRIVECONSUMER = C:\Users\rakib\OneDrive
+# default
+MAKE_HOST := x86_64-pc-msys
+# environment
+PROGRAMDATA = C:\ProgramData
+# default
+SHELL := /bin/sh
+# environment
+HOMEPATH = \Users\rakib
+# default
+MAKECMDGOALS := all
+# environment
+DRIVERDATA = C:\Windows\System32\Drivers\DriverData
+# environment
+COMSPEC = C:\WINDOWS\system32\cmd.exe
+# environment
+WINDIR = C:\WINDOWS
+# makefile (from 'Makefile', line 113)
+BINFILES := soundbank.bin
+# environment
+MAKELEVEL := 0
+# makefile (from 'Makefile', line 137)
+LIBPATHS := -L/opt/devkitpro/libnds/lib -L/opt/devkitpro/portlibs/nds/lib -L/opt/devkitpro/portlibs/armv5te/lib
+# default
+MAKE = $(MAKE_COMMAND)
+ 
+# makefile (from '/opt/devkitpro/devkitARM/base_tools', line 14)
+PATH := /opt/devkitpro/tools/bin:/opt/devkitpro/devkitARM/bin:/opt/devkitpro/msys2/usr/bin:/c/Program Files/Common Files/Oracle/Java/javapath:/home/rakib/AppData/Local/Programs/Python/Python310/Scripts:/home/rakib/AppData/Local/Programs/Python/Python310:/c/Program Files/apache-maven-3.8.6/bin:/d/Program Files (x86)/VMware/VMware Workstation/bin:/c/Program Files (x86)/Common Files/Intel/Shared Libraries/redist/intel64/compiler:/c/Windows/system32:/c/Windows:/c/Windows/System32/Wbem:/c/Windows/System32/WindowsPowerShell/v1.0:/c/Windows/System32/OpenSSH:/c/Program Files/NVIDIA Corporation/NVIDIA NvDLISR:/c/Program Files (x86)/NVIDIA Corporation/PhysX/Common:/c/Program Files/dotnet:/c/WINDOWS/system32:/c/WINDOWS:/c/WINDOWS/System32/Wbem:/c/WINDOWS/System32/WindowsPowerShell/v1.0:/c/WINDOWS/System32/OpenSSH:/e/Program Files/Git/cmd:/h/Downloads/hitomi_downloader_GUI/hitomi_downloaded_avgle/combining:/e/Users/rakib/Downloads/ngrok-v3-stable-windows-amd64:/c/Program Files (x86)/dotnet:/c/Program Files/nodejs:/c/ProgramData/chocolatey/bin:/c/Program Files/Mullvad VPN/resources:/home/rakib/AppData/Local/Microsoft/WindowsApps:/home/rakib/spicetify-cli:/home/rakib/AppData/Local/Microsoft/WindowsApps:/home/rakib/AppData/Local/Programs/Microsoft VS Code/bin:/c/msys64/mingw64/bin:/home/rakib/AppData/Roaming/npm
+# environment
+COMPUTERNAME = DESKTOP-LIBGL99
+# default
+MAKEFILES := 
+# automatic
+^F = $(notdir $^)
+# makefile (from '/opt/devkitpro/devkitARM/base_tools', line 5)
+UNAME_R := 3.3.5-341.x86_64
+# environment
+PROMPT = $P$G
+# environment
+CHOCOLATEYLASTPATHUPDATE = 133012969627496356
+# makefile (from '/opt/devkitpro/devkitARM/base_tools', line 19)
+PREFIX := arm-none-eabi-
+# makefile (from 'Makefile', line 69)
+LIBDIRS := /opt/devkitpro/libnds /opt/devkitpro/portlibs/nds /opt/devkitpro/portlibs/armv5te
+# environment
+LOGONSERVER = \\DESKTOP-LIBGL99
+# makefile (from 'Makefile', line 33)
+NITRO := 
+# environment
+USERNAME = rakib
+# environment
+COMMONPROGRAMFILES = C:\Program Files\Common Files
+# automatic
+?F = $(notdir $?)
+# makefile (from '/opt/devkitpro/devkitARM/base_tools', line 50)
+bin2o = 	bin2s -a 4 -H `(echo $(<F) | tr . _)`.h $< | $(AS) -o $(<F).o
+# environment
+PROGRAMW6432 = C:\Program Files
+# environment
+DEVKITPRO = /opt/devkitpro
+# makefile (from 'Makefile', line 104)
+MODFILES := /opt/devkitpro/libnds/flappy/sounds/ding.wav /opt/devkitpro/libnds/flappy/sounds/flap.wav /opt/devkitpro/libnds/flappy/sounds/smack.wav /opt/devkitpro/libnds/flappy/sounds/smackWhooshQuick.wav /opt/devkitpro/libnds/flappy/sounds/smackWhooshSlow.wav /opt/devkitpro/libnds/flappy/sounds/whoosh.wav
+# makefile (from '/opt/devkitpro/devkitARM/base_tools', line 4)
+UNAME_S := MSYS_NT-10.0-22000
+# environment
+PATHEXT = .COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC;.PY;.PYW
+# automatic
++F = $(notdir $+)
+# environment
+ORIGINAL_XDG_CURRENT_DESKTOP = undefined
+# environment
+USERDOMAIN = DESKTOP-LIBGL99
+# 'override' directive
+GNUMAKEFLAGS := 
+# environment
+OS = Windows_NT
+# makefile (from 'Makefile', line 38)
+GAME_SUBTITLE2 := https://github.com/rakib-shahid
+# makefile (from 'Makefile', line 36)
+GAME_TITLE := flappybird ds
+# makefile
+.DEFAULT_GOAL := build
+# makefile (from 'Makefile', line 43)
+ARCH := -marm -mthumb-interwork -march=armv5te -mtune=arm946e-s
+# makefile (from 'Makefile', line 90)
+PNGFILES := bg.png bgLong.png
+# default
+MAKE_VERSION := 4.3
+# 'override' directive
+.SHELLSTATUS := 0
+# makefile (from '/opt/devkitpro/devkitARM/base_tools', line 44)
+SILENTCMD := @
+# environment
+PROGRAMFILES(X86) = C:\Program Files (x86)
+# makefile (from 'Makefile', line 23)
+BUILD := build
+# makefile (from 'Makefile', line 49)
+LDFLAGS = -specs=ds_arm9.specs -g $(ARCH) -Wl,-Map,$(notdir $*.map)
+# environment
+USERDOMAIN_ROAMINGPROFILE = DESKTOP-LIBGL99
+# environment
+NUMBER_OF_PROCESSORS = 16
+# makefile (from '/opt/devkitpro/devkitARM/base_tools', line 30)
+ISVC = $(or $(VCBUILDHELPER_COMMAND),$(MSBUILDEXTENSIONSPATH32),$(MSBUILDEXTENSIONSPATH))
+# environment
+PUBLIC = C:\Users\Public
+# environment
+ASL.LOG = Destination=file
+# environment
+APPDATA = C:\Users\rakib\AppData\Roaming
+# makefile (from 'Makefile', line 45)
+CFLAGS := -g -Wall -O3 -marm -mthumb-interwork -march=armv5te -mtune=arm946e-s  -DARM9
+# environment
+HOMEDRIVE = C:
+# environment
+PROCESSOR_ARCHITECTURE = AMD64
+# environment
+VSCODE_AMD_ENTRYPOINT = vs/workbench/api/node/extensionHostProcess
+# environment
+HOME = /home/rakib
+# environment
+COMMONPROGRAMFILES(X86) = C:\Program Files (x86)\Common Files
+# makefile (from '/opt/devkitpro/devkitARM/base_tools', line 13)
+DEVKITPATH = $(shell echo "$(DEVKITPRO)" | sed -e 's/^\([a-zA-Z]\):/\/\1/')
+# makefile (from '/opt/devkitpro/devkitARM/ds_rules', line 7)
+PORTLIBS := /opt/devkitpro/portlibs/nds /opt/devkitpro/portlibs/armv5te
+# environment
+ELECTRON_RUN_AS_NODE = 1
+# environment
+TEMP = /home/rakib/AppData/Local/Temp
+# environment
+VSCODE_IPC_HOOK = \\.\pipe\0dae9514ad8759b613a581c49ec3012a-1.69.2-main-sock
+# environment
+TERM = xterm-256color
+# makefile (from '/opt/devkitpro/devkitARM/base_tools', line 27)
+NM := arm-none-eabi-gcc-nm
+# default
+.RECIPEPREFIX := 
+# automatic
+<F = $(notdir $<)
+# default
+SUFFIXES := 
+# environment
+ALLUSERSPROFILE = C:\ProgramData
+# makefile (from 'Makefile', line 22)
+TARGET := flappy
+# makefile (from 'Makefile', line 126)
+ 
+LD := arm-none-eabi-g++
+# environment
+SESSIONNAME = Console
+# makefile (from 'Makefile', line 47)
+CXXFLAGS := -g -Wall -O3 -marm -mthumb-interwork -march=armv5te -mtune=arm946e-s  -DARM9 -fno-rtti -fno-exceptions
+# makefile (from '/opt/devkitpro/devkitARM/base_tools', line 26)
+STRIP := arm-none-eabi-strip
+# default
+.FEATURES := target-specific order-only second-expansion else-if shortest-stem undefine oneshell nocomment grouped-target extra-prereqs archives jobserver output-sync check-symlink load
+# environment
+MIC_LD_LIBRARY_PATH = C:\Program Files (x86)\Common Files\Intel\Shared Libraries\compiler\lib\mic
+# environment
+PROCESSOR_REVISION = 7100
+# makefile (from '/opt/devkitpro/devkitARM/base_tools', line 22)
+CXX := arm-none-eabi-g++
+# makefile (from '/opt/devkitpro/devkitARM/base_tools', line 21)
+CC := arm-none-eabi-gcc
+# makefile (from '/opt/devkitpro/devkitARM/base_tools', line 25)
+OBJCOPY := arm-none-eabi-objcopy
+# makefile (from 'Makefile', line 28)
+AUDIO := sounds
+# makefile (from 'Makefile', line 24)
+SOURCES := source
+# makefile (from 'Makefile', line 26)
+DATA := 
+# makefile (from 'Makefile', line 27)
+GRAPHICS := gfx
+# makefile (from 'Makefile', line 112)
+SOUNDBANK := soundbank.bin
+# environment
+PROCESSOR_IDENTIFIER = AMD64 Family 23 Model 113 Stepping 0, AuthenticAMD
+# variable set hash-table stats:
+# Load=160/1024=16%, Rehash=0, Collisions=31/331=9%
+
+# Pattern-specific Variable Values
+
+# No pattern-specific variable values.
+
+# Directories
+
+# /opt/devkitpro/libnds/flappy/gfx (device 717601697, inode 21673573206840812): 6 files, no impossibilities.
+# sounds (device 717601697, inode 48413695994234186): 8 files, no impossibilities.
+# . (device 717601697, inode 27584547717672967): 16 files, no impossibilities.
+# /opt/devkitpro/libnds/flappy (device 717601697, inode 27584547717672967): 16 files, no impossibilities.
+# source (device 717601697, inode 25051272927348187): 3 files, no impossibilities.
+# gfx (device 717601697, inode 21673573206840812): 6 files, no impossibilities.
+# /opt/devkitpro/libnds/flappy/source (device 717601697, inode 25051272927348187): 3 files, no impossibilities.
+
+# 58 files, no impossibilities in 7 directories.
+
+# Implicit Rules
+
+%.a:
+#  recipe to execute (from '/opt/devkitpro/devkitARM/base_rules', line 12):
+	$(SILENTMSG) $(notdir $@)
+	@rm -f $@
+	$(SILENTCMD)$(AR) -rc $@ $^
+
+%.arm.o: %.arm.cpp
+#  recipe to execute (from '/opt/devkitpro/devkitARM/base_rules', line 18):
+	$(SILENTMSG) $(notdir $<)
+	$(SILENTCMD)$(CXX) -MMD -MP -MF $(DEPSDIR)/$*.arm.d $(CXXFLAGS) -marm -c $< -o $@ $(ERROR_FILTER)
+
+%.arm.o: %.arm.c
+#  recipe to execute (from '/opt/devkitpro/devkitARM/base_rules', line 23):
+	$(SILENTMSG) $(notdir $<)
+	$(SILENTCMD)$(CC) -MMD -MP -MF $(DEPSDIR)/$*.arm.d $(CFLAGS) -marm -c $< -o $@ $(ERROR_FILTER)
+
+%.arm.o: %.arm.m
+#  recipe to execute (from '/opt/devkitpro/devkitARM/base_rules', line 28):
+	$(SILENTMSG) $(notdir $<)
+	$(SILENTCMD)$(CC) -MMD -MP -MF $(DEPSDIR)/$*.arm.d $(OBJCFLAGS) -marm -c $< -o $@ $(ERROR_FILTER)
+
+%.thumb.o: %.thumb.cpp
+#  recipe to execute (from '/opt/devkitpro/devkitARM/base_rules', line 33):
+	$(SILENTMSG) $(notdir $<)
+	$(SILENTCMD)$(CXX) -MMD -MP -MF $(DEPSDIR)/$*.thumb.d $(CXXFLAGS) -mthumb -c $< -o $@ $(ERROR_FILTER)
+
+%.thumb.o: %.thumb.c
+#  recipe to execute (from '/opt/devkitpro/devkitARM/base_rules', line 38):
+	$(SILENTMSG) $(notdir $<)
+	$(SILENTCMD)$(CC) -MMD -MP -MF $(DEPSDIR)/$*.thumb.d $(CFLAGS) -mthumb -c $< -o $@ $(ERROR_FILTER)
+
+%.thumb.o: %.thumb.m
+#  recipe to execute (from '/opt/devkitpro/devkitARM/base_rules', line 43):
+	$(SILENTMSG) $(notdir $<)
+	$(SILENTCMD)$(CC) -MMD -MP -MF $(DEPSDIR)/$*.thumb.d $(OBJCFLAGS) -mthumb -c $< -o $@ $(ERROR_FILTER)
+
+%.iwram.o: %.iwram.cpp
+#  recipe to execute (from '/opt/devkitpro/devkitARM/base_rules', line 48):
+	$(SILENTMSG) $(notdir $<)
+	$(SILENTCMD)$(CXX) -MMD -MP -MF $(DEPSDIR)/$*.iwram.d $(CXXFLAGS) -marm -mlong-calls -c $< -o $@ $(ERROR_FILTER)
+
+%.iwram.o: %.iwram.c
+#  recipe to execute (from '/opt/devkitpro/devkitARM/base_rules', line 53):
+	$(SILENTMSG) $(notdir $<)
+	$(SILENTCMD)$(CC) -MMD -MP -MF $(DEPSDIR)/$*.iwram.d $(CFLAGS) -marm -mlong-calls -c $< -o $@ $(ERROR_FILTER)
+
+%.iwram.o: %.iwram.m
+#  recipe to execute (from '/opt/devkitpro/devkitARM/base_rules', line 58):
+	$(SILENTMSG) $(notdir $<)
+	$(SILENTCMD)$(CC) -MMD -MP -MF $(DEPSDIR)/$*.iwram.d $(OBJCFLAGS) -marm -mlong-calls -c $< -o $@ $(ERROR_FILTER)
+
+%.itcm.o: %.itcm.cpp
+#  recipe to execute (from '/opt/devkitpro/devkitARM/base_rules', line 63):
+	$(SILENTMSG) $(notdir $<)
+	$(SILENTCMD)$(CXX) -MMD -MP -MF $(DEPSDIR)/$*.itcm.d $(CXXFLAGS) -marm -mlong-calls -c $< -o $@ $(ERROR_FILTER)
+
+%.itcm.o: %.itcm.c
+#  recipe to execute (from '/opt/devkitpro/devkitARM/base_rules', line 68):
+	$(SILENTMSG) $(notdir $<)
+	$(SILENTCMD)$(CC) -MMD -MP -MF $(DEPSDIR)/$*.itcm.d $(CFLAGS) -marm -mlong-calls -c $< -o $@ $(ERROR_FILTER)
+ 
+
+%.itcm.o: %.itcm.m
+#  recipe to execute (from '/opt/devkitpro/devkitARM/base_rules', line 73):
+	$(SILENTMSG) $(notdir $<)
+	$(SILENTCMD)$(CC) -MMD -MP -MF $(DEPSDIR)/$*.itcm.d $(OBJCFLAGS) -marm -mlong-calls -c $< -o $@ $(ERROR_FILTER)
+
+%.o: %.cpp
+#  recipe to execute (from '/opt/devkitpro/devkitARM/base_rules', line 79):
+	$(SILENTMSG) $(notdir $<)
+	$(SILENTCMD)$(CXX) -MMD -MP -MF $(DEPSDIR)/$*.d $(CXXFLAGS) -c $< -o $@ $(ERROR_FILTER)
+
+%.o: %.c
+#  recipe to execute (from '/opt/devkitpro/devkitARM/base_rules', line 84):
+	$(SILENTMSG) $(notdir $<)
+	$(SILENTCMD)$(CC) -MMD -MP -MF $(DEPSDIR)/$*.d $(CFLAGS) -c $< -o $@ $(ERROR_FILTER)
+
+%.o: %.m
+#  recipe to execute (from '/opt/devkitpro/devkitARM/base_rules', line 89):
+	$(SILENTMSG) $(notdir $<)
+	$(SILENTCMD)$(CC) -MMD -MP -MF $(DEPSDIR)/$*.d $(OBJCFLAGS) -c $< -o $@ $(ERROR_FILTER)
+
+%.o: %.s
+#  recipe to execute (from '/opt/devkitpro/devkitARM/base_rules', line 94):
+	$(SILENTMSG) $(notdir $<)
+	$(SILENTCMD)$(CC) -MMD -MP -MF $(DEPSDIR)/$*.d -x assembler-with-cpp $(ASFLAGS) -c $< -o $@ $(ERROR_FILTER)
+
+%.o: %.S
+#  recipe to execute (from '/opt/devkitpro/devkitARM/base_rules', line 99):
+	$(SILENTMSG) $(notdir $<)
+	$(SILENTCMD)$(CC) -MMD -MP -MF $(DEPSDIR)/$*.d -x assembler-with-cpp $(ASFLAGS) -c $< -o $@ $(ERROR_FILTER)
+
+%.nds: %.arm9
+#  recipe to execute (from '/opt/devkitpro/devkitARM/ds_rules', line 33):
+	$(SILENTCMD)ndstool -c $@ -9 $< -b $(GAME_ICON) "$(GAME_TITLE);$(GAME_SUBTITLE1);$(GAME_SUBTITLE2)" $(_ADDFILES)
+	@echo built ... $(notdir $@)
+
+%.nds: %.elf
+#  recipe to execute (from '/opt/devkitpro/devkitARM/ds_rules', line 38):
+	$(SILENTCMD)ndstool -c $@ -9 $< -b $(GAME_ICON) "$(GAME_TITLE);$(GAME_SUBTITLE1);$(GAME_SUBTITLE2)" $(_ADDFILES)
+	$(SILENTMSG) built ... $(notdir $@)
+
+%.arm9: %.elf
+#  recipe to execute (from '/opt/devkitpro/devkitARM/ds_rules', line 43):
+	$(SILENTCMD)$(OBJCOPY) -O binary $< $@
+	$(SILENTMSG) built ... $(notdir $@)
+
+%.arm7: %.elf
+#  recipe to execute (from '/opt/devkitpro/devkitARM/ds_rules', line 48):
+	$(SILENTCMD)$(OBJCOPY) -O binary $< $@
+	$(SILENTMSG) built ... $(notdir $@)
+
+%.elf:
+#  recipe to execute (from '/opt/devkitpro/devkitARM/ds_rules', line 53):
+	$(SILENTMSG) linking $(notdir $@)
+	$(SILENTCMD)$(LD)  $(LDFLAGS) $(OFILES) $(LIBPATHS) $(LIBS) -o $@
+
+# 23 implicit rules, 0 (0.0%) terminal.
+# Files
+
+# Not a target:
+/opt/devkitpro/devkitARM/base_tools:
+#  Implicit rule search has been done.
+#  Last modified 2020-07-27 22:27:14
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+Makefile:
+#  Implicit rule search has been done.
+#  Last modified 2022-07-30 21:47:19.8724008
+#  File has been updated.
+#  Successfully updated.
+
+clean:
+#  Phony target (prerequisite of .PHONY).
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 166):
+	@echo clean ...
+	@rm -fr $(BUILD) $(TARGET).elf $(TARGET).nds $(SOUNDBANK)
+
+# Not a target:
+/opt/devkitpro/devkitARM/base_rules:
+#  Implicit rule search has been done.
+#  Last modified 2020-07-27 22:27:14
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+.DEFAULT:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+/opt/devkitpro/devkitARM/ds_rules:
+#  Implicit rule search has been done.
+#  Last modified 2020-07-27 22:27:14
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+all:
+#  Command line target.
+#  Implicit rule search has been done.
+#  File does not exist.
+#  File has not been updated.
+
+build:
+#  Phony target (prerequisite of .PHONY).
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 161):
+	@mkdir -p $@
+	@$(MAKE) --no-print-directory -C $(BUILD) -f $(CURDIR)/Makefile
+
+.SUFFIXES:
+ 
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+.PHONY: build clean
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# files hash-table stats:
+# Load=10/1024=1%, Rehash=0, Collisions=0/32=0%
+# VPATH Search Paths
+
+# No 'vpath' search paths.
+
+# General ('VPATH' variable) search path:
+# /opt/devkitpro/libnds/flappy:/opt/devkitpro/libnds/flappy/source:/opt/devkitpro/libnds/flappy/gfx
+
+# strcache buffers: 1 (0) / strings = 67 / storage = 709 B / avg = 10 B
+# current buf: size = 8162 B / used = 709 B / count = 67 / avg = 10 B
+
+# strcache performance: lookups = 111 / hit rate = 39%
+# hash-table stats:
+# Load=67/8192=1%, Rehash=0, Collisions=3/111=3%
+# Finished Make data base on Mon Aug  1 19:24:28 2022
+
+ 

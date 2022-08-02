@@ -1,0 +1,1 @@
+bird.o: bird.s
