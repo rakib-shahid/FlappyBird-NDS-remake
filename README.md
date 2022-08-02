@@ -8,8 +8,8 @@ Run flappy.nds in an emulator or on a DS
 or build it by running the "make" command in this directory (devkitPro needed)
 
 ## Progress Pictures
-
-![flappy ds](https://github.com/rakib-shahid/FlappyBird-NDS-remake/blob/main/pics/flappy%20bird%20ds.png)
+<img src="https://github.com/rakib-shahid/FlappyBird-NDS-remake/blob/main/pics/flappy%20bird%20ds.png" width="600" height="450"/>
+<img src="/pics/flappyGif.gif" width="300" height="600"/>
 
 ## To-Do
 
@@ -17,10 +17,10 @@ or build it by running the "make" command in this directory (devkitPro needed)
 
 -SPRITES!
 
-    -Background ** and pipes ** sprites now drawn,
+-Background **and pipe** sprites now drawn,
 
-    ~~Bird sprite is bugged! :(~~
+~~Bird sprite is bugged! :(~~
 
-    Physics break if bird is drawn, likely vram or idk
+Physics break if bird is drawn, likely vram or idk
 
 -bottom screen
