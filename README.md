@@ -10,6 +10,8 @@ or build it by running the "make" command in this directory (devkitPro needed)
 ## Progress Pictures
 <img src="https://github.com/rakib-shahid/FlappyBird-NDS-remake/blob/main/pics/flappy%20bird%20ds.png" width="600" height="450"/>
 <img src="/pics/flappyGif.gif" width="300" height="600"/>
+<img src="/pics/lol.gif" width="216" height="340"/>
+<img src="/pics/final.gif" width="216" height="340"/>
 
 ## To-Do
 
