@@ -11,7 +11,7 @@ or build it by running the "make" command in this directory (devkitPro needed)
 
 ![flappy ds](https://github.com/rakib-shahid/FlappyBird-NDS-remake/blob/main/pics/flappy%20bird%20ds.png)
 
-![screen-gif](./pics/flappyGif.gif)
+<img src="/pics/flappyGif.gif" width="250" height="600"/>
 
 ## To-Do
 
