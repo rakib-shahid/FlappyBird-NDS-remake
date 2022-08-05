@@ -13,6 +13,7 @@
 #include "birdDown.h"
 #include "bgLong.h"
 #include "floor.h"
+#include "ready.h"
 // using namespace SNF;
 //  classes to keep track of variables
 class Pipe
@@ -25,7 +26,7 @@ class Bird
 {
 public:
     int xPos;
-    int yPos;
+    double yPos;
 };
 
 // clrscr function taken from libnds practical wiki https://github.com/NotImplementedLife/libnds-practical-wiki
@@ -77,7 +78,7 @@ int main()
                   192,                                                                                // bitmap height
                   GL_RGB256,                                                                          // texture type for glTexImage2D() in videoGL.h
                   TEXTURE_SIZE_256,                                                                   // sizeX for glTexImage2D() in videoGL.h
-                  TEXTURE_SIZE_256,                                                                   // sizeY for glTexImage2D() in videoGL.h
+                  TEXTURE_SIZE_128,                                                                   // sizeY for glTexImage2D() in videoGL.h
                   GL_TEXTURE_WRAP_S | GL_TEXTURE_WRAP_T | TEXGEN_OFF | GL_TEXTURE_COLOR0_TRANSPARENT, // param for glTexImage2D() in videoGL.h
                   256,                                                                                // Length of the palette to use (256 colors)
                   (u16 *)floorPal,                                                                    // Load our 256 color tiles palette
@@ -91,7 +92,7 @@ int main()
                   192,                                                                                // bitmap height
                   GL_RGB256,                                                                          // texture type for glTexImage2D() in videoGL.h
                   TEXTURE_SIZE_256,                                                                   // sizeX for glTexImage2D() in videoGL.h
-                  TEXTURE_SIZE_256,                                                                   // sizeY for glTexImage2D() in videoGL.h
+                  TEXTURE_SIZE_128,                                                                   // sizeY for glTexImage2D() in videoGL.h
                   GL_TEXTURE_WRAP_S | GL_TEXTURE_WRAP_T | TEXGEN_OFF | GL_TEXTURE_COLOR0_TRANSPARENT, // param for glTexImage2D() in videoGL.h
                   256,                                                                                // Length of the palette to use (256 colors)
                   (u16 *)birdPal,                                                                     // Load our 256 color tiles palette
@@ -105,7 +106,7 @@ int main()
                   192,                                                                                // bitmap height
                   GL_RGB256,                                                                          // texture type for glTexImage2D() in videoGL.h
                   TEXTURE_SIZE_256,                                                                   // sizeX for glTexImage2D() in videoGL.h
-                  TEXTURE_SIZE_256,                                                                   // sizeY for glTexImage2D() in videoGL.h
+                  TEXTURE_SIZE_128,                                                                   // sizeY for glTexImage2D() in videoGL.h
                   GL_TEXTURE_WRAP_S | GL_TEXTURE_WRAP_T | TEXGEN_OFF | GL_TEXTURE_COLOR0_TRANSPARENT, // param for glTexImage2D() in videoGL.h
                   256,                                                                                // Length of the palette to use (256 colors)
                   (u16 *)birdUpPal,                                                                   // Load our 256 color tiles palette
@@ -119,7 +120,7 @@ int main()
                   192,                                                                                // bitmap height
                   GL_RGB256,                                                                          // texture type for glTexImage2D() in videoGL.h
                   TEXTURE_SIZE_256,                                                                   // sizeX for glTexImage2D() in videoGL.h
-                  TEXTURE_SIZE_256,                                                                   // sizeY for glTexImage2D() in videoGL.h
+                  TEXTURE_SIZE_128,                                                                   // sizeY for glTexImage2D() in videoGL.h
                   GL_TEXTURE_WRAP_S | GL_TEXTURE_WRAP_T | TEXGEN_OFF | GL_TEXTURE_COLOR0_TRANSPARENT, // param for glTexImage2D() in videoGL.h
                   256,                                                                                // Length of the palette to use (256 colors)
                   (u16 *)birdDownPal,                                                                 // Load our 256 color tiles palette
@@ -139,6 +140,20 @@ int main()
                   256,                                                                                // Length of the palette to use (256 colors)
                   (u16 *)pipeTopPal,                                                                  // Load our 256 color tiles palette
                   (u8 *)pipeTopBitmap                                                                 // image data generated by GRIT
+    );
+    glImage ready_images[1];
+    glLoadTileSet(ready_images,                                                                     // pointer to glImage array
+                  256,                                                                                 // sprite width
+                  128,                                                                                // sprite height
+                  256,                                                                                // bitmap width
+                  192,                                                                                // bitmap height
+                  GL_RGB256,                                                                          // texture type for glTexImage2D() in videoGL.h
+                  TEXTURE_SIZE_256,                                                                   // sizeX for glTexImage2D() in videoGL.h
+                  TEXTURE_SIZE_128,                                                                   // sizeY for glTexImage2D() in videoGL.h
+                  GL_TEXTURE_WRAP_S | GL_TEXTURE_WRAP_T | TEXGEN_OFF | GL_TEXTURE_COLOR0_TRANSPARENT, // param for glTexImage2D() in videoGL.h
+                  256,                                                                                // Length of the palette to use (256 colors)
+                  (u16 *)readyPal,                                                                  // Load our 256 color tiles palette
+                  (u8 *)readyBitmap                                                                 // image data generated by GRIT
     );
 
     float yVel = 0;
@@ -161,6 +176,8 @@ int main()
     // smackSound and floorSound booleans prevents death sound from infinitely playing
     bool smackSound = false;
     bool floorSound = true;
+    bool started = false;
+    bool floatBird = false;
     // bool deathHigh = false;
     while (1)
     {
@@ -215,32 +232,60 @@ int main()
 
         glSprite(floorXPos, 176, GL_FLIP_NONE, floor_images);
         glSprite(floor2XPos, 176, GL_FLIP_NONE, floor_images);
+        
 
         // draw bird
         // glBoxFilled(bird.xPos, bird.yPos, bird.xPos + 10, bird.yPos + 10, RGB15(102, 255, 255));
-        if (!over)
+        if (started)
         {
-            if (yVel < -.7)
+            if (!over)
             {
-                // glSprite(bird.xPos-129, bird.yPos-90, GL_FLIP_NONE, birdDown_images);
-                glSpriteRotate(bird.xPos, bird.yPos + 4, yVel * 1000, GL_FLIP_NONE, birdDown_images);
-            }
-            else if (yVel < 1)
-            {
-                // glSprite(bird.xPos-129, bird.yPos-90, GL_FLIP_NONE, bird_images);
-                glSpriteRotate(bird.xPos, bird.yPos + 4, yVel * 1000, GL_FLIP_NONE, bird_images);
+                if (yVel < -.7)
+                {
+                    // glSprite(bird.xPos-129, bird.yPos-90, GL_FLIP_NONE, birdDown_images);
+                    glSpriteRotate(bird.xPos, bird.yPos + 4, yVel * 1000, GL_FLIP_NONE, birdDown_images);
+                }
+                else if (yVel < 1)
+                {
+                    // glSprite(bird.xPos-129, bird.yPos-90, GL_FLIP_NONE, bird_images);
+                    glSpriteRotate(bird.xPos, bird.yPos + 4, yVel * 1000, GL_FLIP_NONE, bird_images);
+                }
+                else
+                {
+                    // glSprite(bird.xPos-129, bird.yPos-90, GL_FLIP_NONE, birdUp_images);
+                    glSpriteRotate(bird.xPos, bird.yPos + 4, yVel * 1000, GL_FLIP_NONE, birdUp_images);
+                }
             }
             else
             {
-                // glSprite(bird.xPos-129, bird.yPos-90, GL_FLIP_NONE, birdUp_images);
-                glSpriteRotate(bird.xPos, bird.yPos + 4, yVel * 1000, GL_FLIP_NONE, birdUp_images);
+                glSpriteRotate(bird.xPos, bird.yPos, yVel * 1000, GL_FLIP_NONE, birdUp_images);
             }
         }
-        else
-        {
-            glSpriteRotate(bird.xPos, bird.yPos, yVel * 1000, GL_FLIP_NONE, birdUp_images);
+        else if (!started){
+            if (!floatBird && bird.yPos <= 110){
+                yVel += 0.05;
+                bird.yPos += yVel;
+                if (bird.yPos == 110){
+                    bird.yPos = 110;
+                    yVel *= 0.5;
+                    floatBird = true;
+                }
+            }
+            if (floatBird && bird.yPos >= 95){
+                yVel -= 0.05;
+                bird.yPos += yVel;
+                if (bird.yPos == 95){
+                    bird.yPos = 95;
+                    yVel *= 0.5;
+                    floatBird = false;
+                }
+            }
+            glSpriteRotate(bird.xPos, bird.yPos + 4, yVel * 1000, GL_FLIP_NONE, bird_images);
+            glSprite(0, 0, GL_FLIP_NONE, ready_images);
         }
-        if ((collided || over) && overCounter < 6){
+        
+        if ((collided || over) && overCounter < 6)
+        {
             glBoxFilled(0, 0, 256, 192, RGB15(255, 255, 255));
             overCounter++;
         }
@@ -300,7 +345,8 @@ int main()
             collided = true;
             over = true;
             smackSound = true;
-            if (score > highScore){
+            if (score > highScore)
+            {
                 highScore = score;
             }
         }
@@ -334,7 +380,7 @@ int main()
         if (!over)
         {
             // move pipes towards bird if not yet collided
-            if (!collided)
+            if (!collided && started)
             {
                 pipe1.pipeX -= 1;
                 pipe2.pipeX -= 1;
@@ -350,37 +396,40 @@ int main()
         if (pipe1.pipeX <= -26)
         {
             pipe1.pipeX = 276;
-            pipe1.pipeY = 50 + (rand() % (143 - 49));
+            pipe1.pipeY = 40 + (rand() % (143 - 49));
         }
         if (pipe2.pipeX <= -26)
         {
             pipe2.pipeX = 276;
-            pipe2.pipeY = 50 + (rand() % (143 - 49));
+            pipe2.pipeY = 40 + (rand() % (143 - 49));
         }
         if (pipe3.pipeX <= -26)
         {
             pipe3.pipeX = 276;
-            pipe3.pipeY = 50 + (rand() % (143 - 49));
+            pipe3.pipeY = 40 + (rand() % (143 - 49));
         }
         if (pipe4.pipeX <= -26)
         {
             pipe4.pipeX = 276;
-            pipe4.pipeY = 50 + (rand() % (143 - 49));
+            pipe4.pipeY = 40 + (rand() % (143 - 49));
         }
 
         // MOVEMENT
         if (!over)
         {
+            if (keysDown() & KEY_START){
+                started = true;
+            }
             if (keysDown())
             {
                 // move bird upwards
-                yVel = -2.2;
+                yVel = -2.6;
                 // play flap sound
                 mmEffect(SFX_FLAP);
             }
         }
 
-        if (!over)
+        if (!over && started)
         {
             bird.yPos += yVel;
             yVel += .125;
@@ -409,7 +458,7 @@ int main()
         // printing and testing
         clrscr();
 
-        /*iprintf("yPos=%d\n", bird.yPos); 
+        /*iprintf("yPos=%d\n", bird.yPos);
          iprintf("pipe1X=%d\n", pipe1.pipeX);
          iprintf("pipe1Y=%d\n", pipe1.pipeY);
          iprintf("collided?=%s\n", collided ? "true" : "false");
@@ -419,17 +468,20 @@ int main()
         if (over && bird.yPos == 170)
         {
             clrscr();
-            //iprintf("\n\nyPos=%d\n", bird.yPos);
+            // iprintf("\n\nyPos=%d\n", bird.yPos);
             iprintf("\n\n\n\n\n\n\n\n\n\t\t\t\tGame Over!\n");
             iprintf("  Press START button to restart");
             iprintf("\n\n\n\t\t    Final Score=%d\n", score);
-            if (score >= 30){
+            if (score >= 30)
+            {
                 iprintf("\t\t\tGold medal!\n");
             }
-            else if (score >= 20) {
+            else if (score >= 20)
+            {
                 iprintf("\t\t\tSilver medal!\n");
             }
-            else if (score >= 10){
+            else if (score >= 10)
+            {
                 iprintf("\t\t\tBronze medal!\n");
             }
             iprintf("\n\n\n\t\t    Best Score=%d\n", highScore);
@@ -443,13 +495,13 @@ int main()
             bird.yPos = 96;
             yVel = 0;
             pipe1.pipeX = 276;
-            pipe1.pipeY = 50 + (rand() % (143 - 49));
+            pipe1.pipeY = 40 + (rand() % (143 - 49));
             pipe2.pipeX = 276 + 69 + 5;
-            pipe2.pipeY = 50 + (rand() % (143 - 49));
+            pipe2.pipeY = 40 + (rand() % (143 - 49));
             pipe3.pipeX = 276 + 69 * 2 + 10;
-            pipe3.pipeY = 50 + (rand() % (143 - 49));
+            pipe3.pipeY = 40 + (rand() % (143 - 49));
             pipe4.pipeX = 276 + 69 * 3 + 15;
-            pipe4.pipeY = 50 + (rand() % (143 - 49));
+            pipe4.pipeY = 40 + (rand() % (143 - 49));
             floorXPos = 0;
             floor2XPos = 252;
             overCounter = 0;
@@ -457,6 +509,8 @@ int main()
             over = false;
             collided = false;
             floorSound = true;
+            started = false;
+            floatBird = false;
         }
 
         glFlush(0);

@@ -33,9 +33,10 @@ ICON     :=
 NITRO    :=
 
 # These set the information text in the nds file
-GAME_TITLE     := flappybird ds
+GAME_TITLE     := Flappy Bird DS!
 GAME_SUBTITLE1 := Rakib Shahid
 GAME_SUBTITLE2 := https://github.com/rakib-shahid
+GAME_ICON		:=	$(CURDIR)/../icon.bmp
 
 #---------------------------------------------------------------------------------
 # options for code generation
@@ -136,30 +137,22 @@ export INCLUDE  := $(foreach dir,$(INCLUDES),-iquote $(CURDIR)/$(dir))\
                    -I$(CURDIR)/$(BUILD)
 export LIBPATHS := $(foreach dir,$(LIBDIRS),-L$(dir)/lib)
 
-ifeq ($(strip $(ICON)),)
-  icons := $(wildcard *.bmp)
+icons := $(wildcard *.bmp)
 
-  ifneq (,$(findstring $(TARGET).bmp,$(icons)))
-    export GAME_ICON := $(CURDIR)/$(TARGET).bmp
-  else
-    ifneq (,$(findstring icon.bmp,$(icons)))
-      export GAME_ICON := $(CURDIR)/icon.bmp
-    endif
-  endif
+ifneq (,$(findstring $(TARGET).bmp,$(icons)))
+	export GAME_ICON := $(CURDIR)/$(TARGET).bmp
 else
-  ifeq ($(suffix $(ICON)), .grf)
-    export GAME_ICON := $(CURDIR)/$(ICON)
-  else
-    export GAME_ICON := $(CURDIR)/$(BUILD)/$(notdir $(basename $(ICON))).grf
-  endif
+	ifneq (,$(findstring icon.bmp,$(icons)))
+		export GAME_ICON := $(CURDIR)/icon.bmp
+	endif
 endif
 
 .PHONY: $(BUILD) clean
 
 #---------------------------------------------------------------------------------
 $(BUILD):
-	@mkdir -p $@
-	@$(MAKE) --no-print-directory -C $(BUILD) -f $(CURDIR)/Makefile
+	@[ -d $@ ] || mkdir -p $@
+	@make --no-print-directory -C $(BUILD) -f $(CURDIR)/Makefile
 
 #---------------------------------------------------------------------------------
 clean:
