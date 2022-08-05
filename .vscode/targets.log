@@ -9,7 +9,11 @@ make: *** No rule to make target 'all'.  Stop.
 # There is NO WARRANTY, to the extent permitted by law.
  
 
+<<<<<<< HEAD
 # Make data base, printed on Thu Aug  4 22:43:52 2022
+=======
+# Make data base, printed on Thu Aug  4 22:41:22 2022
+>>>>>>> 5bdb8af8b2c59896529327d96b2b525e0dd6f5eb
 
 # Variables
 
@@ -38,7 +42,11 @@ LOCALAPPDATA = C:\Users\rakib\AppData\Local
 # makefile (from 'Makefile', line 88)
 CFILES := 
 # makefile (from 'Makefile', line 81)
+<<<<<<< HEAD
 VPATH := /opt/devkitpro/libnds/aaaaa/ /opt/devkitpro/libnds/aaaaa/source  /opt/devkitpro/libnds/aaaaa/gfx
+=======
+VPATH := /opt/devkitpro/libnds/FlappyBird-NDS-remake/ /opt/devkitpro/libnds/FlappyBird-NDS-remake/source  /opt/devkitpro/libnds/FlappyBird-NDS-remake/gfx
+>>>>>>> 5bdb8af8b2c59896529327d96b2b525e0dd6f5eb
 # environment
 VSCODE_CWD = C:\Users\rakib\AppData\Local\Programs\Microsoft VS Code
 # environment
@@ -117,6 +125,7 @@ MFLAGS = -pqrR
 # environment
 !C: = c:\devkitPro\libnds\aaaaa
 # environment
+ 
 COMMONPROGRAMW6432 = C:\Program Files\Common Files
 # automatic
 +D = $(patsubst %/,%,$(dir $+))
@@ -230,6 +239,7 @@ GNUMAKEFLAGS :=
 # environment
 OS = Windows_NT
 # makefile (from 'Makefile', line 38)
+ 
 GAME_SUBTITLE2 := https://github.com/rakib-shahid
 # makefile (from 'Makefile', line 36)
 GAME_TITLE := Flappy Bird DS!
@@ -369,6 +379,7 @@ PROCESSOR_IDENTIFIER = AMD64 Family 23 Model 113 Stepping 0, AuthenticAMD
 	$(SILENTCMD)$(CC) -MMD -MP -MF $(DEPSDIR)/$*.arm.d $(CFLAGS) -marm -c $< -o $@ $(ERROR_FILTER)
 
 %.arm.o: %.arm.m
+ 
 #  recipe to execute (from '/opt/devkitpro/devkitARM/base_rules', line 28):
  
 	$(SILENTMSG) $(notdir $<)
@@ -516,6 +527,7 @@ clean:
 #  Successfully updated.
 
 # Not a target:
+ 
 all:
 #  Command line target.
 #  Implicit rule search has been done.
@@ -557,6 +569,10 @@ build:
 # strcache performance: lookups = 124 / hit rate = 36%
 # hash-table stats:
 # Load=79/8192=1%, Rehash=0, Collisions=3/124=2%
+<<<<<<< HEAD
 # Finished Make data base on Thu Aug  4 22:43:52 2022
+=======
+# Finished Make data base on Thu Aug  4 22:41:22 2022
+>>>>>>> 5bdb8af8b2c59896529327d96b2b525e0dd6f5eb
 
  
