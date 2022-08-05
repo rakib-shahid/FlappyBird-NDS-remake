@@ -1,4 +1,4 @@
-main.o: C:/devkitPro/libnds/aaaaa/source/main.cpp \
+main.o: C:/devkitPro/libnds/FlappyBird-NDS-remake/source/main.cpp \
  C:/devkitPro/libnds/include/nds.h \
  C:/devkitPro/libnds/include/nds/libversion.h \
  C:/devkitPro/libnds/include/nds/ndstypes.h \
@@ -61,17 +61,6 @@ main.o: C:/devkitPro/libnds/aaaaa/source/main.cpp \
  C:/devkitPro/libnds/include/nds/arm9/nand.h \
  C:/devkitPro/libnds/include/gl2d.h C:/devkitPro/libnds/include/maxmod9.h \
  C:/devkitPro/libnds/include/mm_types.h \
-<<<<<<< HEAD
- C:/devkitPro/libnds/aaaaa/build/soundbank.h \
- C:/devkitPro/libnds/aaaaa/build/soundbank_bin.h \
- C:/devkitPro/libnds/aaaaa/build/pipeTop.h \
- C:/devkitPro/libnds/aaaaa/build/bird.h \
- C:/devkitPro/libnds/aaaaa/build/birdUp.h \
- C:/devkitPro/libnds/aaaaa/build/birdDown.h \
- C:/devkitPro/libnds/aaaaa/build/bgLong.h \
- C:/devkitPro/libnds/aaaaa/build/floor.h \
- C:/devkitPro/libnds/aaaaa/build/ready.h
-=======
  C:/devkitPro/libnds/FlappyBird-NDS-remake/build/soundbank.h \
  C:/devkitPro/libnds/FlappyBird-NDS-remake/build/soundbank_bin.h \
  C:/devkitPro/libnds/FlappyBird-NDS-remake/build/pipeTop.h \
@@ -79,8 +68,8 @@ main.o: C:/devkitPro/libnds/aaaaa/source/main.cpp \
  C:/devkitPro/libnds/FlappyBird-NDS-remake/build/birdUp.h \
  C:/devkitPro/libnds/FlappyBird-NDS-remake/build/birdDown.h \
  C:/devkitPro/libnds/FlappyBird-NDS-remake/build/bgLong.h \
- C:/devkitPro/libnds/FlappyBird-NDS-remake/build/floor.h
->>>>>>> 5bdb8af8b2c59896529327d96b2b525e0dd6f5eb
+ C:/devkitPro/libnds/FlappyBird-NDS-remake/build/floor.h \
+ C:/devkitPro/libnds/FlappyBird-NDS-remake/build/ready.h
 C:/devkitPro/libnds/include/nds.h:
 C:/devkitPro/libnds/include/nds/libversion.h:
 C:/devkitPro/libnds/include/nds/ndstypes.h:
@@ -144,17 +133,6 @@ C:/devkitPro/libnds/include/nds/arm9/nand.h:
 C:/devkitPro/libnds/include/gl2d.h:
 C:/devkitPro/libnds/include/maxmod9.h:
 C:/devkitPro/libnds/include/mm_types.h:
-<<<<<<< HEAD
-C:/devkitPro/libnds/aaaaa/build/soundbank.h:
-C:/devkitPro/libnds/aaaaa/build/soundbank_bin.h:
-C:/devkitPro/libnds/aaaaa/build/pipeTop.h:
-C:/devkitPro/libnds/aaaaa/build/bird.h:
-C:/devkitPro/libnds/aaaaa/build/birdUp.h:
-C:/devkitPro/libnds/aaaaa/build/birdDown.h:
-C:/devkitPro/libnds/aaaaa/build/bgLong.h:
-C:/devkitPro/libnds/aaaaa/build/floor.h:
-C:/devkitPro/libnds/aaaaa/build/ready.h:
-=======
 C:/devkitPro/libnds/FlappyBird-NDS-remake/build/soundbank.h:
 C:/devkitPro/libnds/FlappyBird-NDS-remake/build/soundbank_bin.h:
 C:/devkitPro/libnds/FlappyBird-NDS-remake/build/pipeTop.h:
@@ -163,4 +141,4 @@ C:/devkitPro/libnds/FlappyBird-NDS-remake/build/birdUp.h:
 C:/devkitPro/libnds/FlappyBird-NDS-remake/build/birdDown.h:
 C:/devkitPro/libnds/FlappyBird-NDS-remake/build/bgLong.h:
 C:/devkitPro/libnds/FlappyBird-NDS-remake/build/floor.h:
->>>>>>> 5bdb8af8b2c59896529327d96b2b525e0dd6f5eb
+C:/devkitPro/libnds/FlappyBird-NDS-remake/build/ready.h:
