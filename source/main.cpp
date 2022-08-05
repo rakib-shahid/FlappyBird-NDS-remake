@@ -54,7 +54,6 @@ int main()
 
     // Sprite setup
     glScreen2D();
-    double bg_x = 0;
     glImage bg_images[1];
     glLoadTileSet(bg_images,                                                                          // pointer to glImage array
                   512,                                                                                // sprite width
@@ -178,7 +177,6 @@ int main()
     bool smackSound = false;
     bool floorSound = true;
     bool started = false;
-    bool floatBird = false;
     // bool deathHigh = false;
     while (1)
     {
@@ -399,7 +397,6 @@ int main()
                 pipe2.pipeX -= 1;
                 pipe3.pipeX -= 1;
                 pipe4.pipeX -= 1;
-                bg_x -= 0.5;
                 floorXPos -= 1;
                 floor2XPos -= 1;
             }
@@ -532,7 +529,6 @@ int main()
             collided = false;
             floorSound = true;
             started = false;
-            floatBird = false;
         }
 
         glFlush(0);
