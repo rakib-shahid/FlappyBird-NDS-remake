@@ -9,7 +9,7 @@ make: *** No rule to make target 'all'.  Stop.
 # There is NO WARRANTY, to the extent permitted by law.
  
 
-# Make data base, printed on Thu Aug  4 22:30:38 2022
+# Make data base, printed on Thu Aug  4 22:41:22 2022
 
 # Variables
 
@@ -39,7 +39,6 @@ LOCALAPPDATA = C:\Users\rakib\AppData\Local
 CFILES := 
 # makefile (from 'Makefile', line 81)
 VPATH := /opt/devkitpro/libnds/FlappyBird-NDS-remake/ /opt/devkitpro/libnds/FlappyBird-NDS-remake/source  /opt/devkitpro/libnds/FlappyBird-NDS-remake/gfx
- 
 # environment
 VSCODE_CWD = C:\Users\rakib\AppData\Local\Programs\Microsoft VS Code
 # environment
@@ -61,7 +60,7 @@ MAKE_COMMAND := make
 # automatic
 @D = $(patsubst %/,%,$(dir $@))
 # environment
-CHROME_CRASHPAD_PIPE_NAME = \\.\pipe\crashpad_4704_PZSTYMJLRXXMXOVV
+CHROME_CRASHPAD_PIPE_NAME = \\.\pipe\crashpad_9940_MZHNMSFKRFYGSTIF
 # makefile (from 'Makefile', line 89)
 CPPFILES := main.cpp
 # environment
@@ -103,9 +102,8 @@ DEVKITARM = /opt/devkitpro/devkitARM
 # makefile
 CURDIR := /opt/devkitpro/libnds/FlappyBird-NDS-remake
 # environment
-APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = 1
+APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = true
 # automatic
- 
 *D = $(patsubst %/,%,$(dir $*))
 # makefile (from 'Makefile', line 86)
 DEPSDIR := /opt/devkitpro/libnds/FlappyBird-NDS-remake/build
@@ -118,6 +116,7 @@ MFLAGS = -pqrR
 # environment
 !C: = c:\devkitPro\libnds\FlappyBird-NDS-remake
 # environment
+ 
 COMMONPROGRAMW6432 = C:\Program Files\Common Files
 # automatic
 +D = $(patsubst %/,%,$(dir $+))
@@ -128,7 +127,7 @@ ASFLAGS := -g -marm -mthumb-interwork -march=armv5te -mtune=arm946e-s
 # automatic
 @F = $(notdir $@)
 # environment
-VSCODE_PID = 4704
+VSCODE_PID = 9940
 # automatic
 ?D = $(patsubst %/,%,$(dir $?))
 # makefile (from '/opt/devkitpro/devkitARM/base_tools', line 28)
@@ -206,7 +205,6 @@ USERNAME = rakib
 # environment
 COMMONPROGRAMFILES = C:\Program Files\Common Files
 # automatic
- 
 ?F = $(notdir $?)
 # makefile (from '/opt/devkitpro/devkitARM/base_tools', line 50)
 bin2o = 	bin2s -a 4 -H `(echo $(<F) | tr . _)`.h $< | $(AS) -o $(<F).o
@@ -231,6 +229,7 @@ GNUMAKEFLAGS :=
 # environment
 OS = Windows_NT
 # makefile (from 'Makefile', line 38)
+ 
 GAME_SUBTITLE2 := https://github.com/rakib-shahid
 # makefile (from 'Makefile', line 36)
 GAME_TITLE := Flappy Bird DS!
@@ -319,7 +318,6 @@ CXX := arm-none-eabi-g++
 # makefile (from '/opt/devkitpro/devkitARM/base_tools', line 21)
 CC := arm-none-eabi-gcc
 # makefile (from '/opt/devkitpro/devkitARM/base_tools', line 25)
- 
 OBJCOPY := arm-none-eabi-objcopy
 # makefile (from 'Makefile', line 28)
 AUDIO := sounds
@@ -371,6 +369,7 @@ PROCESSOR_IDENTIFIER = AMD64 Family 23 Model 113 Stepping 0, AuthenticAMD
 	$(SILENTCMD)$(CC) -MMD -MP -MF $(DEPSDIR)/$*.arm.d $(CFLAGS) -marm -c $< -o $@ $(ERROR_FILTER)
 
 %.arm.o: %.arm.m
+ 
 #  recipe to execute (from '/opt/devkitpro/devkitARM/base_rules', line 28):
 	$(SILENTMSG) $(notdir $<)
 	$(SILENTCMD)$(CC) -MMD -MP -MF $(DEPSDIR)/$*.arm.d $(OBJCFLAGS) -marm -c $< -o $@ $(ERROR_FILTER)
@@ -417,7 +416,6 @@ PROCESSOR_IDENTIFIER = AMD64 Family 23 Model 113 Stepping 0, AuthenticAMD
 
 %.itcm.o: %.itcm.m
 #  recipe to execute (from '/opt/devkitpro/devkitARM/base_rules', line 73):
- 
 	$(SILENTMSG) $(notdir $<)
 	$(SILENTCMD)$(CC) -MMD -MP -MF $(DEPSDIR)/$*.itcm.d $(OBJCFLAGS) -marm -mlong-calls -c $< -o $@ $(ERROR_FILTER)
 
@@ -518,6 +516,7 @@ clean:
 #  Successfully updated.
 
 # Not a target:
+ 
 all:
 #  Command line target.
 #  Implicit rule search has been done.
@@ -536,7 +535,6 @@ build:
 .SUFFIXES:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
- 
 #  File has not been updated.
 
 .PHONY: build clean
@@ -559,6 +557,6 @@ build:
 # strcache performance: lookups = 124 / hit rate = 36%
 # hash-table stats:
 # Load=79/8192=1%, Rehash=0, Collisions=3/124=2%
-# Finished Make data base on Thu Aug  4 22:30:38 2022
+# Finished Make data base on Thu Aug  4 22:41:22 2022
 
  
