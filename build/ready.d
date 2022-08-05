@@ -1,0 +1,1 @@
+ready.o: ready.s

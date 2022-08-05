@@ -68,7 +68,8 @@ main.o: C:/devkitPro/libnds/FlappyBird-NDS-remake/source/main.cpp \
  C:/devkitPro/libnds/FlappyBird-NDS-remake/build/birdUp.h \
  C:/devkitPro/libnds/FlappyBird-NDS-remake/build/birdDown.h \
  C:/devkitPro/libnds/FlappyBird-NDS-remake/build/bgLong.h \
- C:/devkitPro/libnds/FlappyBird-NDS-remake/build/floor.h
+ C:/devkitPro/libnds/FlappyBird-NDS-remake/build/floor.h \
+ C:/devkitPro/libnds/FlappyBird-NDS-remake/build/ready.h
 C:/devkitPro/libnds/include/nds.h:
 C:/devkitPro/libnds/include/nds/libversion.h:
 C:/devkitPro/libnds/include/nds/ndstypes.h:
@@ -140,3 +141,4 @@ C:/devkitPro/libnds/FlappyBird-NDS-remake/build/birdUp.h:
 C:/devkitPro/libnds/FlappyBird-NDS-remake/build/birdDown.h:
 C:/devkitPro/libnds/FlappyBird-NDS-remake/build/bgLong.h:
 C:/devkitPro/libnds/FlappyBird-NDS-remake/build/floor.h:
+C:/devkitPro/libnds/FlappyBird-NDS-remake/build/ready.h:

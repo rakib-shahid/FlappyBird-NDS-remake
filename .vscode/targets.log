@@ -9,19 +9,17 @@ make: *** No rule to make target 'all'.  Stop.
 # There is NO WARRANTY, to the extent permitted by law.
  
 
-# Make data base, printed on Tue Aug  2 18:09:54 2022
+# Make data base, printed on Thu Aug  4 22:30:38 2022
 
 # Variables
 
-# environment
-FPS_BROWSER_APP_PROFILE_STRING = Internet Explorer
 # environment
 SYSTEMDRIVE = C:
 # makefile (from '/opt/devkitpro/devkitARM/base_rules', line 6)
 PORTLIBS_PATH := /opt/devkitpro/portlibs
 # makefile (from '/opt/devkitpro/devkitARM/base_tools', line 23)
 AS := arm-none-eabi-as
-# makefile (from 'Makefile', line 78)
+# makefile (from 'Makefile', line 79)
 OUTPUT := /opt/devkitpro/libnds/FlappyBird-NDS-remake/FlappyBird-NDS-remake
 # environment
 LC_ALL = C
@@ -33,25 +31,26 @@ AR := arm-none-eabi-gcc-ar
 GAME_SUBTITLE1 := Rakib Shahid
 # environment
 USERPROFILE = C:\Users\rakib
-# makefile (from 'Makefile', line 131)
-OFILES := soundbank.bin.o bgLong.o bird.o birdDown.o birdSM.o birdUp.o floor.o pipeTop.o main.o  
+# makefile (from 'Makefile', line 132)
+OFILES := soundbank.bin.o bgLong.o bird.o birdDown.o birdSM.o birdUp.o floor.o pipeTop.o ready.o main.o  
 # environment
 LOCALAPPDATA = C:\Users\rakib\AppData\Local
-# makefile (from 'Makefile', line 87)
+# makefile (from 'Makefile', line 88)
 CFILES := 
-# makefile (from 'Makefile', line 80)
+# makefile (from 'Makefile', line 81)
 VPATH := /opt/devkitpro/libnds/FlappyBird-NDS-remake/ /opt/devkitpro/libnds/FlappyBird-NDS-remake/source  /opt/devkitpro/libnds/FlappyBird-NDS-remake/gfx
+ 
 # environment
 VSCODE_CWD = C:\Users\rakib\AppData\Local\Programs\Microsoft VS Code
 # environment
 CHOCOLATEYINSTALL = C:\ProgramData\chocolatey
 # environment
 SYSTEMROOT = C:\WINDOWS
-# makefile (from 'Makefile', line 62)
+# makefile (from 'Makefile', line 63)
 LIBS := -lmm9 -lmm9 -lnds9
 # makefile (from '/opt/devkitpro/devkitARM/base_tools', line 43)
 SILENTMSG := @echo
-# makefile (from 'Makefile', line 95)
+# makefile (from 'Makefile', line 96)
 AUDIOFILES := /opt/devkitpro/libnds/FlappyBird-NDS-remake/sounds/ding.wav /opt/devkitpro/libnds/FlappyBird-NDS-remake/sounds/flap.wav /opt/devkitpro/libnds/FlappyBird-NDS-remake/sounds/smack.wav /opt/devkitpro/libnds/FlappyBird-NDS-remake/sounds/smackWhooshQuick.wav /opt/devkitpro/libnds/FlappyBird-NDS-remake/sounds/smackWhooshSlow.wav /opt/devkitpro/libnds/FlappyBird-NDS-remake/sounds/whoosh.wav
 # environment
 PROCESSOR_LEVEL = 23
@@ -62,13 +61,11 @@ MAKE_COMMAND := make
 # automatic
 @D = $(patsubst %/,%,$(dir $@))
 # environment
-CHROME_CRASHPAD_PIPE_NAME = \\.\pipe\crashpad_23528_XORLOKBPWGOHRYZH
-# makefile (from 'Makefile', line 88)
+CHROME_CRASHPAD_PIPE_NAME = \\.\pipe\crashpad_4704_PZSTYMJLRXXMXOVV
+# makefile (from 'Makefile', line 89)
 CPPFILES := main.cpp
 # environment
 VBOXMANAGE = E:\Program Files\Oracle\VirtualBox
-# environment
-FPS_BROWSER_USER_PROFILE_STRING = Default
 # environment
 VSCODE_HANDLES_UNCAUGHT_ERRORS = true
 # default
@@ -80,8 +77,7 @@ VSCODE_HANDLES_UNCAUGHT_ERRORS = true
 # automatic
 %F = $(notdir $%)
 # environment
-VSCODE_CODE_CACHE_PATH = C:\Users\rakib\AppData\Roaming\Code\CachedData\3b889b090b5ad5793f524b5d1d39fda662b96a2a
- 
+VSCODE_CODE_CACHE_PATH = C:\Users\rakib\AppData\Roaming\Code\CachedData\da76f93349a72022ca4670c1b84860304616aaa2
 # makefile (from '/opt/devkitpro/devkitARM/ds_rules', line 9)
 LIBNDS := /opt/devkitpro/libnds
 # environment
@@ -94,7 +90,7 @@ TMP = /home/rakib/AppData/Local/Temp
 .INCLUDE_DIRS = /usr/include /usr/include
 # makefile
 MAKEFLAGS = pqrR
-# makefile (from 'Makefile', line 89)
+# makefile (from 'Makefile', line 90)
 SFILES := 
 # environment
 INTEL_DEV_REDIST = C:\Program Files (x86)\Common Files\Intel\Shared Libraries\
@@ -107,10 +103,11 @@ DEVKITARM = /opt/devkitpro/devkitARM
 # makefile
 CURDIR := /opt/devkitpro/libnds/FlappyBird-NDS-remake
 # environment
-APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = true
+APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = 1
 # automatic
+ 
 *D = $(patsubst %/,%,$(dir $*))
-# makefile (from 'Makefile', line 85)
+# makefile (from 'Makefile', line 86)
 DEPSDIR := /opt/devkitpro/libnds/FlappyBird-NDS-remake/build
 # environment
 PROGRAMFILES = C:\Program Files
@@ -126,12 +123,12 @@ COMMONPROGRAMW6432 = C:\Program Files\Common Files
 +D = $(patsubst %/,%,$(dir $+))
 # makefile (from '/opt/devkitpro/devkitARM/base_tools', line 1)
 MAKEFILE_LIST := Makefile /opt/devkitpro/devkitARM/ds_rules /opt/devkitpro/devkitARM/base_rules /opt/devkitpro/devkitARM/base_tools
-# makefile (from 'Makefile', line 48)
+# makefile (from 'Makefile', line 49)
 ASFLAGS := -g -marm -mthumb-interwork -march=armv5te -mtune=arm946e-s
 # automatic
 @F = $(notdir $@)
 # environment
-VSCODE_PID = 23528
+VSCODE_PID = 4704
 # automatic
 ?D = $(patsubst %/,%,$(dir $?))
 # makefile (from '/opt/devkitpro/devkitARM/base_tools', line 28)
@@ -141,16 +138,16 @@ DEVKITPPC = /opt/devkitpro/devkitPPC
 # makefile (from 'Makefile', line 25)
 INCLUDES := include
 # makefile (from 'Makefile', line 140)
-icons := 
+icons := icon.bmp
 # automatic
 *F = $(notdir $*)
 # automatic
 <D = $(patsubst %/,%,$(dir $<))
-# makefile (from '/opt/devkitpro/devkitARM/ds_rules', line 24)
-GAME_ICON := /opt/devkitpro/libnds/icon.bmp
+# makefile (from 'Makefile', line 146)
+GAME_ICON := /opt/devkitpro/libnds/FlappyBird-NDS-remake/icon.bmp
 # environment
 VSCODE_NLS_CONFIG = {"locale":"en-us","availableLanguages":{},"_languagePackSupport":true}
-# makefile (from 'Makefile', line 134)
+# makefile (from 'Makefile', line 135)
 INCLUDE := -iquote /opt/devkitpro/libnds/FlappyBird-NDS-remake/include -I/opt/devkitpro/libnds/include -I/opt/devkitpro/portlibs/nds/include -I/opt/devkitpro/portlibs/armv5te/include -I/opt/devkitpro/libnds/FlappyBird-NDS-remake/build
 # environment
 JD2_HOME = C:\Users\rakib\AppData\Local\JDownloader 2.0
@@ -174,11 +171,11 @@ DRIVERDATA = C:\Windows\System32\Drivers\DriverData
 COMSPEC = C:\WINDOWS\system32\cmd.exe
 # environment
 WINDIR = C:\WINDOWS
-# makefile (from 'Makefile', line 113)
+# makefile (from 'Makefile', line 114)
 BINFILES := soundbank.bin
 # environment
 MAKELEVEL := 0
-# makefile (from 'Makefile', line 137)
+# makefile (from 'Makefile', line 138)
 LIBPATHS := -L/opt/devkitpro/libnds/lib -L/opt/devkitpro/portlibs/nds/lib -L/opt/devkitpro/portlibs/armv5te/lib
 # default
 MAKE = $(MAKE_COMMAND)
@@ -198,7 +195,7 @@ PROMPT = $P$G
 CHOCOLATEYLASTPATHUPDATE = 133012969627496356
 # makefile (from '/opt/devkitpro/devkitARM/base_tools', line 19)
 PREFIX := arm-none-eabi-
-# makefile (from 'Makefile', line 69)
+# makefile (from 'Makefile', line 70)
 LIBDIRS := /opt/devkitpro/libnds /opt/devkitpro/portlibs/nds /opt/devkitpro/portlibs/armv5te
 # environment
 LOGONSERVER = \\DESKTOP-LIBGL99
@@ -209,6 +206,7 @@ USERNAME = rakib
 # environment
 COMMONPROGRAMFILES = C:\Program Files\Common Files
 # automatic
+ 
 ?F = $(notdir $?)
 # makefile (from '/opt/devkitpro/devkitARM/base_tools', line 50)
 bin2o = 	bin2s -a 4 -H `(echo $(<F) | tr . _)`.h $< | $(AS) -o $(<F).o
@@ -216,7 +214,7 @@ bin2o = 	bin2s -a 4 -H `(echo $(<F) | tr . _)`.h $< | $(AS) -o $(<F).o
 PROGRAMW6432 = C:\Program Files
 # environment
 DEVKITPRO = /opt/devkitpro
-# makefile (from 'Makefile', line 104)
+# makefile (from 'Makefile', line 105)
 MODFILES := /opt/devkitpro/libnds/FlappyBird-NDS-remake/sounds/ding.wav /opt/devkitpro/libnds/FlappyBird-NDS-remake/sounds/flap.wav /opt/devkitpro/libnds/FlappyBird-NDS-remake/sounds/smack.wav /opt/devkitpro/libnds/FlappyBird-NDS-remake/sounds/smackWhooshQuick.wav /opt/devkitpro/libnds/FlappyBird-NDS-remake/sounds/smackWhooshSlow.wav /opt/devkitpro/libnds/FlappyBird-NDS-remake/sounds/whoosh.wav
 # makefile (from '/opt/devkitpro/devkitARM/base_tools', line 4)
 UNAME_S := MSYS_NT-10.0-22000
@@ -235,13 +233,13 @@ OS = Windows_NT
 # makefile (from 'Makefile', line 38)
 GAME_SUBTITLE2 := https://github.com/rakib-shahid
 # makefile (from 'Makefile', line 36)
-GAME_TITLE := flappybird ds
+GAME_TITLE := Flappy Bird DS!
 # makefile
 .DEFAULT_GOAL := build
-# makefile (from 'Makefile', line 43)
+# makefile (from 'Makefile', line 44)
 ARCH := -marm -mthumb-interwork -march=armv5te -mtune=arm946e-s
-# makefile (from 'Makefile', line 90)
-PNGFILES := bgLong.png bird.png birdDown.png birdSM.png birdUp.png floor.png pipeTop.png
+# makefile (from 'Makefile', line 91)
+PNGFILES := bgLong.png bird.png birdDown.png birdSM.png birdUp.png floor.png pipeTop.png ready.png
 # default
 MAKE_VERSION := 4.3
 # 'override' directive
@@ -252,7 +250,7 @@ SILENTCMD := @
 PROGRAMFILES(X86) = C:\Program Files (x86)
 # makefile (from 'Makefile', line 23)
 BUILD := build
-# makefile (from 'Makefile', line 49)
+# makefile (from 'Makefile', line 50)
 LDFLAGS = -specs=ds_arm9.specs -g $(ARCH) -Wl,-Map,$(notdir $*.map)
 # environment
 USERDOMAIN_ROAMINGPROFILE = DESKTOP-LIBGL99
@@ -266,7 +264,7 @@ PUBLIC = C:\Users\Public
 ASL.LOG = Destination=file
 # environment
 APPDATA = C:\Users\rakib\AppData\Roaming
-# makefile (from 'Makefile', line 45)
+# makefile (from 'Makefile', line 46)
 CFLAGS := -g -Wall -O3 -marm -mthumb-interwork -march=armv5te -mtune=arm946e-s  -DARM9
 # environment
 HOMEDRIVE = C:
@@ -287,8 +285,7 @@ ELECTRON_RUN_AS_NODE = 1
 # environment
 TEMP = /home/rakib/AppData/Local/Temp
 # environment
-VSCODE_IPC_HOOK = \\.\pipe\0dae9514ad8759b613a581c49ec3012a-1.69.2-main-sock
- 
+VSCODE_IPC_HOOK = \\.\pipe\0dae9514ad8759b613a581c49ec3012a-1.70.0-main-sock
 # environment
 TERM = xterm-256color
 # makefile (from '/opt/devkitpro/devkitARM/base_tools', line 27)
@@ -303,11 +300,11 @@ SUFFIXES :=
 ALLUSERSPROFILE = C:\ProgramData
 # makefile (from 'Makefile', line 22)
 TARGET := FlappyBird-NDS-remake
-# makefile (from 'Makefile', line 126)
+# makefile (from 'Makefile', line 127)
 LD := arm-none-eabi-g++
 # environment
 SESSIONNAME = Console
-# makefile (from 'Makefile', line 47)
+# makefile (from 'Makefile', line 48)
 CXXFLAGS := -g -Wall -O3 -marm -mthumb-interwork -march=armv5te -mtune=arm946e-s  -DARM9 -fno-rtti -fno-exceptions
 # makefile (from '/opt/devkitpro/devkitARM/base_tools', line 26)
 STRIP := arm-none-eabi-strip
@@ -322,6 +319,7 @@ CXX := arm-none-eabi-g++
 # makefile (from '/opt/devkitpro/devkitARM/base_tools', line 21)
 CC := arm-none-eabi-gcc
 # makefile (from '/opt/devkitpro/devkitARM/base_tools', line 25)
+ 
 OBJCOPY := arm-none-eabi-objcopy
 # makefile (from 'Makefile', line 28)
 AUDIO := sounds
@@ -331,12 +329,12 @@ SOURCES := source
 DATA := 
 # makefile (from 'Makefile', line 27)
 GRAPHICS := gfx
-# makefile (from 'Makefile', line 112)
+# makefile (from 'Makefile', line 113)
 SOUNDBANK := soundbank.bin
 # environment
 PROCESSOR_IDENTIFIER = AMD64 Family 23 Model 113 Stepping 0, AuthenticAMD
 # variable set hash-table stats:
-# Load=160/1024=16%, Rehash=0, Collisions=31/331=9%
+# Load=158/1024=15%, Rehash=0, Collisions=29/332=9%
 
 # Pattern-specific Variable Values
 
@@ -345,14 +343,14 @@ PROCESSOR_IDENTIFIER = AMD64 Family 23 Model 113 Stepping 0, AuthenticAMD
 # Directories
 
 # sounds (device 717601697, inode 1688849860919936): 8 files, no impossibilities.
-# /opt/devkitpro/libnds/FlappyBird-NDS-remake (device 717601697, inode 12666373952021414): 15 files, no impossibilities.
-# /opt/devkitpro/libnds/FlappyBird-NDS-remake/gfx (device 717601697, inode 1688849860919295): 16 files, no impossibilities.
-# /opt/devkitpro/libnds/FlappyBird-NDS-remake/source (device 717601697, inode 1688849860920321): 3 files, no impossibilities.
-# . (device 717601697, inode 12666373952021414): 15 files, no impossibilities.
-# source (device 717601697, inode 1688849860920321): 3 files, no impossibilities.
-# gfx (device 717601697, inode 1688849860919295): 16 files, no impossibilities.
+# /opt/devkitpro/libnds/FlappyBird-NDS-remake (device 717601697, inode 12666373952021414): 16 files, no impossibilities.
+# /opt/devkitpro/libnds/FlappyBird-NDS-remake/gfx (device 717601697, inode 1688849860919295): 18 files, no impossibilities.
+# /opt/devkitpro/libnds/FlappyBird-NDS-remake/source (device 717601697, inode 1688849860920321): 4 files, no impossibilities.
+# . (device 717601697, inode 12666373952021414): 16 files, no impossibilities.
+# source (device 717601697, inode 1688849860920321): 4 files, no impossibilities.
+# gfx (device 717601697, inode 1688849860919295): 18 files, no impossibilities.
 
-# 76 files, no impossibilities in 7 directories.
+# 84 files, no impossibilities in 7 directories.
 
 # Implicit Rules
 
@@ -368,7 +366,6 @@ PROCESSOR_IDENTIFIER = AMD64 Family 23 Model 113 Stepping 0, AuthenticAMD
 	$(SILENTCMD)$(CXX) -MMD -MP -MF $(DEPSDIR)/$*.arm.d $(CXXFLAGS) -marm -c $< -o $@ $(ERROR_FILTER)
 
 %.arm.o: %.arm.c
- 
 #  recipe to execute (from '/opt/devkitpro/devkitARM/base_rules', line 23):
 	$(SILENTMSG) $(notdir $<)
 	$(SILENTCMD)$(CC) -MMD -MP -MF $(DEPSDIR)/$*.arm.d $(CFLAGS) -marm -c $< -o $@ $(ERROR_FILTER)
@@ -420,6 +417,7 @@ PROCESSOR_IDENTIFIER = AMD64 Family 23 Model 113 Stepping 0, AuthenticAMD
 
 %.itcm.o: %.itcm.m
 #  recipe to execute (from '/opt/devkitpro/devkitARM/base_rules', line 73):
+ 
 	$(SILENTMSG) $(notdir $<)
 	$(SILENTCMD)$(CC) -MMD -MP -MF $(DEPSDIR)/$*.itcm.d $(OBJCFLAGS) -marm -mlong-calls -c $< -o $@ $(ERROR_FILTER)
 
@@ -486,7 +484,7 @@ PROCESSOR_IDENTIFIER = AMD64 Family 23 Model 113 Stepping 0, AuthenticAMD
 # Not a target:
 Makefile:
 #  Implicit rule search has been done.
-#  Last modified 2022-08-02 00:13:35.6204099
+#  Last modified 2022-08-04 22:30:34.2933745
 #  File has been updated.
 #  Successfully updated.
 
@@ -495,7 +493,7 @@ clean:
 #  Implicit rule search has not been done.
 #  File does not exist.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 166):
+#  recipe to execute (from 'Makefile', line 159):
 	@echo clean ...
 	@rm -fr $(BUILD) $(TARGET).elf $(TARGET).nds $(SOUNDBANK)
 
@@ -510,7 +508,6 @@ clean:
 .DEFAULT:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
- 
 #  File has not been updated.
 
 # Not a target:
@@ -532,13 +529,14 @@ build:
 #  Implicit rule search has not been done.
 #  File does not exist.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 161):
-	@mkdir -p $@
-	@$(MAKE) --no-print-directory -C $(BUILD) -f $(CURDIR)/Makefile
+#  recipe to execute (from 'Makefile', line 154):
+	@[ -d $@ ] || mkdir -p $@
+	@make --no-print-directory -C $(BUILD) -f $(CURDIR)/Makefile
 
 .SUFFIXES:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
+ 
 #  File has not been updated.
 
 .PHONY: build clean
@@ -555,12 +553,12 @@ build:
 # General ('VPATH' variable) search path:
 # /opt/devkitpro/libnds/FlappyBird-NDS-remake:/opt/devkitpro/libnds/FlappyBird-NDS-remake/source:/opt/devkitpro/libnds/FlappyBird-NDS-remake/gfx
 
-# strcache buffers: 1 (0) / strings = 76 / storage = 903 B / avg = 11 B
-# current buf: size = 8162 B / used = 903 B / count = 76 / avg = 11 B
+# strcache buffers: 1 (0) / strings = 79 / storage = 933 B / avg = 11 B
+# current buf: size = 8162 B / used = 933 B / count = 79 / avg = 11 B
 
-# strcache performance: lookups = 120 / hit rate = 36%
+# strcache performance: lookups = 124 / hit rate = 36%
 # hash-table stats:
-# Load=76/8192=1%, Rehash=0, Collisions=3/120=2%
-# Finished Make data base on Tue Aug  2 18:09:54 2022
+# Load=79/8192=1%, Rehash=0, Collisions=3/124=2%
+# Finished Make data base on Thu Aug  4 22:30:38 2022
 
  
