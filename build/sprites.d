@@ -1,4 +1,4 @@
-main.o: C:/devkitPro/libnds/FlappyBird-NDS-remake/source/main.cpp \
+sprites.o: C:/devkitPro/libnds/FlappyBird-NDS-remake/source/sprites.cpp \
  C:/devkitPro/libnds/include/nds.h \
  C:/devkitPro/libnds/include/nds/libversion.h \
  C:/devkitPro/libnds/include/nds/ndstypes.h \
@@ -59,20 +59,7 @@ main.o: C:/devkitPro/libnds/FlappyBird-NDS-remake/source/main.cpp \
  C:/devkitPro/libnds/include/nds/arm9/video.h \
  C:/devkitPro/libnds/include/nds/arm9/videoGL.h \
  C:/devkitPro/libnds/include/nds/arm9/nand.h \
- C:/devkitPro/libnds/include/gl2d.h C:/devkitPro/libnds/include/maxmod9.h \
- C:/devkitPro/libnds/include/mm_types.h \
- C:/devkitPro/libnds/FlappyBird-NDS-remake/include/sprites.h \
- C:/devkitPro/libnds/FlappyBird-NDS-remake/build/soundbank.h \
- C:/devkitPro/libnds/FlappyBird-NDS-remake/build/soundbank_bin.h \
- C:/devkitPro/libnds/FlappyBird-NDS-remake/build/pipeTop.h \
- C:/devkitPro/libnds/FlappyBird-NDS-remake/build/bird.h \
- C:/devkitPro/libnds/FlappyBird-NDS-remake/build/birdUp.h \
- C:/devkitPro/libnds/FlappyBird-NDS-remake/build/birdDown.h \
- C:/devkitPro/libnds/FlappyBird-NDS-remake/build/bgLong.h \
- C:/devkitPro/libnds/FlappyBird-NDS-remake/build/floor.h \
- C:/devkitPro/libnds/FlappyBird-NDS-remake/build/ready.h \
- C:/devkitPro/libnds/FlappyBird-NDS-remake/build/bottom.h \
- C:/devkitPro/libnds/FlappyBird-NDS-remake/build/scoreSprite.h
+ C:/devkitPro/libnds/FlappyBird-NDS-remake/include/sprites.h
 C:/devkitPro/libnds/include/nds.h:
 C:/devkitPro/libnds/include/nds/libversion.h:
 C:/devkitPro/libnds/include/nds/ndstypes.h:
@@ -133,18 +120,4 @@ C:/devkitPro/libnds/include/nds/arm9/trig_lut.h:
 C:/devkitPro/libnds/include/nds/arm9/video.h:
 C:/devkitPro/libnds/include/nds/arm9/videoGL.h:
 C:/devkitPro/libnds/include/nds/arm9/nand.h:
-C:/devkitPro/libnds/include/gl2d.h:
-C:/devkitPro/libnds/include/maxmod9.h:
-C:/devkitPro/libnds/include/mm_types.h:
 C:/devkitPro/libnds/FlappyBird-NDS-remake/include/sprites.h:
-C:/devkitPro/libnds/FlappyBird-NDS-remake/build/soundbank.h:
-C:/devkitPro/libnds/FlappyBird-NDS-remake/build/soundbank_bin.h:
-C:/devkitPro/libnds/FlappyBird-NDS-remake/build/pipeTop.h:
-C:/devkitPro/libnds/FlappyBird-NDS-remake/build/bird.h:
-C:/devkitPro/libnds/FlappyBird-NDS-remake/build/birdUp.h:
-C:/devkitPro/libnds/FlappyBird-NDS-remake/build/birdDown.h:
-C:/devkitPro/libnds/FlappyBird-NDS-remake/build/bgLong.h:
-C:/devkitPro/libnds/FlappyBird-NDS-remake/build/floor.h:
-C:/devkitPro/libnds/FlappyBird-NDS-remake/build/ready.h:
-C:/devkitPro/libnds/FlappyBird-NDS-remake/build/bottom.h:
-C:/devkitPro/libnds/FlappyBird-NDS-remake/build/scoreSprite.h:

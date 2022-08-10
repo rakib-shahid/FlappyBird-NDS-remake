@@ -9,7 +9,7 @@ make: *** No rule to make target 'all'.  Stop.
 # There is NO WARRANTY, to the extent permitted by law.
  
 
-# Make data base, printed on Fri Aug  5 00:00:30 2022
+# Make data base, printed on Wed Aug 10 16:23:58 2022
 
 # Variables
 
@@ -32,7 +32,7 @@ GAME_SUBTITLE1 := Rakib Shahid
 # environment
 USERPROFILE = C:\Users\rakib
 # makefile (from 'Makefile', line 132)
-OFILES := soundbank.bin.o bgLong.o bird.o birdDown.o birdSM.o birdUp.o floor.o pipeTop.o ready.o main.o  
+OFILES := soundbank.bin.o bgLong.o bird.o birdDown.o birdSM.o birdUp.o bottom.o floor.o pipeTop.o ready.o main.o sprites.o  
 # environment
 LOCALAPPDATA = C:\Users\rakib\AppData\Local
 # makefile (from 'Makefile', line 88)
@@ -48,6 +48,7 @@ SYSTEMROOT = C:\WINDOWS
 # makefile (from 'Makefile', line 63)
 LIBS := -lmm9 -lmm9 -lnds9
 # makefile (from '/opt/devkitpro/devkitARM/base_tools', line 43)
+ 
 SILENTMSG := @echo
 # makefile (from 'Makefile', line 96)
 AUDIOFILES := /opt/devkitpro/libnds/FlappyBird-NDS-remake/sounds/ding.wav /opt/devkitpro/libnds/FlappyBird-NDS-remake/sounds/flap.wav /opt/devkitpro/libnds/FlappyBird-NDS-remake/sounds/smack.wav /opt/devkitpro/libnds/FlappyBird-NDS-remake/sounds/smackWhooshQuick.wav /opt/devkitpro/libnds/FlappyBird-NDS-remake/sounds/smackWhooshSlow.wav /opt/devkitpro/libnds/FlappyBird-NDS-remake/sounds/whoosh.wav
@@ -60,9 +61,9 @@ MAKE_COMMAND := make
 # automatic
 @D = $(patsubst %/,%,$(dir $@))
 # environment
-CHROME_CRASHPAD_PIPE_NAME = \\.\pipe\crashpad_9056_TZOYGGRHISVYWHXB
+CHROME_CRASHPAD_PIPE_NAME = \\.\pipe\crashpad_19968_WDTYQUDCOWVDLTGA
 # makefile (from 'Makefile', line 89)
-CPPFILES := main.cpp
+CPPFILES := main.cpp sprites.cpp
 # environment
 VBOXMANAGE = E:\Program Files\Oracle\VirtualBox
 # environment
@@ -80,7 +81,6 @@ VSCODE_CODE_CACHE_PATH = C:\Users\rakib\AppData\Roaming\Code\CachedData\da76f933
 # makefile (from '/opt/devkitpro/devkitARM/ds_rules', line 9)
 LIBNDS := /opt/devkitpro/libnds
 # environment
- 
 LANG = C
 # default
 .LOADED := 
@@ -127,7 +127,7 @@ ASFLAGS := -g -marm -mthumb-interwork -march=armv5te -mtune=arm946e-s
 # automatic
 @F = $(notdir $@)
 # environment
-VSCODE_PID = 9056
+VSCODE_PID = 19968
 # automatic
 ?D = $(patsubst %/,%,$(dir $?))
 # makefile (from '/opt/devkitpro/devkitARM/base_tools', line 28)
@@ -146,6 +146,7 @@ icons := icon.bmp
 GAME_ICON := /opt/devkitpro/libnds/FlappyBird-NDS-remake/icon.bmp
 # environment
 VSCODE_NLS_CONFIG = {"locale":"en-us","availableLanguages":{},"_languagePackSupport":true}
+ 
 # makefile (from 'Makefile', line 135)
 INCLUDE := -iquote /opt/devkitpro/libnds/FlappyBird-NDS-remake/include -I/opt/devkitpro/libnds/include -I/opt/devkitpro/portlibs/nds/include -I/opt/devkitpro/portlibs/armv5te/include -I/opt/devkitpro/libnds/FlappyBird-NDS-remake/build
 # environment
@@ -188,7 +189,6 @@ MAKEFILES :=
 ^F = $(notdir $^)
 # makefile (from '/opt/devkitpro/devkitARM/base_tools', line 5)
 UNAME_R := 3.3.5-341.x86_64
- 
 # environment
 PROMPT = $P$G
 # environment
@@ -238,7 +238,8 @@ GAME_TITLE := Flappy Bird DS!
 # makefile (from 'Makefile', line 44)
 ARCH := -marm -mthumb-interwork -march=armv5te -mtune=arm946e-s
 # makefile (from 'Makefile', line 91)
-PNGFILES := bgLong.png bird.png birdDown.png birdSM.png birdUp.png floor.png pipeTop.png ready.png
+ 
+PNGFILES := bgLong.png bird.png birdDown.png birdSM.png birdUp.png bottom.png floor.png pipeTop.png ready.png
 # default
 MAKE_VERSION := 4.3
 # 'override' directive
@@ -332,6 +333,7 @@ SOUNDBANK := soundbank.bin
 # environment
 PROCESSOR_IDENTIFIER = AMD64 Family 23 Model 113 Stepping 0, AuthenticAMD
 # variable set hash-table stats:
+ 
 # Load=158/1024=15%, Rehash=0, Collisions=29/332=9%
 
 # Pattern-specific Variable Values
@@ -341,15 +343,14 @@ PROCESSOR_IDENTIFIER = AMD64 Family 23 Model 113 Stepping 0, AuthenticAMD
 # Directories
 
 # sounds (device 717601697, inode 3377699721014401): 8 files, no impossibilities.
-# /opt/devkitpro/libnds/FlappyBird-NDS-remake (device 717601697, inode 1688849860363422): 17 files, no impossibilities.
-# /opt/devkitpro/libnds/FlappyBird-NDS-remake/gfx (device 717601697, inode 3096224744303389): 18 files, no impossibilities.
-# /opt/devkitpro/libnds/FlappyBird-NDS-remake/source (device 717601697, inode 2251799814171796): 3 files, no impossibilities.
-# . (device 717601697, inode 1688849860363422): 17 files, no impossibilities.
-# source (device 717601697, inode 2251799814171796): 3 files, no impossibilities.
- 
-# gfx (device 717601697, inode 3096224744303389): 18 files, no impossibilities.
+# /opt/devkitpro/libnds/FlappyBird-NDS-remake (device 717601697, inode 1688849860363422): 19 files, no impossibilities.
+# /opt/devkitpro/libnds/FlappyBird-NDS-remake/gfx (device 717601697, inode 3096224744303389): 20 files, no impossibilities.
+# /opt/devkitpro/libnds/FlappyBird-NDS-remake/source (device 717601697, inode 2251799814171796): 4 files, no impossibilities.
+# . (device 717601697, inode 1688849860363422): 19 files, no impossibilities.
+# source (device 717601697, inode 2251799814171796): 4 files, no impossibilities.
+# gfx (device 717601697, inode 3096224744303389): 20 files, no impossibilities.
 
-# 84 files, no impossibilities in 7 directories.
+# 94 files, no impossibilities in 7 directories.
 
 # Implicit Rules
 
@@ -461,6 +462,7 @@ PROCESSOR_IDENTIFIER = AMD64 Family 23 Model 113 Stepping 0, AuthenticAMD
 
 %.arm7: %.elf
 #  recipe to execute (from '/opt/devkitpro/devkitARM/ds_rules', line 48):
+ 
 	$(SILENTCMD)$(OBJCOPY) -O binary $< $@
 	$(SILENTMSG) built ... $(notdir $@)
 
@@ -550,13 +552,12 @@ build:
 # General ('VPATH' variable) search path:
 # /opt/devkitpro/libnds/FlappyBird-NDS-remake:/opt/devkitpro/libnds/FlappyBird-NDS-remake/source:/opt/devkitpro/libnds/FlappyBird-NDS-remake/gfx
 
-# strcache buffers: 1 (0) / strings = 80 / storage = 936 B / avg = 11 B
-# current buf: size = 8162 B / used = 936 B / count = 80 / avg = 11 B
+# strcache buffers: 1 (0) / strings = 85 / storage = 984 B / avg = 11 B
+# current buf: size = 8162 B / used = 984 B / count = 85 / avg = 11 B
 
-# strcache performance: lookups = 124 / hit rate = 35%
- 
+# strcache performance: lookups = 129 / hit rate = 34%
 # hash-table stats:
-# Load=80/8192=1%, Rehash=0, Collisions=3/124=2%
-# Finished Make data base on Fri Aug  5 00:00:30 2022
+# Load=85/8192=1%, Rehash=0, Collisions=3/129=2%
+# Finished Make data base on Wed Aug 10 16:23:58 2022
 
  

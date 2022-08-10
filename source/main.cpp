@@ -4,6 +4,7 @@
 #include <cstdlib>
 #include <ctime>
 #include <maxmod9.h>
+#include "sprites.h"
 
 #include "soundbank.h"
 #include "soundbank_bin.h"
@@ -14,7 +15,8 @@
 #include "bgLong.h"
 #include "floor.h"
 #include "ready.h"
-// using namespace SNF;
+#include "bottom.h"
+#include "scoreSprite.h"
 //  classes to keep track of variables
 class Pipe
 {
@@ -31,10 +33,126 @@ public:
 
 // clrscr function taken from libnds practical wiki https://github.com/NotImplementedLife/libnds-practical-wiki
 inline void clrscr() { iprintf("\e[1;1H\e[2J"); }
+static const int DMA_CHANNEL = 3;
+void initVideo()
+{
+    /*
+     *  Map VRAM to display a background on the main and sub screens.
+     *
+     *  The vramSetPrimaryBanks function takes four arguments, one for each of
+     *  the major VRAM banks. We can use it as shorthand for assigning values
+     *  to each of the VRAM bank's control registers.
+     *
+     *  We map banks A and B to main screen  background memory. This gives us
+     *  256KB, which is a healthy amount for 16-bit graphics.
+     *
+     *  We map bank C to sub screen background memory.
+     *
+     *  We map bank D to LCD. This setting is generally used for when we aren't
+     *  using a particular bank.
+     *
+     *  We map bank E to main screen sprite memory (aka object memory).
+     */
+    vramSetPrimaryBanks(VRAM_A_MAIN_BG_0x06000000,
+                        VRAM_B_MAIN_BG_0x06020000,
+                        VRAM_C_SUB_BG_0x06200000,
+                        VRAM_D_LCD);
+
+    vramSetBankE(VRAM_E_MAIN_SPRITE);
+
+    /*  Set the video mode on the main screen. */
+
+    /*  Set the video mode on the sub screen. */
+    videoSetModeSub(MODE_5_2D |          // Set the graphics mode to Mode 5
+                    DISPLAY_BG3_ACTIVE); // Enable BG3 for display
+}
+
+void initBackgrounds()
+{
+    /*  Set up affine background 3 on main as a 16-bit color background. */
+    REG_BG3CNT = BG_BMP16_256x256 |
+                 BG_BMP_BASE(0) | // The starting place in memory
+                 BG_PRIORITY(3);  // A low priority
+
+    /*  Set the affine transformation matrix for the main screen background 3
+     *  to be the identity matrix.
+     */
+    REG_BG3PA = 1 << 8;
+    REG_BG3PB = 0;
+    REG_BG3PC = 0;
+    REG_BG3PD = 1 << 8;
+
+    /*  Place main screen background 3 at the origin (upper left of the
+     *  screen).
+     */
+    REG_BG3X = 0;
+    REG_BG3Y = 0;
+
+    /*  Set up affine background 2 on main as a 16-bit color background. */
+    REG_BG2CNT = BG_BMP16_128x128 |
+                 BG_BMP_BASE(8) | // The starting place in memory
+                 BG_PRIORITY(2);  // A higher priority
+
+    /*  Set the affine transformation matrix for the main screen background 3
+     *  to be the identity matrix.
+     */
+    REG_BG2PA = 1 << 8;
+    REG_BG2PB = 0;
+    REG_BG2PC = 0;
+    REG_BG2PD = 1 << 8;
+
+    /*  Place main screen background 2 in an interesting place. */
+    REG_BG2X = -(SCREEN_WIDTH / 2 - 32) << 8;
+    REG_BG2Y = -32 << 8;
+
+    /*  Set up affine background 3 on the sub screen as a 16-bit color
+     *  background.
+     */
+    REG_BG3CNT_SUB = BG_BMP16_256x256 |
+                     BG_BMP_BASE(0) | // The starting place in memory
+                     BG_PRIORITY(3);  // A low priority
+
+    /*  Set the affine transformation matrix for the sub screen background 3 to
+     *  be the identity matrix.
+     */
+    REG_BG3PA_SUB = 1 << 8;
+    REG_BG3PB_SUB = 0;
+    REG_BG3PC_SUB = 0;
+    REG_BG3PD_SUB = 1 << 8;
+
+    /*
+     *  Place main screen background 3 at the origin (upper left of the screen)
+     */
+    REG_BG3X_SUB = 0;
+    REG_BG3Y_SUB = 0;
+}
+void displayBottom()
+{
+    dmaCopyHalfWords(DMA_CHANNEL, bottomBitmap, (uint16 *)BG_BMP_RAM_SUB(0), bottomBitmapLen);
+}
 
 int main()
 {
+    SpriteInfo spriteInfo[SPRITE_COUNT];
+    OAMTable *oam = new OAMTable();
+
     consoleDemoInit();
+    initVideo();
+    initBackgrounds();
+    initOAM(oam);
+    oamInit(&oamSub, SpriteMapping_1D_128, false);
+    // displayBottom();
+    videoSetModeSub(MODE_5_2D);
+    // vramSetBankC(VRAM_C_SUB_BG_0x06200000);
+
+    int bg3 = bgInitSub(3, BgType_Bmp8, BgSize_B8_256x256, 0, 0);
+    
+
+    dmaCopy(bottomBitmap, bgGetGfxPtr(bg3), 256 * 192);
+    dmaCopy(bottomBitmap, BG_PALETTE_SUB, 256 * 2);
+
+    
+    
 
     // Initialize Maxmod sound engine
     mmInitDefaultMem((mm_addr)soundbank_bin);
@@ -47,12 +165,13 @@ int main()
     mmLoadEffect(SFX_WHOOSH);
 
     videoSetMode(MODE_5_3D);
+    // videoSetModeSub(MODE_2_2D);
     vramSetBankA(VRAM_A_TEXTURE);
     vramSetBankB(VRAM_B_TEXTURE);
     vramSetBankD(VRAM_D_TEXTURE);
-    vramSetBankE(VRAM_E_TEX_PALETTE);
+    vramSetBankE(VRAM_E_TEX_PALETTE); 
 
-    // Sprite setup
+    // Top Screen Sprite setup
     glScreen2D();
     glImage bg_images[1];
     glLoadTileSet(bg_images,                                                                          // pointer to glImage array
@@ -156,7 +275,7 @@ int main()
     );
 
     float yVel = 0;
-    int score = 0;
+    int scoreCounter = 0;
     int highScore = 0;
     int floorXPos = 0;
     int floor2XPos = 252;
@@ -169,7 +288,6 @@ int main()
     Pipe pipe2 = Pipe{276 + 69 + 5, 50 + (rand() % (143 - 49))};
     Pipe pipe3 = Pipe{276 + 69 * 2 + 10, 50 + (rand() % (143 - 49))};
     Pipe pipe4 = Pipe{276 + 69 * 3 + 15, 50 + (rand() % (143 - 49))};
-    // Pipe pipeArray[] = {pipe1, pipe2, pipe3, pipe4};
 
     bool over = false;
     bool collided = false;
@@ -177,7 +295,6 @@ int main()
     bool smackSound = false;
     bool floorSound = true;
     bool started = false;
-    // bool deathHigh = false;
     while (1)
     {
 
@@ -186,36 +303,20 @@ int main()
         glBegin2D();
 
         // SPRITES!!!
-        // glSprite(bg_x, 0, GL_FLIP_NONE, bg_images);
-
-        // glSprite(bg_x2,0,GL_FLIP_V,bg_images);
-        // some logic to move background when off screen
-        // if (bg_x == -256)
-        //{
-        //    bg_x = 0;
-        //}
+        // background image
         glSprite(0, 0, GL_FLIP_NONE, bg_images);
 
         // DRAW PIPES & BIRD
-
         // draw Pipes
-        // glBoxFilled(pipe1.pipeX, pipe1.pipeY - 25, pipe1.pipeX + 20, -10, RGB15(85, 255, 0));
         glSprite(pipe1.pipeX, pipe1.pipeY - 185, GL_FLIP_NONE, pipeTop_images);
         glSprite(pipe1.pipeX, pipe1.pipeY + 25, GL_FLIP_V, pipeTop_images);
-        // glBoxFilled(pipe1.pipeX, pipe1.pipeY + 25, pipe1.pipeX + 20, 192, RGB15(85, 255, 0));
 
-        // glBoxFilled(pipe2.pipeX, pipe2.pipeY - 25, pipe2.pipeX + 20, -10, RGB15(85, 255, 0));
-        // glBoxFilled(pipe2.pipeX, pipe2.pipeY + 25, pipe2.pipeX + 20, 192, RGB15(85, 255, 0));
         glSprite(pipe2.pipeX, pipe2.pipeY - 185, GL_FLIP_NONE, pipeTop_images);
         glSprite(pipe2.pipeX, pipe2.pipeY + 25, GL_FLIP_V, pipeTop_images);
 
-        // glBoxFilled(pipe3.pipeX, pipe3.pipeY - 25, pipe3.pipeX + 20, -10, RGB15(85, 255, 0));
-        // glBoxFilled(pipe3.pipeX, pipe3.pipeY + 25, pipe3.pipeX + 20, 192, RGB15(85, 255, 0));
         glSprite(pipe3.pipeX, pipe3.pipeY - 185, GL_FLIP_NONE, pipeTop_images);
         glSprite(pipe3.pipeX, pipe3.pipeY + 25, GL_FLIP_V, pipeTop_images);
 
-        // glBoxFilled(pipe4.pipeX, pipe4.pipeY - 25, pipe4.pipeX + 20, -10, RGB15(85, 255, 0));
-        // glBoxFilled(pipe4.pipeX, pipe4.pipeY + 25, pipe4.pipeX + 20, 192, RGB15(85, 255, 0));
         glSprite(pipe4.pipeX, pipe4.pipeY - 185, GL_FLIP_NONE, pipeTop_images);
         glSprite(pipe4.pipeX, pipe4.pipeY + 25, GL_FLIP_V, pipeTop_images);
 
@@ -228,12 +329,10 @@ int main()
         {
             floor2XPos = 252;
         }
-
         glSprite(floorXPos, 176, GL_FLIP_NONE, floor_images);
         glSprite(floor2XPos, 176, GL_FLIP_NONE, floor_images);
 
         // draw bird
-        // glBoxFilled(bird.xPos, bird.yPos, bird.xPos + 10, bird.yPos + 10, RGB15(102, 255, 255));
         if (started)
         {
             if (!over)
@@ -261,35 +360,39 @@ int main()
         }
         if (!started)
         {
-            if (bird.yPos < 110){
+            if (bird.yPos < 110)
+            {
                 yVel += 0.05;
                 bird.yPos += yVel;
-                if (yVel < 0){
-                    
+                if (yVel < 0)
+                {
+
                     glSpriteRotate(bird.xPos, bird.yPos + 4, yVel * 1000, GL_FLIP_NONE, birdDown_images);
                 }
-                else if (bird.yPos < 96 && bird.yPos > 92){
+                else if (bird.yPos < 96 && bird.yPos > 92)
+                {
                     glSpriteRotate(bird.xPos, bird.yPos + 4, yVel * 1000, GL_FLIP_NONE, bird_images);
                 }
-                else {
+                else
+                {
                     glSpriteRotate(bird.xPos, bird.yPos + 4, yVel * 1000, GL_FLIP_NONE, birdUp_images);
                 }
-                
             }
-            else{
+            else
+            {
                 yVel -= .25;
                 bird.yPos += yVel;
-                if (bird.yPos < 98 && bird.yPos > 92){
+                if (bird.yPos < 98 && bird.yPos > 92)
+                {
                     glSpriteRotate(bird.xPos, bird.yPos + 4, yVel * 1000, GL_FLIP_NONE, bird_images);
                 }
-                else {
+                else
+                {
                     glSpriteRotate(bird.xPos, bird.yPos + 4, yVel * 1000, GL_FLIP_NONE, birdDown_images);
                 }
-                
             }
             floatCounter++;
-            
-            
+
             glSprite(0, 0, GL_FLIP_NONE, ready_images);
             floor2XPos--;
             floorXPos--;
@@ -300,28 +403,7 @@ int main()
             glBoxFilled(0, 0, 256, 192, RGB15(255, 255, 255));
             overCounter++;
         }
-        // glSpriteRotate(bird.xPos-3, bird.yPos-1, yVel*1000,GL_FLIP_NONE, bird_images);
-
         // COLLISIONS
-
-        // looping attempt
-        // looping through pipe array doesnt work :( need 2 figure out why
-        /*
-        for (Pipe x : pipeArray){
-            if (
-             //  compare bird yPos with top half of pipe's yPos
-                 ((bird.yPos<=x.pipeY-25)
-             //  compare bird yPos with bottom half of pipe's yPos
-             ||  (bird.yPos+10>(x.pipeY+25)))
-             //  check if bird is within pipe's xPos
-             &&  ((bird.xPos+10 >= x.pipeX)  &&  (bird.xPos <= x.pipeX+20))
-             ){
-             collided = true;
-            }
-        }
-        */
-
-        // working collisions
         if ((!over) && ((
                             //  compare bird yPos with top half of pipe's yPos
                             ((bird.yPos <= pipe1.pipeY - 25)
@@ -337,42 +419,15 @@ int main()
 
         )
         {
-            /*
-            if      (((bird.xPos + 10 >= pipe1.pipeX) && (bird.xPos <= pipe1.pipeX + 20)) && (bird.yPos <= pipe1.pipeY - 25)){
-                deathHigh = true;
-            }
-            else if (((bird.xPos + 10 >= pipe3.pipeX) && (bird.xPos <= pipe3.pipeX + 20)) && (bird.yPos <= pipe2.pipeY - 25)){
-                deathHigh = true;
-            }
-            else if (((bird.xPos + 10 >= pipe3.pipeX) && (bird.xPos <= pipe3.pipeX + 20)) && (bird.yPos <= pipe3.pipeY - 25)){
-                deathHigh = true;
-            }
-            else if (((bird.xPos + 10 >= pipe4.pipeX) && (bird.xPos <= pipe4.pipeX + 20)) && (bird.yPos <= pipe4.pipeY - 25)){
-                deathHigh = true;
-            }
-            else {
-                deathHigh = false;
-            }*/
             collided = true;
             over = true;
             smackSound = true;
-            if (score > highScore)
+            if (scoreCounter > highScore)
             {
-                highScore = score;
+                highScore = scoreCounter;
             }
         }
 
-        /*
-        if (smackSound && deathHigh)
-        {
-            mmEffect(SFX_SMACKWHOOSHSLOW);
-            smackSound = false;
-        }
-        else if (smackSound && !deathHigh)
-        {
-            mmEffect(SFX_SMACKWHOOSHQUICK);
-            smackSound = false;
-        }*/
         if (smackSound)
         {
             mmEffect(SFX_SMACK);
@@ -381,10 +436,10 @@ int main()
 
         // SCORE
         if ((!collided) &&
-            ((pipe1.pipeX == bird.xPos) || (pipe2.pipeX == bird.xPos) || (pipe3.pipeX == bird.xPos) || (pipe4.pipeX == bird.xPos)))
+            ((pipe1.pipeX + 3 == bird.xPos) || (pipe2.pipeX + 3 == bird.xPos) || (pipe3.pipeX + 3 == bird.xPos) || (pipe4.pipeX + 3 == bird.xPos)))
         {
-            score++;
-            // play sound!
+            scoreCounter++;
+            // play sound
             mmEffect(SFX_DING);
         }
 
@@ -451,8 +506,7 @@ int main()
             yVel += .125;
         }
 
-        // dont let bird go out of the screen
-        // prevents from leaving bottom
+        // prevents bird from leaving bottom
         if (bird.yPos >= 170)
         {
             if (floorSound && !collided)
@@ -464,48 +518,29 @@ int main()
             over = true;
         }
 
-        // BOTTOM SCREEN
-
-        if (started)
-        {
-            // printing and testing
-            clrscr();
-
-            /*iprintf("yPos=%d\n", bird.yPos);
-             iprintf("pipe1X=%d\n", pipe1.pipeX);
-             iprintf("pipe1Y=%d\n", pipe1.pipeY);
-             iprintf("collided?=%s\n", collided ? "true" : "false");
-             */
-            iprintf("\n\n\n\n\n\t\t\tScore=%d\n", score);
-        }
-        else
-        {
-            clrscr();
-            iprintf("\n\n\n\n\n\t\t\tPress START!");
-        }
-
+        /*
         if (over && bird.yPos == 170)
         {
             clrscr();
             // iprintf("\n\nyPos=%d\n", bird.yPos);
             iprintf("\n\n\n\n\n\n\n\n\n\t\t\t\tGame Over!\n");
             iprintf("  Press START button to restart");
-            iprintf("\n\n\n\t\t    Final Score=%d\n", score);
-            if (score >= 30)
+            iprintf("\n\n\n\t\t    Final Score=%d\n", scoreCounter);
+            if (scoreCounter >= 30)
             {
                 iprintf("\t\t\tGold medal!\n");
             }
-            else if (score >= 20)
+            else if (scoreCounter >= 20)
             {
                 iprintf("\t\t\tSilver medal!\n");
             }
-            else if (score >= 10)
+            else if (scoreCounter >= 10)
             {
                 iprintf("\t\t\tBronze medal!\n");
             }
             iprintf("\n\n\n\t\t    Best Score=%d\n", highScore);
             over = true;
-        }
+        }*/
 
         // Restart game
         int currentKeysDown = keysDown();
@@ -524,7 +559,7 @@ int main()
             floorXPos = 0;
             floor2XPos = 252;
             overCounter = 0;
-            score = 0;
+            scoreCounter = 0;
             over = false;
             collided = false;
             floorSound = true;
@@ -533,6 +568,7 @@ int main()
 
         glFlush(0);
         swiWaitForVBlank();
+        updateOAM(oam);
     }
     return 0;
 }
