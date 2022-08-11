@@ -194,7 +194,7 @@ int main()
     );
 
     float yVel = 0;
-    int scoreCounter = 0;
+    int scoreCounter = 19;
     int highScore = 0;
     int floorXPos = 0;
     int floor2XPos = 252;
@@ -240,9 +240,15 @@ int main()
                 u8 *scoreNum1 = (u8*)allNumsTiles + (scoreCounter/10) * 32*32;
                 u8 *scoreNum2 = (u8*)allNumsTiles + (scoreCounter%10) * 32*32;
                 dmaCopyHalfWords(SPRITE_DMA_CHANNEL,scoreNum1,&SPRITE_GFX_SUB[0+scoreSpriteTilesLen],allNumsTilesLen);
-                oamSet(&oamSub, 1, 128-21, 50, 0, 0, SpriteSize_32x32, SpriteColorFormat_256Color, &SPRITE_GFX_SUB[0+scoreSpriteTilesLen], -1, false, false, false, false, false);
-                dmaCopyHalfWords(SPRITE_DMA_CHANNEL,scoreNum2,&SPRITE_GFX_SUB[0+scoreSpriteTilesLen+allNumsTilesLen+2],allNumsTilesLen);
-                oamSet(&oamSub, 1, 128-10, 50, 0, 0, SpriteSize_32x32, SpriteColorFormat_256Color, &SPRITE_GFX_SUB[0+scoreSpriteTilesLen+allNumsTilesLen], -1, false, false, false, false, false);
+                oamSet(&oamSub, 1, 128-21, 50, 0, 0, SpriteSize_32x32, SpriteColorFormat_256Color, &SPRITE_GFX_SUB[0+4096], -1, false, false, false, false, false);
+                dmaCopyHalfWords(SPRITE_DMA_CHANNEL,scoreNum2,&SPRITE_GFX_SUB[4096+12288],allNumsTilesLen);
+                if (scoreCounter%10 == 1){
+                    oamSet(&oamSub, 2, 128-10, 50, 0, 0, SpriteSize_32x32, SpriteColorFormat_256Color, &SPRITE_GFX_SUB[0+scoreSpriteTilesLen+allNumsTilesLen], -1, false, false, false, false, false);
+                }
+                else {
+                    oamSet(&oamSub, 2, 128-7, 50, 0, 0, SpriteSize_32x32, SpriteColorFormat_256Color, &SPRITE_GFX_SUB[0+scoreSpriteTilesLen+allNumsTilesLen], -1, false, false, false, false, false);
+                }
+                
 
             }
             
@@ -511,7 +517,8 @@ int main()
         if ((KEY_START & currentKeysDown) && over)
         {
             oamSet(&oamSub, 0, 128-21, 30, 0, 0, SpriteSize_64x64, SpriteColorFormat_256Color, &SPRITE_GFX_SUB[0], -1, false, true, false, false, false);
-            oamSet(&oamSub, 0, 128-21, 30, 0, 0, SpriteSize_64x64, SpriteColorFormat_256Color, &SPRITE_GFX_SUB[0+scoreSpriteTilesLen], -1, false, true, false, false, false);
+            oamSet(&oamSub, 1, 128-21, 30, 0, 0, SpriteSize_32x32, SpriteColorFormat_256Color, &SPRITE_GFX_SUB[0+scoreSpriteTilesLen], -1, false, true, false, false, false);
+            oamSet(&oamSub, 2, 128-21, 30, 0, 0, SpriteSize_32x32, SpriteColorFormat_256Color, &SPRITE_GFX_SUB[0+scoreSpriteTilesLen+allNumsTilesLen], -1, false, true, false, false, false);
             bird.yPos = 96;
             yVel = 0;
             pipe1.pipeX = 276;
