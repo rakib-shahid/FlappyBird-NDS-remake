@@ -1,0 +1,1 @@
+startSub.o: startSub.s

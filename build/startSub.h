@@ -1,28 +1,28 @@
 
-//{{BLOCK(scoreSprite)
+//{{BLOCK(startSub)
 
 //======================================================================
 //
-//	scoreSprite, 64x64@8, 
+//	startSub, 64x64@8, 
 //	+ palette 256 entries, not compressed
 //	+ 64 tiles not compressed
 //	Total size: 512 + 4096 = 4608
 //
-//	Time-stamp: 2022-08-10, 18:18:30
+//	Time-stamp: 2022-08-10, 20:11:54
 //	Exported by Cearn's GBA Image Transmogrifier, v0.8.17
 //	( http://www.coranac.com/projects/#grit )
 //
 //======================================================================
 
-#ifndef GRIT_SCORESPRITE_H
-#define GRIT_SCORESPRITE_H
+#ifndef GRIT_STARTSUB_H
+#define GRIT_STARTSUB_H
 
-#define scoreSpriteTilesLen 4096
-extern const unsigned int scoreSpriteTiles[1024];
+#define startSubTilesLen 4096
+extern const unsigned int startSubTiles[1024];
 
-#define scoreSpritePalLen 512
-extern const unsigned short scoreSpritePal[256];
+#define startSubPalLen 512
+extern const unsigned short startSubPal[256];
 
-#endif // GRIT_SCORESPRITE_H
+#endif // GRIT_STARTSUB_H
 
-//}}BLOCK(scoreSprite)
+//}}BLOCK(startSub)
