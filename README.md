@@ -29,6 +29,6 @@ or build it by running the "make" command in this directory (devkitPro needed)
 
 - bottom screen
 
-  * Added score and floor to bottom screen
+  * Added score and floor-colored background to bottom screen
 
     * Oddly, score only works when creating an unused memory pointer for sprites (spriteScoreMem in line 82)
