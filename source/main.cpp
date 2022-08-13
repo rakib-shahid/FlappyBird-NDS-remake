@@ -4,7 +4,7 @@
 #include <cstdlib>
 #include <ctime>
 #include <maxmod9.h>
-#include "sprites.h"
+//#include "sprites.h"
 
 // sounds
 #include "soundbank.h"

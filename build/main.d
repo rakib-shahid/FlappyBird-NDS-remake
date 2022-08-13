@@ -61,7 +61,6 @@ main.o: C:/devkitPro/libnds/FlappyBird-NDS-remake/source/main.cpp \
  C:/devkitPro/libnds/include/nds/arm9/nand.h \
  C:/devkitPro/libnds/include/gl2d.h C:/devkitPro/libnds/include/maxmod9.h \
  C:/devkitPro/libnds/include/mm_types.h \
- C:/devkitPro/libnds/FlappyBird-NDS-remake/include/sprites.h \
  C:/devkitPro/libnds/FlappyBird-NDS-remake/build/soundbank.h \
  C:/devkitPro/libnds/FlappyBird-NDS-remake/build/soundbank_bin.h \
  C:/devkitPro/libnds/FlappyBird-NDS-remake/build/pipeTop.h \
@@ -138,7 +137,6 @@ C:/devkitPro/libnds/include/nds/arm9/nand.h:
 C:/devkitPro/libnds/include/gl2d.h:
 C:/devkitPro/libnds/include/maxmod9.h:
 C:/devkitPro/libnds/include/mm_types.h:
-C:/devkitPro/libnds/FlappyBird-NDS-remake/include/sprites.h:
 C:/devkitPro/libnds/FlappyBird-NDS-remake/build/soundbank.h:
 C:/devkitPro/libnds/FlappyBird-NDS-remake/build/soundbank_bin.h:
 C:/devkitPro/libnds/FlappyBird-NDS-remake/build/pipeTop.h:

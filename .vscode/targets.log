@@ -9,7 +9,7 @@ make: *** No rule to make target 'all'.  Stop.
 # There is NO WARRANTY, to the extent permitted by law.
  
 
-# Make data base, printed on Thu Aug 11 14:46:25 2022
+# Make data base, printed on Fri Aug 12 20:23:59 2022
 
 # Variables
 
@@ -32,10 +32,9 @@ AR := arm-none-eabi-gcc-ar
 # makefile (from 'Makefile', line 37)
 GAME_SUBTITLE1 := Rakib Shahid
 # environment
- 
 USERPROFILE = C:\Users\rakib
 # makefile (from 'Makefile', line 132)
-OFILES := soundbank.bin.o allNums.o bgLong.o bird.o birdDown.o birdSM.o birdUp.o bottom.o floor.o pipeTop.o ready.o scoreSprite.o startSub.o main.o sprites.o  
+OFILES := soundbank.bin.o allNums.o bgLong.o bird.o birdDown.o birdSM.o birdUp.o bottom.o floor.o pipeTop.o ready.o scoreSprite.o startSub.o main.o  
 # environment
 LOCALAPPDATA = C:\Users\rakib\AppData\Local
 # makefile (from 'Makefile', line 88)
@@ -49,6 +48,7 @@ CHOCOLATEYINSTALL = C:\ProgramData\chocolatey
 # environment
 SYSTEMROOT = C:\WINDOWS
 # makefile (from 'Makefile', line 63)
+ 
 LIBS := -lmm9 -lmm9 -lnds9
 # makefile (from '/opt/devkitpro/devkitARM/base_tools', line 43)
 SILENTMSG := @echo
@@ -63,9 +63,9 @@ MAKE_COMMAND := make
 # automatic
 @D = $(patsubst %/,%,$(dir $@))
 # environment
-CHROME_CRASHPAD_PIPE_NAME = \\.\pipe\crashpad_7024_RAUKTBLOYYWDQKFT
+CHROME_CRASHPAD_PIPE_NAME = \\.\pipe\crashpad_12140_PYLTMSNHAWPXCIBO
 # makefile (from 'Makefile', line 89)
-CPPFILES := main.cpp sprites.cpp
+CPPFILES := main.cpp
 # environment
 VBOXMANAGE = E:\Program Files\Oracle\VirtualBox
 # environment
@@ -131,7 +131,7 @@ ASFLAGS := -g -marm -mthumb-interwork -march=armv5te -mtune=arm946e-s
 # automatic
 @F = $(notdir $@)
 # environment
-VSCODE_PID = 7024
+VSCODE_PID = 12140
 # automatic
 ?D = $(patsubst %/,%,$(dir $?))
 # makefile (from '/opt/devkitpro/devkitARM/base_tools', line 28)
@@ -178,7 +178,6 @@ WINDIR = C:\WINDOWS
 BINFILES := soundbank.bin
 # environment
 MAKELEVEL := 0
- 
 # makefile (from 'Makefile', line 138)
 LIBPATHS := -L/opt/devkitpro/libnds/lib -L/opt/devkitpro/portlibs/nds/lib -L/opt/devkitpro/portlibs/armv5te/lib
 # default
@@ -198,6 +197,7 @@ PROMPT = $P$G
 # environment
 CHOCOLATEYLASTPATHUPDATE = 133012969627496356
 # makefile (from '/opt/devkitpro/devkitARM/base_tools', line 19)
+ 
 PREFIX := arm-none-eabi-
 # makefile (from 'Makefile', line 70)
 LIBDIRS := /opt/devkitpro/libnds /opt/devkitpro/portlibs/nds /opt/devkitpro/portlibs/armv5te
@@ -243,7 +243,6 @@ GAME_TITLE := Flappy Bird DS!
 ARCH := -marm -mthumb-interwork -march=armv5te -mtune=arm946e-s
 # makefile (from 'Makefile', line 91)
 PNGFILES := allNums.png bgLong.png bird.png birdDown.png birdSM.png birdUp.png bottom.png floor.png pipeTop.png ready.png scoreSprite.png startSub.png
- 
 # default
 MAKE_VERSION := 4.3
 # 'override' directive
@@ -283,6 +282,7 @@ COMMONPROGRAMFILES(X86) = C:\Program Files (x86)\Common Files
 # makefile (from '/opt/devkitpro/devkitARM/base_tools', line 13)
 DEVKITPATH = $(shell echo "$(DEVKITPRO)" | sed -e 's/^\([a-zA-Z]\):/\/\1/')
 # makefile (from '/opt/devkitpro/devkitARM/ds_rules', line 7)
+ 
 PORTLIBS := /opt/devkitpro/portlibs/nds /opt/devkitpro/portlibs/armv5te
 # environment
 ELECTRON_RUN_AS_NODE = 1
@@ -346,19 +346,18 @@ PROCESSOR_IDENTIFIER = AMD64 Family 23 Model 113 Stepping 0, AuthenticAMD
 # Directories
 
 # sounds (device 717601697, inode 3377699721014401): 8 files, no impossibilities.
-# /opt/devkitpro/libnds/FlappyBird-NDS-remake (device 717601697, inode 1688849860363422): 19 files, no impossibilities.
+# /opt/devkitpro/libnds/FlappyBird-NDS-remake (device 717601697, inode 1688849860363422): 18 files, no impossibilities.
 # /opt/devkitpro/libnds/FlappyBird-NDS-remake/gfx (device 717601697, inode 3096224744303389): 26 files, no impossibilities.
-# /opt/devkitpro/libnds/FlappyBird-NDS-remake/source (device 717601697, inode 2251799814171796): 4 files, no impossibilities.
-# . (device 717601697, inode 1688849860363422): 19 files, no impossibilities.
-# source (device 717601697, inode 2251799814171796): 4 files, no impossibilities.
+# /opt/devkitpro/libnds/FlappyBird-NDS-remake/source (device 717601697, inode 2251799814171796): 3 files, no impossibilities.
+# . (device 717601697, inode 1688849860363422): 18 files, no impossibilities.
+# source (device 717601697, inode 2251799814171796): 3 files, no impossibilities.
 # gfx (device 717601697, inode 3096224744303389): 26 files, no impossibilities.
 
-# 106 files, no impossibilities in 7 directories.
+# 102 files, no impossibilities in 7 directories.
 
 # Implicit Rules
 
 %.a:
- 
 #  recipe to execute (from '/opt/devkitpro/devkitARM/base_rules', line 12):
 	$(SILENTMSG) $(notdir $@)
 	@rm -f $@
@@ -432,6 +431,7 @@ PROCESSOR_IDENTIFIER = AMD64 Family 23 Model 113 Stepping 0, AuthenticAMD
 %.o: %.c
 #  recipe to execute (from '/opt/devkitpro/devkitARM/base_rules', line 84):
 	$(SILENTMSG) $(notdir $<)
+ 
 	$(SILENTCMD)$(CC) -MMD -MP -MF $(DEPSDIR)/$*.d $(CFLAGS) -c $< -o $@ $(ERROR_FILTER)
 
 %.o: %.m
@@ -555,12 +555,12 @@ build:
 # General ('VPATH' variable) search path:
 # /opt/devkitpro/libnds/FlappyBird-NDS-remake:/opt/devkitpro/libnds/FlappyBird-NDS-remake/source:/opt/devkitpro/libnds/FlappyBird-NDS-remake/gfx
 
-# strcache buffers: 1 (0) / strings = 91 / storage = 1069 B / avg = 11 B
-# current buf: size = 8162 B / used = 1069 B / count = 91 / avg = 11 B
+# strcache buffers: 1 (0) / strings = 89 / storage = 1049 B / avg = 11 B
+# current buf: size = 8162 B / used = 1049 B / count = 89 / avg = 11 B
 
-# strcache performance: lookups = 135 / hit rate = 32%
+# strcache performance: lookups = 133 / hit rate = 33%
 # hash-table stats:
-# Load=91/8192=1%, Rehash=0, Collisions=3/135=2%
-# Finished Make data base on Thu Aug 11 14:46:25 2022
+# Load=89/8192=1%, Rehash=0, Collisions=3/133=2%
+# Finished Make data base on Fri Aug 12 20:23:59 2022
 
  
