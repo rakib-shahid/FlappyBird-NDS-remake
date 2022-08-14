@@ -31,8 +31,10 @@ or build it by running the "make" command in this directory (devkitPro & libnds 
 
   * Added score and floor-colored background to bottom screen
 
-    * Oddly, score only works when creating an unused memory pointer for sprites (spriteScoreMem in line 82)
+    * Oddly, score sprites only works when creating an unused memory pointer for sprites (spriteScoreMem in line 82)
   
   * Add Score card and medals
+
+  * Add sprites for score >= 100
 
   * Add "Press start" sprite when dead
