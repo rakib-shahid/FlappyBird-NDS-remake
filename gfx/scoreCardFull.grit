@@ -1,0 +1,4 @@
+-m!
+
+# Set the bit depth to 8 (256 colors)
+-gB8

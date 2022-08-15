@@ -1,0 +1,1 @@
+medals.o: medals.s

@@ -1,0 +1,1 @@
+scoreCardFull.o: scoreCardFull.s

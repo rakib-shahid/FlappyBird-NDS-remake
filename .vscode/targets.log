@@ -9,13 +9,12 @@ make: *** No rule to make target 'all'.  Stop.
 # There is NO WARRANTY, to the extent permitted by law.
  
 
-# Make data base, printed on Sat Aug 13 23:48:17 2022
+# Make data base, printed on Mon Aug 15 15:29:38 2022
 
 # Variables
 
 # environment
 FPS_BROWSER_APP_PROFILE_STRING = Internet Explorer
- 
 # environment
 SYSTEMDRIVE = C:
 # makefile (from '/opt/devkitpro/devkitARM/base_rules', line 6)
@@ -63,7 +62,8 @@ MAKE_COMMAND := make
 # automatic
 @D = $(patsubst %/,%,$(dir $@))
 # environment
-CHROME_CRASHPAD_PIPE_NAME = \\.\pipe\crashpad_22004_HPCJKRPQHNPBBSHO
+CHROME_CRASHPAD_PIPE_NAME = \\.\pipe\crashpad_16664_QDNJXSJUTATJCBQB
+ 
 # makefile (from 'Makefile', line 89)
 CPPFILES := main.cpp
 # environment
@@ -131,7 +131,7 @@ ASFLAGS := -g -marm -mthumb-interwork -march=armv5te -mtune=arm946e-s
 # automatic
 @F = $(notdir $@)
 # environment
-VSCODE_PID = 22004
+VSCODE_PID = 16664
 # automatic
 ?D = $(patsubst %/,%,$(dir $?))
 # makefile (from '/opt/devkitpro/devkitARM/base_tools', line 28)
@@ -170,7 +170,6 @@ HOMEPATH = \Users\rakib
 MAKECMDGOALS := all
 # environment
 DRIVERDATA = C:\Windows\System32\Drivers\DriverData
- 
 # environment
 COMSPEC = C:\WINDOWS\system32\cmd.exe
 # environment
@@ -218,6 +217,7 @@ PROGRAMW6432 = C:\Program Files
 # environment
 DEVKITPRO = /opt/devkitpro
 # makefile (from 'Makefile', line 105)
+ 
 MODFILES := /opt/devkitpro/libnds/FlappyBird-NDS-remake/sounds/ding.wav /opt/devkitpro/libnds/FlappyBird-NDS-remake/sounds/flap.wav /opt/devkitpro/libnds/FlappyBird-NDS-remake/sounds/smack.wav /opt/devkitpro/libnds/FlappyBird-NDS-remake/sounds/smackWhooshQuick.wav /opt/devkitpro/libnds/FlappyBird-NDS-remake/sounds/smackWhooshSlow.wav /opt/devkitpro/libnds/FlappyBird-NDS-remake/sounds/whoosh.wav
 # makefile (from '/opt/devkitpro/devkitARM/base_tools', line 4)
 UNAME_S := MSYS_NT-10.0-22000
@@ -247,7 +247,6 @@ PNGFILES := allNums.png bgLong.png bird.png birdDown.png birdSM.png birdUp.png b
 MAKE_VERSION := 4.3
 # 'override' directive
 .SHELLSTATUS := 0
- 
 # makefile (from '/opt/devkitpro/devkitARM/base_tools', line 44)
 SILENTCMD := @
 # environment
@@ -332,18 +331,17 @@ SOURCES := source
 DATA := 
 # makefile (from 'Makefile', line 27)
 GRAPHICS := gfx
+ 
 # makefile (from 'Makefile', line 113)
 SOUNDBANK := soundbank.bin
 # environment
 PROCESSOR_IDENTIFIER = AMD64 Family 23 Model 113 Stepping 0, AuthenticAMD
 # variable set hash-table stats:
- 
 # Load=160/1024=16%, Rehash=0, Collisions=30/334=9%
 
 # Pattern-specific Variable Values
 
 # No pattern-specific variable values.
- 
 
 # Directories
 
@@ -440,6 +438,7 @@ PROCESSOR_IDENTIFIER = AMD64 Family 23 Model 113 Stepping 0, AuthenticAMD
 	$(SILENTMSG) $(notdir $<)
 	$(SILENTCMD)$(CC) -MMD -MP -MF $(DEPSDIR)/$*.d $(OBJCFLAGS) -c $< -o $@ $(ERROR_FILTER)
 
+ 
 %.o: %.s
 #  recipe to execute (from '/opt/devkitpro/devkitARM/base_rules', line 94):
 	$(SILENTMSG) $(notdir $<)
@@ -502,7 +501,6 @@ clean:
 	@rm -fr $(BUILD) $(TARGET).elf $(TARGET).nds $(SOUNDBANK)
 
 # Not a target:
- 
 /opt/devkitpro/devkitARM/base_rules:
 #  Implicit rule search has been done.
 #  Last modified 2020-07-27 22:27:14
@@ -563,6 +561,6 @@ build:
 # strcache performance: lookups = 133 / hit rate = 33%
 # hash-table stats:
 # Load=89/8192=1%, Rehash=0, Collisions=3/133=2%
-# Finished Make data base on Sat Aug 13 23:48:17 2022
+# Finished Make data base on Mon Aug 15 15:29:38 2022
 
  

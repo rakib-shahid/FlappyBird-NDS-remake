@@ -22,6 +22,8 @@
 #include "scoreSprite.h"
 #include "startSub.h"
 #include "allNums.h"
+#include "scoreCardFull.h"
+#include "medals.h"
 
 //  classes to keep track of variables
 class Pipe
@@ -55,7 +57,7 @@ int main()
     mmLoadEffect(SFX_SMACKWHOOSHSLOW);
     mmLoadEffect(SFX_WHOOSH);
 
-    //video and vram setup
+    // video and vram setup
     videoSetMode(MODE_5_3D);
     videoSetModeSub(MODE_5_2D);
     vramSetBankA(VRAM_A_TEXTURE);
@@ -64,7 +66,9 @@ int main()
     vramSetBankD(VRAM_D_SUB_SPRITE);
     vramSetBankI(VRAM_I_SUB_SPRITE);
     vramSetBankE(VRAM_E_TEX_PALETTE);
-
+    
+    vramSetBankF(VRAM_F_LCD);
+    
     // Sub Screen Solid color Background
     int bg3 = bgInit(3, BgType_Bmp8, BgSize_B8_256x256, 0, 0);
     dmaCopy(bottomBitmap, bgGetGfxPtr(bg3), 2);
@@ -75,6 +79,9 @@ int main()
     u16 *spriteScoreMem = oamAllocateGfx(&oamSub, SpriteSize_64x64, SpriteColorFormat_16Color);
     u16 *spriteNumMem = oamAllocateGfx(&oamSub, SpriteSize_32x32, SpriteColorFormat_256Color);
     u16 *spriteNum2Mem = oamAllocateGfx(&oamSub, SpriteSize_32x32, SpriteColorFormat_256Color);
+    u16 *spriteScoreCardMem = oamAllocateGfx(&oamSub, SpriteSize_64x64, SpriteColorFormat_256Color);
+    u16 *spriteScoreCard2Mem = oamAllocateGfx(&oamSub, SpriteSize_64x64, SpriteColorFormat_256Color);
+    u16 *spriteMedalMem = oamAllocateGfx(&oamSub, SpriteSize_32x32, SpriteColorFormat_256Color);
 
     // Top Screen Sprite GL2D setup
     glScreen2D();
@@ -87,103 +94,96 @@ int main()
     glImage pipeTop_images[1];
     glImage ready_images[1];
 
-    glLoadTileSet(bg_images,                                                                          
-                  512,                                                                                
-                  192,                                                                               
-                  512,                                                                                
-                  192,                                                                                
-                  GL_RGB256,                                                                          
-                  TEXTURE_SIZE_256,                                                                   
-                  TEXTURE_SIZE_256,                                                                   
-                  GL_TEXTURE_WRAP_S | GL_TEXTURE_WRAP_T | TEXGEN_OFF | GL_TEXTURE_COLOR0_TRANSPARENT, 
-                  256,                                                                                
-                  (u16 *)bgLongPal,                                                                   
-                  (u8 *)bgLongBitmap                                                                  
-    );
+    glLoadTileSet(bg_images,
+                  512,
+                  192,
+                  512,
+                  192,
+                  GL_RGB256,
+                  TEXTURE_SIZE_256,
+                  TEXTURE_SIZE_256,
+                  GL_TEXTURE_WRAP_S | GL_TEXTURE_WRAP_T | TEXGEN_OFF | GL_TEXTURE_COLOR0_TRANSPARENT,
+                  256,
+                  (u16 *)bgLongPal,
+                  (u8 *)bgLongBitmap);
 
-    glLoadTileSet(floor_images,                                                                      
-                  256,                                                                                
-                  192,                                                                                
-                  256,                                                                                
-                  192,                                                                               
-                  GL_RGB256,                                                                        
-                  TEXTURE_SIZE_256,                                                                   
-                  TEXTURE_SIZE_128,                                                                   
-                  GL_TEXTURE_WRAP_S | GL_TEXTURE_WRAP_T | TEXGEN_OFF | GL_TEXTURE_COLOR0_TRANSPARENT, 
-                  256,                                                                                
-                  (u16 *)floorPal,                                                                    
-                  (u8 *)floorBitmap                                                                   
-    );
+    glLoadTileSet(floor_images,
+                  256,
+                  192,
+                  256,
+                  192,
+                  GL_RGB256,
+                  TEXTURE_SIZE_256,
+                  TEXTURE_SIZE_128,
+                  GL_TEXTURE_WRAP_S | GL_TEXTURE_WRAP_T | TEXGEN_OFF | GL_TEXTURE_COLOR0_TRANSPARENT,
+                  256,
+                  (u16 *)floorPal,
+                  (u8 *)floorBitmap);
 
-    glLoadTileSet(bird_images,                                                                        
-                  256,                                                                                
-                  192,                                                                                
-                  256,                                                                                
-                  192,                                                                                
-                  GL_RGB256,                                                                          
-                  TEXTURE_SIZE_256,                                                                   
-                  TEXTURE_SIZE_128,                                                                   
-                  GL_TEXTURE_WRAP_S | GL_TEXTURE_WRAP_T | TEXGEN_OFF | GL_TEXTURE_COLOR0_TRANSPARENT, 
-                  256,                                                                                
-                  (u16 *)birdPal,                                                                     
-                  (u8 *)birdBitmap                                                                    
-    );
+    glLoadTileSet(bird_images,
+                  256,
+                  192,
+                  256,
+                  192,
+                  GL_RGB256,
+                  TEXTURE_SIZE_256,
+                  TEXTURE_SIZE_128,
+                  GL_TEXTURE_WRAP_S | GL_TEXTURE_WRAP_T | TEXGEN_OFF | GL_TEXTURE_COLOR0_TRANSPARENT,
+                  256,
+                  (u16 *)birdPal,
+                  (u8 *)birdBitmap);
 
-    glLoadTileSet(birdUp_images,                                                                      
-                  256,                                                                                
-                  192,                                                                                
-                  256,                                                                                
-                  192,                                                                                
-                  GL_RGB256,                                                                          
-                  TEXTURE_SIZE_256,                                                                   
-                  TEXTURE_SIZE_128,                                                                   
-                  GL_TEXTURE_WRAP_S | GL_TEXTURE_WRAP_T | TEXGEN_OFF | GL_TEXTURE_COLOR0_TRANSPARENT, 
-                  256,                                                                                
-                  (u16 *)birdUpPal,                                                                   
-                  (u8 *)birdUpBitmap                                                                  
-    ); 
+    glLoadTileSet(birdUp_images,
+                  256,
+                  192,
+                  256,
+                  192,
+                  GL_RGB256,
+                  TEXTURE_SIZE_256,
+                  TEXTURE_SIZE_128,
+                  GL_TEXTURE_WRAP_S | GL_TEXTURE_WRAP_T | TEXGEN_OFF | GL_TEXTURE_COLOR0_TRANSPARENT,
+                  256,
+                  (u16 *)birdUpPal,
+                  (u8 *)birdUpBitmap);
 
-    glLoadTileSet(birdDown_images,                                                                    
-                  256,                                                                                
-                  192,                                                                                
-                  256,                                                                                
-                  192,                                                                                
-                  GL_RGB256,                                                                          
-                  TEXTURE_SIZE_256,                                                                   
-                  TEXTURE_SIZE_128,                                                                   
-                  GL_TEXTURE_WRAP_S | GL_TEXTURE_WRAP_T | TEXGEN_OFF | GL_TEXTURE_COLOR0_TRANSPARENT, 
-                  256,                                                                                
-                  (u16 *)birdDownPal,                                                                 
-                  (u8 *)birdDownBitmap                                                                
-    );
+    glLoadTileSet(birdDown_images,
+                  256,
+                  192,
+                  256,
+                  192,
+                  GL_RGB256,
+                  TEXTURE_SIZE_256,
+                  TEXTURE_SIZE_128,
+                  GL_TEXTURE_WRAP_S | GL_TEXTURE_WRAP_T | TEXGEN_OFF | GL_TEXTURE_COLOR0_TRANSPARENT,
+                  256,
+                  (u16 *)birdDownPal,
+                  (u8 *)birdDownBitmap);
 
-    glLoadTileSet(pipeTop_images,                                                                     
-                  26,                                                                                 
-                  161,                                                                                
-                  256,                                                                                
-                  192,                                                                                
-                  GL_RGB256,                                                                          
-                  TEXTURE_SIZE_256,                                                                   
-                  TEXTURE_SIZE_256,                                                                   
-                  GL_TEXTURE_WRAP_S | GL_TEXTURE_WRAP_T | TEXGEN_OFF | GL_TEXTURE_COLOR0_TRANSPARENT, 
-                  256,                                                                                
-                  (u16 *)pipeTopPal,                                                                  
-                  (u8 *)pipeTopBitmap                                                                 
-    );
+    glLoadTileSet(pipeTop_images,
+                  26,
+                  161,
+                  256,
+                  192,
+                  GL_RGB256,
+                  TEXTURE_SIZE_256,
+                  TEXTURE_SIZE_256,
+                  GL_TEXTURE_WRAP_S | GL_TEXTURE_WRAP_T | TEXGEN_OFF | GL_TEXTURE_COLOR0_TRANSPARENT,
+                  256,
+                  (u16 *)pipeTopPal,
+                  (u8 *)pipeTopBitmap);
 
-    glLoadTileSet(ready_images,                                                                       
-                  256,                                                                                
-                  128,                                                                                
-                  256,                                                                                
-                  192,                                                                                
-                  GL_RGB256,                                                                          
-                  TEXTURE_SIZE_256,                                                                   
-                  TEXTURE_SIZE_128,                                                                   
-                  GL_TEXTURE_WRAP_S | GL_TEXTURE_WRAP_T | TEXGEN_OFF | GL_TEXTURE_COLOR0_TRANSPARENT, 
-                  256,                                                                                
-                  (u16 *)readyPal,                                                                    
-                  (u8 *)readyBitmap                                                                   
-    );
+    glLoadTileSet(ready_images,
+                  256,
+                  128,
+                  256,
+                  192,
+                  GL_RGB256,
+                  TEXTURE_SIZE_256,
+                  TEXTURE_SIZE_128,
+                  GL_TEXTURE_WRAP_S | GL_TEXTURE_WRAP_T | TEXGEN_OFF | GL_TEXTURE_COLOR0_TRANSPARENT,
+                  256,
+                  (u16 *)readyPal,
+                  (u8 *)readyBitmap);
 
     float yVel = 0;
     int scoreCounter = 0;
@@ -193,8 +193,14 @@ int main()
     int overCounter = 0;
     int startCounter = 0;
     int floatCounter = 0;
+    double scoreHeight = 30;
+    double scoreNumHeight = 50;
+    int scoreCardX = 128-64;
+    double scoreCardY = 193;
+    double scoreCardVel = 33;
+    int medalCounter = 0;
 
-    //setup bird and pipe x and y values
+    // setup bird and pipe x and y values
     srand(time(0));
     Bird bird = Bird{77, 96};
     Pipe pipe1 = Pipe{276, 50 + (rand() % (143 - 49))};
@@ -222,9 +228,12 @@ int main()
         if (started)
         {
             // "Score" text
-            dmaCopy(scoreSpritePal, SPRITE_PALETTE_SUB, 512);
+            dmaCopy(scoreSpritePal, &SPRITE_PALETTE_SUB[0], 512);
             dmaCopy(scoreSpriteTiles, spriteStartSubMem, 64 * 64);
-            oamSet(&oamSub, 0, 128 - 21, 30, 0, 0, SpriteSize_64x64, SpriteColorFormat_256Color, spriteStartSubMem, -1, false, false, false, false, false);
+            if (scoreHeight > -65)
+            {
+                oamSet(&oamSub, 0, 128 - 21, scoreHeight, 0, 0, SpriteSize_64x64, SpriteColorFormat_256Color, spriteStartSubMem, -1, false, false, false, false, false);
+            }
 
             // Sprites for when score < 10
             if (scoreCounter < 10)
@@ -233,7 +242,11 @@ int main()
                 u8 *scoreNum = (u8 *)allNumsTiles + scoreCounter * 32 * 32;
                 // copy to memory and display
                 dmaCopy(scoreNum, spriteNumMem, 32 * 32);
-                oamSet(&oamSub, 1, 128 - 16, 50, 0, 0, SpriteSize_32x32, SpriteColorFormat_256Color, spriteNumMem, -1, false, false, false, false, false);
+
+                if (scoreNumHeight > -65)
+                {
+                    oamSet(&oamSub, 1, 128 - 16, scoreNumHeight, 0, 0, SpriteSize_32x32, SpriteColorFormat_256Color, spriteNumMem, -1, false, false, false, false, false);
+                }
             }
             // Sprites for 10 < score < 100
             // not yet implemented 100 and greater bc 3 digits, if u get to 100 find something better to do
@@ -244,19 +257,30 @@ int main()
                 // ones digit
                 u8 *scoreNum2 = (u8 *)allNumsTiles + (scoreCounter % 10) * 32 * 32;
                 dmaCopy(scoreNum1, spriteNumMem, 32 * 32);
-                oamSet(&oamSub, 1, 128 - 21, 50, 0, 0, SpriteSize_32x32, SpriteColorFormat_256Color, spriteNumMem, -1, false, false, false, false, false);
+                if (scoreNumHeight > -65)
+                {
+                    oamSet(&oamSub, 1, 128 - 21, scoreNumHeight, 0, 0, SpriteSize_32x32, SpriteColorFormat_256Color, spriteNumMem, -1, false, false, false, false, false);
+                }
                 dmaCopy(scoreNum2, spriteNum2Mem, 32 * 32);
 
                 // slightly move the "1" sprite closer to tens digit since texture has gap for the number 1
-                if (scoreCounter % 10 == 1)
+                if (scoreNumHeight > -65)
                 {
-                    oamSet(&oamSub, 2, 128 - 10, 50, 0, 0, SpriteSize_32x32, SpriteColorFormat_256Color, spriteNum2Mem, -1, false, false, false, false, false);
-                }
-                else
-                {
-                    oamSet(&oamSub, 2, 128 - 7, 50, 0, 0, SpriteSize_32x32, SpriteColorFormat_256Color, spriteNum2Mem, -1, false, false, false, false, false);
+                    if (scoreCounter % 10 == 1)
+                    {
+                        oamSet(&oamSub, 2, 128 - 10, scoreNumHeight, 0, 0, SpriteSize_32x32, SpriteColorFormat_256Color, spriteNum2Mem, -1, false, false, false, false, false);
+                    }
+                    else
+                    {
+                        oamSet(&oamSub, 2, 128 - 7, scoreNumHeight, 0, 0, SpriteSize_32x32, SpriteColorFormat_256Color, spriteNum2Mem, -1, false, false, false, false, false);
+                    }
                 }
             }
+        }
+        if (over)
+        {
+            scoreNumHeight -= 3.5;
+            scoreHeight -= 3.5;
         }
         // flash "PRESS START" on sub screen if game not yet started
         if (!started)
@@ -267,7 +291,7 @@ int main()
             {
                 startCounter = 0;
             }
-            dmaCopy(startSubPal, SPRITE_PALETTE_SUB, 512);
+            dmaCopy(startSubPal, &SPRITE_PALETTE_SUB[0], 512);
             dmaCopy(startSubTiles, spriteStartSubMem, 64 * 64);
             if (startCounter < 40)
             {
@@ -401,7 +425,7 @@ int main()
             collided = true;
             over = true;
             smackSound = true;
-            //set high score if new high score
+            // set high score if new high score
             if (scoreCounter > highScore)
             {
                 highScore = scoreCounter;
@@ -427,13 +451,12 @@ int main()
         // move pipes towards bird if not yet collided
         if (!over && !collided && started)
         {
-                pipe1.pipeX -= 1;
-                pipe2.pipeX -= 1;
-                pipe3.pipeX -= 1;
-                pipe4.pipeX -= 1;
-                floorXPos -= 1;
-                floor2XPos -= 1;
-            
+            pipe1.pipeX -= 1;
+            pipe2.pipeX -= 1;
+            pipe3.pipeX -= 1;
+            pipe4.pipeX -= 1;
+            floorXPos -= 1;
+            floor2XPos -= 1;
         }
 
         // reset pipes once they move off screen
@@ -479,12 +502,7 @@ int main()
             }
         }
 
-        if (!over && started)
-        {
-            bird.yPos += yVel;
-            yVel += .125;
-        }
-        if (over && bird.yPos != 170)
+        if ((!over && started) || (over && bird.yPos != 170))
         {
             bird.yPos += yVel;
             yVel += .125;
@@ -500,6 +518,24 @@ int main()
             }
             bird.yPos = 170;
             over = true;
+        }
+
+        if (scoreNumHeight <= -64 && over && bird.yPos == 170)
+        {
+            // show the score card
+            dmaCopy(scoreCardFullPal,SPRITE_PALETTE_SUB,scoreCardFullPalLen);
+            vramSetBankF(VRAM_F_SPRITE_EXT_PALETTE);
+            dmaCopy((u8 *)scoreCardFullTiles + 0 * 64 * 64, spriteScoreCardMem, 64 * 64);
+            dmaCopy((u8 *)scoreCardFullTiles + 1 * 64 * 64, spriteScoreCard2Mem, 64 * 64);
+            if (scoreCardY > (192/2-64)){
+                if (scoreCardVel > 0){
+                    scoreCardY-= scoreCardVel;
+                    scoreCardVel *= .8;
+                }
+                
+            }
+            oamSet(&oamSub, 3, scoreCardX, scoreCardY, 0, 0, SpriteSize_64x64, SpriteColorFormat_256Color, spriteScoreCardMem, -1, false, false, false, false, false);
+            oamSet(&oamSub, 4, scoreCardX+64, scoreCardY, 0, 0, SpriteSize_64x64, SpriteColorFormat_256Color, spriteScoreCard2Mem, -1, false, false, false, false, false);
         }
 
         /*
@@ -534,6 +570,8 @@ int main()
             oamSet(&oamSub, 0, 128 - 21, 30, 0, 0, SpriteSize_64x64, SpriteColorFormat_256Color, &SPRITE_GFX_SUB[0], -1, false, true, false, false, false);
             oamSet(&oamSub, 1, 128 - 21, 30, 0, 0, SpriteSize_32x32, SpriteColorFormat_256Color, &SPRITE_GFX_SUB[0 + scoreSpriteTilesLen], -1, false, true, false, false, false);
             oamSet(&oamSub, 2, 128 - 21, 30, 0, 0, SpriteSize_32x32, SpriteColorFormat_256Color, &SPRITE_GFX_SUB[0 + scoreSpriteTilesLen + allNumsTilesLen], -1, false, true, false, false, false);
+            oamSet(&oamSub, 3, scoreCardX, scoreCardY, 0, 0, SpriteSize_64x64, SpriteColorFormat_256Color, spriteScoreCardMem, -1, false, false, false, false, false);
+            oamSet(&oamSub, 4, scoreCardX+64, scoreCardY, 0, 0, SpriteSize_64x64, SpriteColorFormat_256Color, spriteScoreCard2Mem, -1, false, false, false, false, false);
             bird.yPos = 96;
             yVel = 0;
             pipe1.pipeX = 276;
@@ -548,6 +586,8 @@ int main()
             floor2XPos = 252;
             overCounter = 0;
             scoreCounter = 0;
+            scoreHeight = 30;
+            scoreNumHeight = 50;
             over = false;
             collided = false;
             floorSound = true;
