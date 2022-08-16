@@ -22,6 +22,7 @@
 #include "scoreSprite.h"
 #include "startSub.h"
 #include "allNums.h"
+#include "miniNums.h"
 #include "scoreCardFull.h"
 #include "medals.h"
 
@@ -63,17 +64,16 @@ int main()
     vramSetBankA(VRAM_A_TEXTURE);
     vramSetBankB(VRAM_B_TEXTURE);
     vramSetBankC(VRAM_C_TEXTURE);
-    //vramSetBankD(VRAM_D_SUB_SPRITE);
+    // vramSetBankD(VRAM_D_SUB_SPRITE);
     vramSetBankI(VRAM_I_LCD);
     dmaCopy(scoreSpritePal, &VRAM_I_EXT_SPR_PALETTE[0][0], 512);
-    dmaCopy(scoreCardFullPal,&VRAM_I_EXT_SPR_PALETTE[1][0],512);
-    dmaCopy(scoreCardFullPal,&VRAM_I_EXT_SPR_PALETTE[2][0],512);
-    dmaCopy(medalsPal,&VRAM_I_EXT_SPR_PALETTE[3][0],512);
+    dmaCopy(scoreCardFullPal, &VRAM_I_EXT_SPR_PALETTE[1][0], 512);
+    dmaCopy(scoreCardFullPal, &VRAM_I_EXT_SPR_PALETTE[2][0], 512);
+    dmaCopy(medalsPal, &VRAM_I_EXT_SPR_PALETTE[3][0], 512);
+    dmaCopy(miniNumsPal, &VRAM_I_EXT_SPR_PALETTE[4][0], 512);
     vramSetBankI(VRAM_I_SUB_SPRITE_EXT_PALETTE);
     vramSetBankE(VRAM_E_TEX_PALETTE);
-    
-    
-    
+
     // Sub Screen Solid color Background
     int bg3 = bgInit(3, BgType_Bmp8, BgSize_B8_256x256, 0, 0);
     dmaCopy(bottomBitmap, bgGetGfxPtr(bg3), 2);
@@ -87,6 +87,10 @@ int main()
     u16 *spriteScoreCardMem = oamAllocateGfx(&oamSub, SpriteSize_64x64, SpriteColorFormat_256Color);
     u16 *spriteScoreCard2Mem = oamAllocateGfx(&oamSub, SpriteSize_64x64, SpriteColorFormat_256Color);
     u16 *spriteMedalMem = oamAllocateGfx(&oamSub, SpriteSize_32x32, SpriteColorFormat_256Color);
+    u16 *spriteMiniNumMem = oamAllocateGfx(&oamSub, SpriteSize_16x16, SpriteColorFormat_256Color);
+    u16 *spriteMiniNum2Mem = oamAllocateGfx(&oamSub, SpriteSize_16x16, SpriteColorFormat_256Color);
+    u16 *spriteBestNumMem = oamAllocateGfx(&oamSub, SpriteSize_16x16, SpriteColorFormat_256Color);
+    u16 *spriteBestNum2Mem = oamAllocateGfx(&oamSub, SpriteSize_16x16, SpriteColorFormat_256Color);
 
     // Top Screen Sprite GL2D setup
     glScreen2D();
@@ -205,6 +209,7 @@ int main()
     double scoreCardVel = 33;
     int medalCounter = 0;
     int medalTimer = 0;
+    double startHeight = 193;
 
     // setup bird and pipe x and y values
     srand(time(0));
@@ -234,7 +239,7 @@ int main()
         if (started)
         {
             // "Score" text
-            //dmaCopy(scoreSpritePal, SPRITE_PALETTE_SUB, 512);
+            // dmaCopy(scoreSpritePal, SPRITE_PALETTE_SUB, 512);
             dmaCopy(scoreSpriteTiles, spriteStartSubMem, 64 * 64);
             if (scoreHeight > -65)
             {
@@ -297,7 +302,7 @@ int main()
             {
                 startCounter = 0;
             }
-            //dmaCopy(startSubPal, SPRITE_PALETTE_SUB, 512);
+            // dmaCopy(startSubPal, SPRITE_PALETTE_SUB, 512);
             dmaCopy(startSubTiles, spriteStartSubMem, 64 * 64);
             if (startCounter < 40)
             {
@@ -431,11 +436,21 @@ int main()
             collided = true;
             over = true;
             smackSound = true;
-            // set high score if new high score
-            if (scoreCounter > highScore)
-            {
-                highScore = scoreCounter;
-            }
+        }
+
+        // set high score if new high score
+        if (scoreCounter > highScore)
+        {
+            highScore = scoreCounter;
+        }
+
+        u8 *bestScoreNum1 = (u8 *)miniNumsTiles + (highScore / 10) * 16 * 16;
+        u8 *bestScoreNum2 = (u8 *)miniNumsTiles + (highScore % 10) * 16 * 16;
+        // u8 *miniScoreNum = (u8 *)miniNumsTiles + (scoreCounter % 10) * 16 * 16;
+        dmaCopy(bestScoreNum2, spriteBestNumMem, 16 * 16);
+        if (highScore >= 10)
+        {
+            dmaCopy(bestScoreNum1, spriteBestNum2Mem, 16 * 16);
         }
 
         // play smack sound once when dead
@@ -529,38 +544,77 @@ int main()
         if (scoreNumHeight <= -64 && over && bird.yPos == 170)
         {
             // show the score card
-            //dmaCopy(scoreCardFullPal,SPRITE_PALETTE_SUB,scoreCardFullPalLen);
-            //vramSetBankF(VRAM_F_SPRITE_EXT_PALETTE);
+            // dmaCopy(scoreCardFullPal,SPRITE_PALETTE_SUB,scoreCardFullPalLen);
+            // vramSetBankF(VRAM_F_SPRITE_EXT_PALETTE);
             dmaCopy((u8 *)scoreCardFullTiles + 0 * 64 * 64, spriteScoreCardMem, 64 * 64);
             dmaCopy((u8 *)scoreCardFullTiles + 1 * 64 * 64, spriteScoreCard2Mem, 64 * 64);
-            if (scoreCardY > (192/2-64)){
-                if (scoreCardVel > 0){
-                    scoreCardY-= scoreCardVel;
+            if (scoreCardY > (192 / 2 - 64))
+            {
+                if (scoreCardVel > 0)
+                {
+                    scoreCardY -= scoreCardVel;
                     scoreCardVel *= .8;
                 }
-                
             }
             oamSet(&oamSub, 9, scoreCardX, scoreCardY, 0, 2, SpriteSize_64x64, SpriteColorFormat_256Color, spriteScoreCardMem, -1, false, false, false, false, false);
-            oamSet(&oamSub, 10, scoreCardX+64, scoreCardY, 0, 2, SpriteSize_64x64, SpriteColorFormat_256Color, spriteScoreCard2Mem, -1, false, false, false, false, false);
-            if (scoreCounter >= 40){
+            oamSet(&oamSub, 10, scoreCardX + 64, scoreCardY, 0, 2, SpriteSize_64x64, SpriteColorFormat_256Color, spriteScoreCard2Mem, -1, false, false, false, false, false);
+            if (scoreCounter >= 40)
+            {
                 medalCounter = 4;
             }
-            else if (scoreCounter >= 30){
+            else if (scoreCounter >= 30)
+            {
                 medalCounter = 3;
             }
-            else if (scoreCounter >= 20){
+            else if (scoreCounter >= 20)
+            {
                 medalCounter = 2;
             }
-            else if (scoreCounter >= 10){
+            else if (scoreCounter >= 10)
+            {
                 medalCounter = 1;
             }
-            if (medalCounter >= 1){
-                if (medalTimer >= 60){
-                    dmaCopy((u8 *)medalsTiles + (medalCounter-1) * 32*32, spriteMedalMem, 32 * 32);
-                    oamSet(&oamSub, 0, scoreCardX+15, scoreCardY+20, 0, 3, SpriteSize_32x32, SpriteColorFormat_256Color, spriteMedalMem, -1, false, false, false, false, false);
+            if (medalCounter >= 1)
+            {
+                if (medalTimer >= 60)
+                {
+                    dmaCopy((u8 *)medalsTiles + (medalCounter - 1) * 32 * 32, spriteMedalMem, 32 * 32);
+                    oamSet(&oamSub, 0, scoreCardX + 15, scoreCardY + 20, 0, 3, SpriteSize_32x32, SpriteColorFormat_256Color, spriteMedalMem, -1, false, false, false, false, false);
                 }
-                
+                if (keysDown() & KEY_TOUCH)
+                {
+                    medalTimer = 60;
+                }
             }
+
+            if (scoreCardY <= (192 / 2 - 64))
+            {
+                u8 *miniScoreNum1 = (u8 *)miniNumsTiles + (scoreCounter / 10) * 16 * 16;
+                u8 *miniScoreNum2 = (u8 *)miniNumsTiles + (scoreCounter % 10) * 16 * 16;
+                // u8 *miniScoreNum = (u8 *)miniNumsTiles + (scoreCounter % 10) * 16 * 16;
+                dmaCopy(miniScoreNum2, spriteMiniNumMem, 16 * 16);
+                oamSet(&oamSub, 3, 162, 48, 0, 4, SpriteSize_16x16, SpriteColorFormat_256Color, spriteMiniNumMem, -1, false, false, false, false, false);
+                if (scoreCounter >= 10)
+                {
+                    dmaCopy(miniScoreNum1, spriteMiniNum2Mem, 16 * 16);
+                    oamSet(&oamSub, 2, 154, 48, 0, 4, SpriteSize_16x16, SpriteColorFormat_256Color, spriteMiniNum2Mem, -1, false, false, false, false, false);
+                }
+
+                oamSet(&oamSub, 6, 162, 68, 0, 4, SpriteSize_16x16, SpriteColorFormat_256Color, spriteBestNumMem, -1, false, false, false, false, false);
+                if (highScore >= 10)
+                {
+                    oamSet(&oamSub, 7, 154, 68, 0, 4, SpriteSize_16x16, SpriteColorFormat_256Color, spriteBestNum2Mem, -1, false, false, false, false, false);
+                }
+                scoreCardVel = 8;
+                dmaCopy(startSubTiles, spriteStartSubMem, 64 * 64);
+                oamSet(&oamSub, 4, 128 - 32, startHeight, 0, 0, SpriteSize_64x64, SpriteColorFormat_256Color, spriteStartSubMem, -1, false, false, false, false, false);
+                if (startHeight >= 90)
+                {
+                    startHeight -= scoreCardVel;
+                    scoreCardVel *= 0.5;
+                }
+            }
+
             medalTimer++;
         }
 
@@ -591,14 +645,18 @@ int main()
 
         // Restart game
         int currentKeysDown = keysDown();
-        if ((KEY_START & currentKeysDown) && over && (medalCounter >= 1&&(medalTimer >=60)))
+        if ((KEY_START & currentKeysDown) && over)
         {
             oamSet(&oamSub, 4, 128 - 21, 30, 0, 0, SpriteSize_64x64, SpriteColorFormat_256Color, spriteStartSubMem, -1, false, true, false, false, false);
             oamSet(&oamSub, 1, 128 - 21, 30, 0, 0, SpriteSize_32x32, SpriteColorFormat_256Color, spriteNumMem, -1, false, true, false, false, false);
             oamSet(&oamSub, 2, 128 - 21, 30, 0, 0, SpriteSize_32x32, SpriteColorFormat_256Color, spriteNum2Mem, -1, false, true, false, false, false);
             oamSet(&oamSub, 9, scoreCardX, scoreCardY, 0, 0, SpriteSize_64x64, SpriteColorFormat_256Color, spriteScoreCardMem, -1, false, true, false, false, false);
-            oamSet(&oamSub, 10, scoreCardX+64, scoreCardY, 0, 0, SpriteSize_64x64, SpriteColorFormat_256Color, spriteScoreCard2Mem, -1, false, true, false, false, false);
-            oamSet(&oamSub, 0, scoreCardX+15, scoreCardY+20, 0, 0, SpriteSize_32x32, SpriteColorFormat_256Color, spriteMedalMem, -1, false, true, false, false, false);
+            oamSet(&oamSub, 10, scoreCardX + 64, scoreCardY, 0, 0, SpriteSize_64x64, SpriteColorFormat_256Color, spriteScoreCard2Mem, -1, false, true, false, false, false);
+            oamSet(&oamSub, 0, scoreCardX + 15, scoreCardY + 20, 0, 0, SpriteSize_32x32, SpriteColorFormat_256Color, spriteMedalMem, -1, false, true, false, false, false);
+            oamSet(&oamSub, 3, 162, 48, 0, 4, SpriteSize_16x16, SpriteColorFormat_256Color, spriteMiniNumMem, -1, false, true, false, false, false);
+            oamSet(&oamSub, 5, 154, 48, 0, 4, SpriteSize_16x16, SpriteColorFormat_256Color, spriteMiniNum2Mem, -1, false, true, false, false, false);
+            oamSet(&oamSub, 6, 162, 68, 0, 4, SpriteSize_16x16, SpriteColorFormat_256Color, spriteMiniNumMem, -1, false, true, false, false, false);
+            oamSet(&oamSub, 7, 154, 68, 0, 4, SpriteSize_16x16, SpriteColorFormat_256Color, spriteMiniNum2Mem, -1, false, true, false, false, false);
             bird.yPos = 96;
             yVel = 0;
             pipe1.pipeX = 276;
@@ -617,6 +675,7 @@ int main()
             scoreNumHeight = 50;
             scoreCardX = 64;
             scoreCardY = 193;
+            startHeight = 193;
             scoreCardVel = 33;
             medalCounter = 0;
             medalTimer = 0;
@@ -624,7 +683,6 @@ int main()
             collided = false;
             floorSound = true;
             started = false;
-            
         }
         // glEnd2D();
         // glEnd();

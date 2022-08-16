@@ -1,0 +1,1 @@
+miniNums.o: miniNums.s
