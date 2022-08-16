@@ -4,11 +4,12 @@
 //======================================================================
 //
 //	medals, 32x128@8, 
+//	Transparent color : 00,00,00
 //	+ palette 256 entries, not compressed
-//	+ 64 tiles not compressed
+//	+ 64 tiles Metatiled by 4x4 not compressed
 //	Total size: 512 + 4096 = 4608
 //
-//	Time-stamp: 2022-08-15, 16:34:49
+//	Time-stamp: 2022-08-15, 18:43:00
 //	Exported by Cearn's GBA Image Transmogrifier, v0.8.17
 //	( http://www.coranac.com/projects/#grit )
 //

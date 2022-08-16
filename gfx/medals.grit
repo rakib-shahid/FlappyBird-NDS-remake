@@ -1,4 +1,6 @@
 -m!
-
-# Set the bit depth to 8 (256 colors)
+-gT000000
 -gB8
+#metatile
+-Mh4
+-Mw4

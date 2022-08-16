@@ -5,10 +5,10 @@
 @
 @	scoreSprite, 64x64@8, 
 @	+ palette 256 entries, not compressed
-@	+ 64 tiles not compressed
+@	+ 64 tiles Metatiled by 8x8 not compressed
 @	Total size: 512 + 4096 = 4608
 @
-@	Time-stamp: 2022-08-10, 18:18:30
+@	Time-stamp: 2022-08-15, 19:21:27
 @	Exported by Cearn's GBA Image Transmogrifier, v0.8.17
 @	( http://www.coranac.com/projects/#grit )
 @
