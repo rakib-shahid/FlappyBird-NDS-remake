@@ -1,1 +1,0 @@
-allNums.o: allNums.s

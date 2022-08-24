@@ -1,1 +1,0 @@
-scoreSprite.o: scoreSprite.s

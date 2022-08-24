@@ -5,7 +5,7 @@ An in progress Nintendo DS remake of Flappy Bird
 
 Run FlappyBird-NDS-remake.nds in an emulator or on a DS
 
-or build it by running the "make" command in this directory (devkitPro + libnds needed, delete build folder first)
+or build it by running the "make" command in this directory (devkitPro + libnds needed)
 
 ## Progress Pictures
 <img src="/pics/flappybirdRemakeGif.gif" width="216" height="340">

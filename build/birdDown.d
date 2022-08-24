@@ -1,1 +1,0 @@
-birdDown.o: birdDown.s

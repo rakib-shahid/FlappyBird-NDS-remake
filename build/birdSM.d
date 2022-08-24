@@ -1,1 +1,0 @@
-birdSM.o: birdSM.s

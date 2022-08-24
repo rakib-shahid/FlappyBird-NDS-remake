@@ -1,9 +1,0 @@
-#define SFX_DING	0
-#define SFX_FLAP	1
-#define SFX_SMACK	2
-#define SFX_SMACKWHOOSHQUICK	3
-#define SFX_SMACKWHOOSHSLOW	4
-#define SFX_WHOOSH	5
-#define MSL_NSONGS	0
-#define MSL_NSAMPS	6
-#define MSL_BANKSIZE	6
