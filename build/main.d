@@ -76,7 +76,8 @@ main.o: C:/devkitPro/libnds/FlappyBird-NDS-remake/source/main.cpp \
  C:/devkitPro/libnds/FlappyBird-NDS-remake/build/allNums.h \
  C:/devkitPro/libnds/FlappyBird-NDS-remake/build/miniNums.h \
  C:/devkitPro/libnds/FlappyBird-NDS-remake/build/scoreCardFull.h \
- C:/devkitPro/libnds/FlappyBird-NDS-remake/build/medals.h
+ C:/devkitPro/libnds/FlappyBird-NDS-remake/build/medals.h \
+ C:/devkitPro/libnds/FlappyBird-NDS-remake/build/shine.h
 C:/devkitPro/libnds/include/nds.h:
 C:/devkitPro/libnds/include/nds/libversion.h:
 C:/devkitPro/libnds/include/nds/ndstypes.h:
@@ -156,3 +157,4 @@ C:/devkitPro/libnds/FlappyBird-NDS-remake/build/allNums.h:
 C:/devkitPro/libnds/FlappyBird-NDS-remake/build/miniNums.h:
 C:/devkitPro/libnds/FlappyBird-NDS-remake/build/scoreCardFull.h:
 C:/devkitPro/libnds/FlappyBird-NDS-remake/build/medals.h:
+C:/devkitPro/libnds/FlappyBird-NDS-remake/build/shine.h:

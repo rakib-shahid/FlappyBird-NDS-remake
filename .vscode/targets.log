@@ -9,7 +9,7 @@ make: *** No rule to make target 'all'.  Stop.
 # There is NO WARRANTY, to the extent permitted by law.
  
 
-# Make data base, printed on Mon Aug 15 18:07:06 2022
+# Make data base, printed on Wed Aug 24 13:49:11 2022
 
 # Variables
 
@@ -34,7 +34,7 @@ GAME_SUBTITLE1 := Rakib Shahid
 # environment
 USERPROFILE = C:\Users\rakib
 # makefile (from 'Makefile', line 132)
-OFILES := soundbank.bin.o allNums.o bgLong.o bird.o birdDown.o birdSM.o birdUp.o bottom.o floor.o medals.o pipeTop.o ready.o scoreCardFull.o scoreSprite.o startSub.o main.o  
+OFILES := soundbank.bin.o allNums.o bgLong.o bird.o birdDown.o birdSM.o birdUp.o bottom.o floor.o medals.o miniNums.o pipeTop.o ready.o scoreCardFull.o scoreSprite.o startSub.o main.o  
 # environment
 LOCALAPPDATA = C:\Users\rakib\AppData\Local
 # makefile (from 'Makefile', line 88)
@@ -52,6 +52,7 @@ LIBS := -lmm9 -lmm9 -lnds9
 # makefile (from '/opt/devkitpro/devkitARM/base_tools', line 43)
 SILENTMSG := @echo
 # makefile (from 'Makefile', line 96)
+ 
 AUDIOFILES := /opt/devkitpro/libnds/FlappyBird-NDS-remake/sounds/ding.wav /opt/devkitpro/libnds/FlappyBird-NDS-remake/sounds/flap.wav /opt/devkitpro/libnds/FlappyBird-NDS-remake/sounds/smack.wav /opt/devkitpro/libnds/FlappyBird-NDS-remake/sounds/smackWhooshQuick.wav /opt/devkitpro/libnds/FlappyBird-NDS-remake/sounds/smackWhooshSlow.wav /opt/devkitpro/libnds/FlappyBird-NDS-remake/sounds/whoosh.wav
 # environment
 PROCESSOR_LEVEL = 23
@@ -62,7 +63,7 @@ MAKE_COMMAND := make
 # automatic
 @D = $(patsubst %/,%,$(dir $@))
 # environment
-CHROME_CRASHPAD_PIPE_NAME = \\.\pipe\crashpad_25104_AGRKNNIWUADDLIYY
+CHROME_CRASHPAD_PIPE_NAME = \\.\pipe\crashpad_8316_GLOYMDYXGJHDOOBG
 # makefile (from 'Makefile', line 89)
 CPPFILES := main.cpp
 # environment
@@ -130,7 +131,7 @@ ASFLAGS := -g -marm -mthumb-interwork -march=armv5te -mtune=arm946e-s
 # automatic
 @F = $(notdir $@)
 # environment
-VSCODE_PID = 25104
+VSCODE_PID = 8316
 # automatic
 ?D = $(patsubst %/,%,$(dir $?))
 # makefile (from '/opt/devkitpro/devkitARM/base_tools', line 28)
@@ -151,7 +152,6 @@ GAME_ICON := /opt/devkitpro/libnds/FlappyBird-NDS-remake/icon.bmp
 VSCODE_NLS_CONFIG = {"locale":"en-us","availableLanguages":{},"_languagePackSupport":true}
 # makefile (from 'Makefile', line 135)
 INCLUDE := -iquote /opt/devkitpro/libnds/FlappyBird-NDS-remake/include -I/opt/devkitpro/libnds/include -I/opt/devkitpro/portlibs/nds/include -I/opt/devkitpro/portlibs/armv5te/include -I/opt/devkitpro/libnds/FlappyBird-NDS-remake/build
- 
 # environment
 JD2_HOME = C:\Users\rakib\AppData\Local\JDownloader 2.0
 # environment
@@ -224,6 +224,7 @@ UNAME_S := MSYS_NT-10.0-22000
 PATHEXT = .COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC;.PY;.PYW
 # automatic
 +F = $(notdir $+)
+ 
 # environment
 ORIGINAL_XDG_CURRENT_DESKTOP = undefined
 # environment
@@ -238,11 +239,10 @@ GAME_SUBTITLE2 := https://github.com/rakib-shahid
 GAME_TITLE := Flappy Bird DS!
 # makefile
 .DEFAULT_GOAL := build
- 
 # makefile (from 'Makefile', line 44)
 ARCH := -marm -mthumb-interwork -march=armv5te -mtune=arm946e-s
 # makefile (from 'Makefile', line 91)
-PNGFILES := allNums.png bgLong.png bird.png birdDown.png birdSM.png birdUp.png bottom.png floor.png medals.png pipeTop.png ready.png scoreCardFull.png scoreSprite.png startSub.png
+PNGFILES := allNums.png bgLong.png bird.png birdDown.png birdSM.png birdUp.png bottom.png floor.png medals.png miniNums.png pipeTop.png ready.png scoreCardFull.png scoreSprite.png startSub.png
 # default
 MAKE_VERSION := 4.3
 # 'override' directive
@@ -336,6 +336,7 @@ SOUNDBANK := soundbank.bin
 # environment
 PROCESSOR_IDENTIFIER = AMD64 Family 23 Model 113 Stepping 0, AuthenticAMD
 # variable set hash-table stats:
+ 
 # Load=160/1024=16%, Rehash=0, Collisions=30/334=9%
 
 # Pattern-specific Variable Values
@@ -345,15 +346,15 @@ PROCESSOR_IDENTIFIER = AMD64 Family 23 Model 113 Stepping 0, AuthenticAMD
 # Directories
 
 # sounds (device 717601697, inode 3377699721014401): 8 files, no impossibilities.
+ 
 # /opt/devkitpro/libnds/FlappyBird-NDS-remake (device 717601697, inode 1688849860363422): 18 files, no impossibilities.
-# /opt/devkitpro/libnds/FlappyBird-NDS-remake/gfx (device 717601697, inode 3096224744303389): 30 files, no impossibilities.
+# /opt/devkitpro/libnds/FlappyBird-NDS-remake/gfx (device 717601697, inode 3096224744303389): 32 files, no impossibilities.
 # /opt/devkitpro/libnds/FlappyBird-NDS-remake/source (device 717601697, inode 2251799814171796): 3 files, no impossibilities.
 # . (device 717601697, inode 1688849860363422): 18 files, no impossibilities.
 # source (device 717601697, inode 2251799814171796): 3 files, no impossibilities.
-# gfx (device 717601697, inode 3096224744303389): 30 files, no impossibilities.
- 
+# gfx (device 717601697, inode 3096224744303389): 32 files, no impossibilities.
 
-# 110 files, no impossibilities in 7 directories.
+# 114 files, no impossibilities in 7 directories.
 
 # Implicit Rules
 
@@ -533,7 +534,6 @@ build:
 #  File has not been updated.
 #  recipe to execute (from 'Makefile', line 154):
 	@[ -d $@ ] || mkdir -p $@
- 
 	@make --no-print-directory -C $(BUILD) -f $(CURDIR)/Makefile
 
 .SUFFIXES:
@@ -555,12 +555,13 @@ build:
 # General ('VPATH' variable) search path:
 # /opt/devkitpro/libnds/FlappyBird-NDS-remake:/opt/devkitpro/libnds/FlappyBird-NDS-remake/source:/opt/devkitpro/libnds/FlappyBird-NDS-remake/gfx
 
-# strcache buffers: 1 (0) / strings = 93 / storage = 1109 B / avg = 11 B
-# current buf: size = 8162 B / used = 1109 B / count = 93 / avg = 11 B
+# strcache buffers: 1 (0) / strings = 95 / storage = 1136 B / avg = 11 B
+# current buf: size = 8162 B / used = 1136 B / count = 95 / avg = 11 B
+ 
 
-# strcache performance: lookups = 137 / hit rate = 32%
+# strcache performance: lookups = 139 / hit rate = 31%
 # hash-table stats:
-# Load=93/8192=1%, Rehash=0, Collisions=4/137=3%
-# Finished Make data base on Mon Aug 15 18:07:06 2022
+# Load=95/8192=1%, Rehash=0, Collisions=4/139=3%
+# Finished Make data base on Wed Aug 24 13:49:11 2022
 
  

@@ -1,0 +1,1 @@
+shine.o: shine.s

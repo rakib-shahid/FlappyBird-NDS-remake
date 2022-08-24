@@ -10,7 +10,7 @@
 #include "soundbank.h"
 #include "soundbank_bin.h"
 
-// textures
+// sprites/images
 #include "pipeTop.h"
 #include "bird.h"
 #include "birdUp.h"
@@ -25,6 +25,7 @@
 #include "miniNums.h"
 #include "scoreCardFull.h"
 #include "medals.h"
+#include "shine.h"
 
 //  classes to keep track of variables
 class Pipe
@@ -47,6 +48,7 @@ public:
 int main()
 {
     consoleDemoInit();
+    touchPosition touch;
 
     // Initialize Maxmod sound engine
     mmInitDefaultMem((mm_addr)soundbank_bin);
@@ -71,6 +73,7 @@ int main()
     dmaCopy(scoreCardFullPal, &VRAM_I_EXT_SPR_PALETTE[2][0], 512);
     dmaCopy(medalsPal, &VRAM_I_EXT_SPR_PALETTE[3][0], 512);
     dmaCopy(miniNumsPal, &VRAM_I_EXT_SPR_PALETTE[4][0], 512);
+    dmaCopy(shinePal, &VRAM_I_EXT_SPR_PALETTE[5][0], 512);
     vramSetBankI(VRAM_I_SUB_SPRITE_EXT_PALETTE);
     vramSetBankE(VRAM_E_TEX_PALETTE);
 
@@ -81,7 +84,10 @@ int main()
     // Sub Screen sprite setup
     oamInit(&oamSub, SpriteMapping_1D_128, true);
     u16 *spriteStartSubMem = oamAllocateGfx(&oamSub, SpriteSize_64x64, SpriteColorFormat_16Color);
+
+    //score sprites refuse to show properly unless this variable is declared even though it remains unused
     u16 *spriteScoreMem = oamAllocateGfx(&oamSub, SpriteSize_64x64, SpriteColorFormat_16Color);
+
     u16 *spriteNumMem = oamAllocateGfx(&oamSub, SpriteSize_32x32, SpriteColorFormat_256Color);
     u16 *spriteNum2Mem = oamAllocateGfx(&oamSub, SpriteSize_32x32, SpriteColorFormat_256Color);
     u16 *spriteScoreCardMem = oamAllocateGfx(&oamSub, SpriteSize_64x64, SpriteColorFormat_256Color);
@@ -91,6 +97,7 @@ int main()
     u16 *spriteMiniNum2Mem = oamAllocateGfx(&oamSub, SpriteSize_16x16, SpriteColorFormat_256Color);
     u16 *spriteBestNumMem = oamAllocateGfx(&oamSub, SpriteSize_16x16, SpriteColorFormat_256Color);
     u16 *spriteBestNum2Mem = oamAllocateGfx(&oamSub, SpriteSize_16x16, SpriteColorFormat_256Color);
+    u16 *spriteShineMem = oamAllocateGfx(&oamSub, SpriteSize_32x32, SpriteColorFormat_256Color);
 
     // Top Screen Sprite GL2D setup
     glScreen2D();
@@ -210,6 +217,7 @@ int main()
     int medalCounter = 0;
     int medalTimer = 0;
     double startHeight = 193;
+    int shineCounter = -10;
 
     // setup bird and pipe x and y values
     srand(time(0));
@@ -306,11 +314,11 @@ int main()
             dmaCopy(startSubTiles, spriteStartSubMem, 64 * 64);
             if (startCounter < 40)
             {
-                oamSet(&oamSub, 4, 128 - 32, 30, 0, 0, SpriteSize_64x64, SpriteColorFormat_256Color, spriteStartSubMem, -1, false, false, false, false, false);
+                oamSet(&oamSub, 4, 96, 30, 0, 0, SpriteSize_64x64, SpriteColorFormat_256Color, spriteStartSubMem, -1, false, false, false, false, false);
             }
             else
             {
-                oamSet(&oamSub, 4, 128 - 32, 30, 0, 0, SpriteSize_64x64, SpriteColorFormat_256Color, spriteStartSubMem, -1, false, true, false, false, false);
+                oamSet(&oamSub, 4, 96, 30, 0, 0, SpriteSize_64x64, SpriteColorFormat_256Color, spriteStartSubMem, -1, false, true, false, false, false);
             }
         }
 
@@ -579,7 +587,38 @@ int main()
                 if (medalTimer >= 60)
                 {
                     dmaCopy((u8 *)medalsTiles + (medalCounter - 1) * 32 * 32, spriteMedalMem, 32 * 32);
-                    oamSet(&oamSub, 0, scoreCardX + 15, scoreCardY + 20, 0, 3, SpriteSize_32x32, SpriteColorFormat_256Color, spriteMedalMem, -1, false, false, false, false, false);
+                    oamSet(&oamSub, 1, scoreCardX + 15, scoreCardY + 20, 0, 3, SpriteSize_32x32, SpriteColorFormat_256Color, spriteMedalMem, -1, false, false, false, false, false);
+                    //animate the shine, looks pretty awful
+                    if (medalTimer > 80){
+                        shineCounter++;
+                        if (shineCounter < 10){
+                            dmaCopy((u8 *)shineTiles + 0 * 32 * 32, spriteShineMem, 32 * 32);
+                            oamSet(&oamSub, 0, scoreCardX+10, scoreCardY+15, 0, 5, SpriteSize_32x32, SpriteColorFormat_256Color, spriteShineMem, -1, false, false, false, false, false);
+                        }
+                        else if (shineCounter < 20){
+                            dmaCopy((u8 *)shineTiles + 1 * 32 * 32, spriteShineMem, 32 * 32);
+                            oamSet(&oamSub, 0, scoreCardX+10, scoreCardY+15, 0, 5, SpriteSize_32x32, SpriteColorFormat_256Color, spriteShineMem, -1, false, false, false, false, false);
+                        }
+                        else if (shineCounter < 60){
+                            oamSet(&oamSub, 0, scoreCardX+10, scoreCardY+15, 0, 5, SpriteSize_32x32, SpriteColorFormat_256Color, spriteShineMem, -1, false, true, false, false, false);
+                        }
+                        else if (shineCounter < 70){
+                            dmaCopy((u8 *)shineTiles + 0 * 32 * 32, spriteShineMem, 32 * 32);
+                            oamSet(&oamSub, 0, scoreCardX+20, scoreCardY+27, 0, 5, SpriteSize_32x32, SpriteColorFormat_256Color, spriteShineMem, -1, false, false, false, false, false);
+                        }
+                        else if (shineCounter < 90){
+                            dmaCopy((u8 *)shineTiles + 1 * 32 * 32, spriteShineMem, 32 * 32);
+                            oamSet(&oamSub, 0, scoreCardX+20, scoreCardY+27, 0, 5, SpriteSize_32x32, SpriteColorFormat_256Color, spriteShineMem, -1, false, false, false, false, false);
+                        }
+                        else if (shineCounter > 100){
+                            oamSet(&oamSub, 0, scoreCardX+20, scoreCardY+27, 0, 5, SpriteSize_32x32, SpriteColorFormat_256Color, spriteShineMem, -1, false, true, false, false, false);
+                        }
+                        if (shineCounter == 140) {
+                            shineCounter = 0;
+                        }
+
+                    }
+                    //dmaCopy((u8 *)shineTiles + 1 * 32 * 32, spriteShineMem, 32 * 32);
                 }
                 if (keysDown() & KEY_TOUCH)
                 {
@@ -644,19 +683,38 @@ int main()
         }*/
 
         // Restart game
+        // if player touches PRESS START sprite
         int currentKeysDown = keysDown();
-        if ((KEY_START & currentKeysDown) && over)
+        bool touchedStart = false;
+        if (over)
         {
-            oamSet(&oamSub, 4, 128 - 21, 30, 0, 0, SpriteSize_64x64, SpriteColorFormat_256Color, spriteStartSubMem, -1, false, true, false, false, false);
-            oamSet(&oamSub, 1, 128 - 21, 30, 0, 0, SpriteSize_32x32, SpriteColorFormat_256Color, spriteNumMem, -1, false, true, false, false, false);
-            oamSet(&oamSub, 2, 128 - 21, 30, 0, 0, SpriteSize_32x32, SpriteColorFormat_256Color, spriteNum2Mem, -1, false, true, false, false, false);
+            if (startHeight <= 90)
+            {
+                if (KEY_TOUCH & currentKeysDown)
+                {
+                    touchRead(&touch);
+                    if (((touch.px <= 96 + 64) && (touch.px >= 96)) && ((touch.py <= 90 + 64) && (touch.py >= 90)))
+                    {
+                        touchedStart = true;
+                    }
+                }
+            }
+        }
+        //or if player presses START key
+        //restart
+        if (((KEY_START & currentKeysDown) && over) || (touchedStart))
+        {
+            oamSet(&oamSub, 5, 128 - 21, 30, 0, 0, SpriteSize_64x64, SpriteColorFormat_256Color, spriteStartSubMem, -1, false, true, false, false, false);
+            oamSet(&oamSub, 2, 128 - 21, 30, 0, 0, SpriteSize_32x32, SpriteColorFormat_256Color, spriteNumMem, -1, false, true, false, false, false);
+            oamSet(&oamSub, 3, 128 - 21, 30, 0, 0, SpriteSize_32x32, SpriteColorFormat_256Color, spriteNum2Mem, -1, false, true, false, false, false);
             oamSet(&oamSub, 9, scoreCardX, scoreCardY, 0, 0, SpriteSize_64x64, SpriteColorFormat_256Color, spriteScoreCardMem, -1, false, true, false, false, false);
             oamSet(&oamSub, 10, scoreCardX + 64, scoreCardY, 0, 0, SpriteSize_64x64, SpriteColorFormat_256Color, spriteScoreCard2Mem, -1, false, true, false, false, false);
-            oamSet(&oamSub, 0, scoreCardX + 15, scoreCardY + 20, 0, 0, SpriteSize_32x32, SpriteColorFormat_256Color, spriteMedalMem, -1, false, true, false, false, false);
-            oamSet(&oamSub, 3, 162, 48, 0, 4, SpriteSize_16x16, SpriteColorFormat_256Color, spriteMiniNumMem, -1, false, true, false, false, false);
-            oamSet(&oamSub, 5, 154, 48, 0, 4, SpriteSize_16x16, SpriteColorFormat_256Color, spriteMiniNum2Mem, -1, false, true, false, false, false);
-            oamSet(&oamSub, 6, 162, 68, 0, 4, SpriteSize_16x16, SpriteColorFormat_256Color, spriteMiniNumMem, -1, false, true, false, false, false);
-            oamSet(&oamSub, 7, 154, 68, 0, 4, SpriteSize_16x16, SpriteColorFormat_256Color, spriteMiniNum2Mem, -1, false, true, false, false, false);
+            oamSet(&oamSub, 1, scoreCardX + 15, scoreCardY + 20, 0, 0, SpriteSize_32x32, SpriteColorFormat_256Color, spriteMedalMem, -1, false, true, false, false, false);
+            oamSet(&oamSub, 4, 162, 48, 0, 4, SpriteSize_16x16, SpriteColorFormat_256Color, spriteMiniNumMem, -1, false, true, false, false, false);
+            oamSet(&oamSub, 6, 154, 48, 0, 4, SpriteSize_16x16, SpriteColorFormat_256Color, spriteMiniNum2Mem, -1, false, true, false, false, false);
+            oamSet(&oamSub, 7, 162, 68, 0, 4, SpriteSize_16x16, SpriteColorFormat_256Color, spriteMiniNumMem, -1, false, true, false, false, false);
+            oamSet(&oamSub, 8, 154, 68, 0, 4, SpriteSize_16x16, SpriteColorFormat_256Color, spriteMiniNum2Mem, -1, false, true, false, false, false);
+            oamSet(&oamSub, 0, scoreCardX+22, scoreCardY+28, 0, 5, SpriteSize_32x32, SpriteColorFormat_256Color, spriteShineMem, -1, false, true, false, false, false);
             bird.yPos = 96;
             yVel = 0;
             pipe1.pipeX = 276;
@@ -679,10 +737,12 @@ int main()
             scoreCardVel = 33;
             medalCounter = 0;
             medalTimer = 0;
+            shineCounter = 0;
             over = false;
             collided = false;
             floorSound = true;
             started = false;
+            touchedStart = false;
         }
         // glEnd2D();
         // glEnd();
