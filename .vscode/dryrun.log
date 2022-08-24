@@ -3,5 +3,6 @@ make: Entering directory '/opt/devkitpro/libnds/FlappyBird-NDS-remake'
  
 [ -d build ] || mkdir -p build
 make --no-print-directory -C build -f /opt/devkitpro/libnds/FlappyBird-NDS-remake/Makefile
+ 
 make: Leaving directory '/opt/devkitpro/libnds/FlappyBird-NDS-remake'
  
